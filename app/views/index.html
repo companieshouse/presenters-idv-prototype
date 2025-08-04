@@ -7,13 +7,44 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+    
 
     <h1 class="govuk-heading-xl">
       {{ serviceName }}
     </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Versions",
+  captionClasses: "govuk-table__caption--l",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Version"
+    },
+    {
+      text: "Date"
+    },
+    {
+      text: "Status"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "V1"
+      },
+      {
+        text: "August 2025"
+      },
+      {
+        text: "To be tested"
+      }
+    ]
+    
+  ]
+}) }}
   </div>
 </div>
 
