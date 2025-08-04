@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block beforeContent %}
+  {% include "includes/back-link.html" %}
+{% endblock %} 
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    
+
+    <h1 class="govuk-heading-xl">
+      Create a GOV.UK OneLogin or Sign in
+    </h1>
+
+   {% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Create a GOV.UK OneLogin"
+  }) }}
+
+  {{ govukButton({
+    text: "Sign in",
+    classes: "govuk-button--secondary"
+  }) }}
+</div>
+
+
+  </div>
+</div>
+
+{% endblock %}
