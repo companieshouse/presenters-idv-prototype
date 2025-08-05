@@ -1,13 +1,12 @@
-{% extends "layouts/main-no-service-name.html" %}
+{% extends "layouts/main.html" %}
 
 {% set pageName="Check your phone" %}
 
-{% set serviceName %}
-{% endset%}
+
 
 
 {% block beforeContent %}
-   {% include "/includes/phase-banner.html" %}
+   
     {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 
@@ -21,7 +20,7 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-      <form class="form" action="/gov-onelogin-enter-code" method="post">
+      <form class="form" action="presenter-type-radio" method="post">
 
 
 <h1 class="govuk-heading-l">Check your phone</h1>

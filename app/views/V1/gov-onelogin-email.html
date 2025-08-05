@@ -1,10 +1,8 @@
-{% extends "layouts/main-no-service-name.html" %}
+{% extends "layouts/main.html" %}
 
 {% set pageName="Enter your email address to sign in to your GOV.UK One Login" %}
 
 
-{% set serviceName %}
-{% endset%}
 
 
 {% block beforeContent %}
@@ -22,7 +20,7 @@
 
 
 
-      <form class="form" action="/gov-onelogin-email" method="post">
+      <form class="form" action="gov-onelogin-password" method="post">
 
       
 
@@ -44,13 +42,7 @@
   }) }}
 
 
-    <div class="ur-shortcuts">
-      <!-- Not part of ACTUAL screen: only for UR purposes -->
-      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
-        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-          <li><a class="govuk-link" href="not-eligible">Not eligible</a></li>
-        </ul>
-      </div>
+   
 
 
 </form>

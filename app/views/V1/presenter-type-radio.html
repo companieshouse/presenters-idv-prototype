@@ -1,5 +1,11 @@
 {% extends "layouts/main.html" %}
 
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %} 
+
 {% block content %}
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
   {% from "govuk/components/button/macro.njk" import govukButton %}

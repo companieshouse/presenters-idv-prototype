@@ -1,10 +1,16 @@
 {% extends "layouts/main.html" %}
 
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+{% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %} 
+
 {% block content %}
   {% from "govuk/components/button/macro.njk" import govukButton %}
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-<form action="enter-presenter-information.html" method="get">
+<form action="confirm-presenter-information.html" method="get">
     {{ govukRadios({
       name: "confirm-acsp-statements",
       fieldset: {
