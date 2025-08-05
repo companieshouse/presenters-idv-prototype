@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <h1 class="govuk-heading-l">What is your company number?</h1>
+  <form action="confirm-correct-company.html" method="get">
+    {{ govukInput({
+      classes: "govuk-input--width-10",
+      hint: {
+        text: "Enter the 8 character number assigned to your company."
+      },
+      id: "acsp-number",
+      name: "acspNumber",
+      inputmode: "numeric",
+      spellcheck: false,
+      autocomplete: "off"
+    }) }}
+
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+{% endblock %}

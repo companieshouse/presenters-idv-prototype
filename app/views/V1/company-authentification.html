@@ -1,0 +1,27 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <h1 class="govuk-heading-l">Company authentification</h1>
+  <p class="govuk-body">Authenticating for <strong>Casper LTD </strong></p>
+  <form action="confirm-correct-company.html" method="get">
+    {{ govukInput({
+      classes: "govuk-input--width-10",
+      hint: {
+        text: "Enter the authentification code."
+      },
+      id: "acsp-number",
+      name: "acspNumber",
+      inputmode: "numeric",
+      spellcheck: false,
+      autocomplete: "off"
+    }) }}
+
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+{% endblock %}

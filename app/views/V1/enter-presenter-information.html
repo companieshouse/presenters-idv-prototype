@@ -2,68 +2,67 @@
 
 {% block content %}
   {% from "govuk/components/input/macro.njk" import govukInput %}
-{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-
-{% call govukFieldset({
-  legend: {
-    text: "Enter your presenter information",
-    classes: "govuk-fieldset__legend--l",
-    isPageHeading: true
-  }
-}) %}
-
-  {{ govukInput({
-    label: {
-      text: "Presenter type"
-    },
-    id: "address-line-1",
-    name: "addressLine1",
-    autocomplete: "address-line1"
-  }) }}
-
-  {% from "govuk/components/input/macro.njk" import govukInput %}
-
-{{ govukInput({
-  label: {
-    text: "What is your ACSP number?"
-  },
-  classes: "govuk-input--width-10",
-  hint: {
-    text: "Must be between 6 and 8 digits long"
-  },
-  id: "account-number",
-  name: "accountNumber",
-  inputmode: "numeric",
-  spellcheck: false
-}) }}
-
-  {{ govukInput({
-    label: {
-      text: "ACSP member ID"
-    },
-    classes: "govuk-!-width-two-thirds",
-    id: "address-town",
-    name: "addressTown",
-    autocomplete: "address-level2"
-  }) }}
-
- {{ govukInput({
-  label: {
-    text: "Email address"
-  },
-  classes: "govuk-input--width-10",
-  id: "address-postcode",
-  name: "addressPostcode",
-  autocomplete: "postal-code"
-}) }}
-
-{% endcall %}
-
   {% from "govuk/components/button/macro.njk" import govukButton %}
 
-  {{ govukButton({
-    text: "Save and continue",
-    type: "submit"
-  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Enter your presenter information</h1>
+      <p class="govuk-body">Please provide the following information to continue.</p>
+      <form action="company-number.html" method="get">
+        {{ govukInput({
+          label: {
+            text: "Presenter type",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-20",
+          id: "presenter-type",
+          name: "presenterType",
+          autocomplete: "off"
+        }) }}
 
+        {{ govukInput({
+          label: {
+            text: "What is your ACSP number?",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-10",
+          hint: {
+            text: "Must be between 6 and 8 digits long"
+          },
+          id: "acsp-number",
+          name: "acspNumber",
+          inputmode: "numeric",
+          spellcheck: false,
+          autocomplete: "off"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "ACSP member ID",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-10",
+          id: "acsp-member-id",
+          name: "acspMemberId",
+          autocomplete: "off"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address",
+            classes: "govuk-label--m"
+          },
+          classes: "govuk-input--width-20",
+          id: "email-address",
+          name: "emailAddress",
+          autocomplete: "off"
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          type: "submit"
+        }) }}
+      </form>
+    </div>
+  </div>
 {% endblock %}
