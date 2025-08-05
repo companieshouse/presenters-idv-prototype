@@ -2,39 +2,43 @@
 {% set pageName="Confirm this is the correct company" %}
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}
- {% include "/includes/user-bar.html" %}
-  {% include "/includes/back-link-language-toggle.html" %}
+   {% include "/includes/user-bar.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
 {% endblock %}
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/correct-company" method="post">
-      <h1 class="govuk-heading-xl">Confirm this is the correct company</h1>
-             {{ govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "Company name"
+      <form class="form" action="company-authentification.html" method="get">
+        <h1 class="govuk-heading-xl">Confirm this is the correct company</h1>
+        {{ govukSummaryList({
+          classes: "govuk-!-margin-bottom-9",
+          rows: [
+            {
+              key: { text: "Company name" },
+              value: { text: "Lowrie's Bakery" }
             },
-            value: {
-              text: "ACME LIMITED PARTNERSHIP"
-            }
-          },
-          {
-            key: {
-              text: "Company number"
+            {
+              key: { text: "Company number" },
+              value: { text: data['lpNumber'] or "SL012345" }
             },
-               value: {
-                  text: data['lpNumber'] or "SL012345"
-               }
+            {
+              key: { text: "Status" },
+              value: { text: "Active" }
+            },
+            {
+              key: { text: "Incorporation date" },
+              value: { text: "8 August 2019" }
+            },
+            {
+              key: { text: "Company type" },
+              value: { text: "Private limited" }
             }
-        ]
-      }) }}
-   {{ govukButton({
-  text: "Continue"
-}) }}
-
+          ]
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
     </div>
   </div>
-{% endblock %}
+{% endblock %} 

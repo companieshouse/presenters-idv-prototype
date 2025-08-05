@@ -8,29 +8,45 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/correct-company" method="post">
-      <h1 class="govuk-heading-xl">Confirm this is the correct company</h1>
+<form class="form" action="company-number.html" method="get">
+      <h1 class="govuk-heading-xl">Confirm your presenter information</h1>
              {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
             key: {
-              text: "Company name"
+              text: "Presenter type"
             },
             value: {
-              text: "ACME LIMITED PARTNERSHIP"
+              text: "ACSP"
             }
           },
           {
             key: {
-              text: "Company number"
+              text: "ACSP number"
             },
                value: {
                   text: data['lpNumber'] or "SL012345"
                }
-            }
-        ]
-      }) }}
+            },
+            {
+            key: {
+              text: "ACSP member ID"
+            },
+               value: {
+                  text: data['lpNumber'] or "GB012345"
+               }
+                 },
+            {
+            key: {
+              text: "Email address"
+            },
+               value: {
+                  text: data['lpNumber'] or "guy@lowriebakery.gmail"
+               }
+       }
+          ]
+        }) }}
    {{ govukButton({
   text: "Continue"
 }) }}
