@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <form id="presenter-type-form">
+    {{ govukRadios({
+      name: "what-type-of-presenter",
+      fieldset: {
+        legend: {
+          text: "What type of presenter are you?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "acsp", text: "ACSP or employee of ACSP" },
+        { value: "director", text: "Director of a company" },
+        { value: "employee", text: "Employee of a corp director" },
+        { value: "none", text: "None of the above" }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+
+  <script>
+    document.getElementById('presenter-type-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const selected = document.querySelector('input[name="what-type-of-presenter"]:checked');
+      if (selected && selected.value === 'acsp') {
+        window.location.href = 'confirm-acsp-statements.html';
+      } else {
+        // You can add more logic for other options here
+        window.location.href = '#'; // Stay on page or go elsewhere
+      }
+    });
+  </script>
+{% endblock %}

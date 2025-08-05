@@ -1,0 +1,27 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+<form action="enter-presenter-information.html" method="get">
+    {{ govukRadios({
+      name: "confirm-acsp-statements",
+      fieldset: {
+        legend: {
+          text: "Confirm the ACSP statements",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "I'm an Authorised Corporate Service Provider or an employee of one", text: "I'm an Authorised Corporate Service Provider or an employee of one" },
+        { value: "I'm delivering on behalf of the firm", text: "I'm delivering on behalf of the firm" }
+      ]
+    }) }}
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+{% endblock %}
