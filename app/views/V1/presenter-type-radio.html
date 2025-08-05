@@ -34,6 +34,8 @@
       const selected = document.querySelector('input[name="what-type-of-presenter"]:checked');
       if (selected && selected.value === 'acsp') {
         window.location.href = 'confirm-acsp-statements.html';
+      } else if (selected && selected.value === 'none') {
+        window.location.href = 'error-page.html';
       } else {
         // You can add more logic for other options here
         window.location.href = '#'; // Stay on page or go elsewhere
