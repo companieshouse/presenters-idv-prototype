@@ -1,0 +1,60 @@
+{% extends "layouts/main-no-service-name.html" %}
+
+{% set pageName="Enter your email address to sign in to your GOV.UK One Login" %}
+
+
+{% set serviceName %}
+{% endset%}
+
+
+{% block beforeContent %}
+    {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form class="form" action="/gov-onelogin-email" method="post">
+
+      
+
+
+{{ govukInput({
+  label: {
+    text: "Enter your email address to sign in to your GOV.UK One Login",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+  id: "govOneLoginEmail",
+  name: "govOneLoginEmail"
+}) }}
+
+
+    {{ govukButton({
+    text: "Continue",
+    classes: "govuk-button"
+  }) }}
+
+
+    <div class="ur-shortcuts">
+      <!-- Not part of ACTUAL screen: only for UR purposes -->
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+        <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+          <li><a class="govuk-link" href="not-eligible">Not eligible</a></li>
+        </ul>
+      </div>
+
+
+</form>
+    </div>
+  </div>
+
+{% endblock %}

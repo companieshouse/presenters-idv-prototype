@@ -1,0 +1,64 @@
+{% extends "layouts/main-no-service-name.html" %}
+
+{% set pageName="Check your phone" %}
+
+{% set serviceName %}
+{% endset%}
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+    {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/gov-onelogin-enter-code" method="post">
+
+
+<h1 class="govuk-heading-l">Check your phone</h1>
+
+{{ govukInsetText({
+  html: 'We have sent a code to <strong>********896</strong>'
+}) }}
+
+<p class="govuk-body"> It might take a few minutes to arrive. The code will expire after 15 minutes.
+        </p>
+
+{{ govukInput({
+  label: {
+    text: "Enter the 6 digit code"
+  },
+  classes: "govuk-input--width-5 govuk-input--extra-letter-spacing",
+  id: "govOneLoginCode",
+  name: "govOneLoginCode",
+  spellcheck: false
+  }) }}
+
+
+    {{ govukButton({
+    text: "Continue",
+    classes: "govuk-button"
+  }) }}
+</form>
+
+{{ govukDetails({
+  summaryText: "Problems with the code",
+  html: '
+      <p> We can <a href="javascript:void(0)" class="govuk-link">send the code again </a> or you can <a href="" class="govuk-link">use a different number</a>.</p>
+              <p> <a href="javascript:void(0)" class="govuk-link">Get a code another way</a>.</p>
+  '
+  }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -4,3 +4,28 @@
 // 
 
 // Add extra styles here
+
+//Styles for user bar and language toggle
+
+ul#navigation {
+    font-size: 0.9em;
+    margin-top: 15px;
+    text-align: right;
+    font-family: 'GDS Transport', Arial, Helvetica, sans-serif;
+    display: block;  
+    li {
+      display: inline;
+      font-size: 19px;
+      overflow-wrap: break-word;
+      a {margin-left: 0.9em;}
+    }
+  }
+
+.language-toggle {
+  span {
+    margin-left: 0.5em;
+  }
+  #cym {
+    margin-left: 0.4em !important;
+  }
+}
