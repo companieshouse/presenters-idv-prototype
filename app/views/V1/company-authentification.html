@@ -1,27 +1,52 @@
 {% extends "layouts/main.html" %}
 
-{% block content %}
-  {% from "govuk/components/input/macro.njk" import govukInput %}
-  {% from "govuk/components/button/macro.njk" import govukButton %}
+{% set pageName="Company authentication" %}
 
-  <h1 class="govuk-heading-l">Company authentification</h1>
-  <p class="govuk-body">Authenticating for <strong>Casper LTD </strong></p>
-  <form action="confirm-correct-company.html" method="get">
-    {{ govukInput({
-      classes: "govuk-input--width-10",
-      hint: {
-        text: "Enter the authentification code."
-      },
-      id: "acsp-number",
-      name: "acspNumber",
-      inputmode: "numeric",
-      spellcheck: false,
-      autocomplete: "off"
-    }) }}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+ {% include "/includes/user-bar.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="limited-partnership-overview" method="post">
+
+
+
+      <h1 class="govuk-heading-xl">Company authentication</h1>
+
+<p>To file company information you will need an authentication code.</p>
+<p>
+Authenticating for<br>
+<strong>	ACME LIMITED PARTNERSHIP (LP123456) </strong><p>
+
+{{ govukInput({
+  label: {
+    text: "Authentication code",
+    classes: "govuk-label--s",
+    isPageHeading: true
+  },
+  id: "auth-code",
+  name: "auth-code",
+  classes: "govuk-!-width-one-half",
+    type: 'password'
+}) }}
 
     {{ govukButton({
-      text: "Save and continue",
-      type: "submit"
-    }) }}
-  </form>
+  text: "Authenticate"
+}) }}  
+
+<p><a href="javascript:void(0)" class="govuk-link">Request an authentication code</p>
+
+</form>
+    </div>
+  </div>
 {% endblock %}
