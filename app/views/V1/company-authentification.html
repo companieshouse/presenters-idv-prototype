@@ -4,12 +4,13 @@
   {% from "govuk/components/input/macro.njk" import govukInput %}
   {% from "govuk/components/button/macro.njk" import govukButton %}
 
-  <h1 class="govuk-heading-l">What is your company number?</h1>
+  <h1 class="govuk-heading-l">Company authentification</h1>
+  <p class="govuk-body">Authenticating for <strong>Casper LTD </strong></p>
   <form action="confirm-correct-company.html" method="get">
     {{ govukInput({
       classes: "govuk-input--width-10",
       hint: {
-        text: "Enter the 8 character number assigned to your company."
+        text: "Enter the authentification code."
       },
       id: "acsp-number",
       name: "acspNumber",
