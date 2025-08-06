@@ -12,7 +12,8 @@ ul#navigation {
     margin-top: 15px;
     text-align: right;
     font-family: 'GDS Transport', Arial, Helvetica, sans-serif;
-    display: block;  
+    display: inline-block;  
+    float: right;
     li {
       display: inline;
       font-size: 19px;
@@ -20,6 +21,15 @@ ul#navigation {
       a {margin-left: 0.9em;}
     }
   }
+.govuk-section-break {
+  clear: both;
+  width: 100%;
+}
+  .header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .language-toggle {
   span {
