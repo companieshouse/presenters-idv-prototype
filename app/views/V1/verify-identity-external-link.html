@@ -1,0 +1,18 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
+   {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">We're taking you to verify your identity with GOV.UK</h1>
+  <p class="govuk-body">Continue with the link below to their website.</p>
+
+  {{ govukButton({
+    text: "Verify your identity with GOV.UK",
+    type: "submit",
+    href: "identity-verification-complete.html"
+  }) }}
+{% endblock %}

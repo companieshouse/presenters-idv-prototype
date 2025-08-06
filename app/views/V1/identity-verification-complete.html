@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
+   {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+  {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+  {{ govukPanel({
+    titleText: "Identity verification complete",
+    html: "Your reference number<br><strong>HDJ2123F</strong>"
+  }) }}
+
+  <p class="govuk-body">Your Companies House personal code is: G-X2N-R2D-2N9</p>
+
+  {{ govukButton({
+    text: "Register as an ACSP",
+    type: "submit",
+    href: "verify-identity-external-link.html"
+  }) }}
+{% endblock %}
