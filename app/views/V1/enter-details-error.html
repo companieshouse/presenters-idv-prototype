@@ -18,27 +18,34 @@
     <h1 class="govuk-heading-l">Enter your details</h1>
 
     {{ govukInput({
-      label: {
-        text: "What is your Companies House personal code?"
-      },
-      hint: {
-        text: "Enter the 11 digit code you received from Companies House."
-      },
-      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
-      id: "authentication-code",
-      name: "authenticationCode",
-      spellcheck: false
-    }) }}
+  label: {
+    text: "What is your Companies House personal code?"
+  },
+  hint: {
+    text: "Enter the 11 digit code you received from Companies House."
+  },
+  classes: "govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error",
+  id: "authentication-code",
+  name: "authenticationCode",
+  spellcheck: false,
+  errorMessage: {
+    text: "This code is invalid"
+  }
+}) }}
 
-    {{ govukInput({
-      label: {
-        text: "Enter your Companies House personal code again"
-      },
-      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
-      id: "authentication-code2",
-      name: "authenticationCode2",
-      spellcheck: false
-    }) }}
+{{ govukInput({
+  label: {
+    text: "Enter your Companies House personal code again"
+  },
+  classes: "govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error",
+  id: "authentication-code2",
+  name: "authenticationCode2",
+  spellcheck: false,
+  errorMessage: {
+    text: "This code doesn't match the one above"
+  }
+}) }}
+
 
     {{ govukDateInput({
       id: "date-of-birth",
@@ -76,7 +83,7 @@
     }) }}
 
     {{ govukButton({
-      text: "Save and continue",
+      text: "Try again",
       type: "submit"
     }) }}
   </form>
