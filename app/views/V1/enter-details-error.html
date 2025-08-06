@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Enter details" %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+  <form action="confirm-presenter-information.html" method="post">
+    <h1 class="govuk-heading-l">Enter your details</h1>
+
+    {{ govukInput({
+      label: {
+        text: "What is your Companies House personal code?"
+      },
+      hint: {
+        text: "Enter the 11 digit code you received from Companies House."
+      },
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+      id: "authentication-code",
+      name: "authenticationCode",
+      spellcheck: false
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Enter your Companies House personal code again"
+      },
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+      id: "authentication-code2",
+      name: "authenticationCode2",
+      spellcheck: false
+    }) }}
+
+    {{ govukDateInput({
+      id: "date-of-birth",
+      namePrefix: "date-of-birth",
+      fieldset: {
+        legend: {
+          text: "What is your date of birth?",
+          isPageHeading: false 
+          
+        }
+      },
+      hint: {
+        text: "For example, 27 3 2007"
+      },
+      errorMessage: {
+        text: "Enter a valid date in the format DD/MM/YYYY"
+      },
+      items: [
+        {
+          name: "day",
+          classes: "govuk-input--width-2 govuk-input--error",
+          value: "6"
+        },
+        {
+          name: "month",
+          classes: "govuk-input--width-2 govuk-input--error",
+          value: "3"
+        },
+        {
+          name: "year",
+          classes: "govuk-input--width-4 govuk-input--error",
+          value: "2076"
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+{% endblock %}
