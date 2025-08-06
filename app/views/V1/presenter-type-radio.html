@@ -1,11 +1,10 @@
 {% extends "layouts/main.html" %}
 
 {% block beforeContent %}
-  {% include "/includes/phase-banner.html" %}
-  {% include "/includes/back-link-language-toggle.html" %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
   {% include "/includes/user-bar.html" %}
-
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -44,7 +43,12 @@
       } else if (selected && selected.value === 'none') {
         window.location.href = 'error-page.html';
       } else {
-        // You can add more logic for other options here
+        if (selected && selected.value === 'director', 'employee') {
+          window.location.href = 'identity-verified-CH.html';
+        } else {
+          // Handle other cases or show an error
+          alert('Please select a valid presenter type.');
+        }
         window.location.href = '#'; // Stay on page or go elsewhere
       }
     });

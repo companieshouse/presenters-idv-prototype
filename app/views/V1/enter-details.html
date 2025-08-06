@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Enter details" %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% block content %}
+  <form action="confirm-presenter-information.html" method="post">
+    <h1 class="govuk-heading-l">Enter your details</h1>
+
+
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "What is your Companies House personal code?"
+  },
+  hint: {
+    text: "Enter the 11 digit code you received from Companies House."
+  },
+  classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+  id: "authentication-code",
+  name: "authenticationCode",
+  spellcheck: false
+  
+}) }}
+
+    
+      {{ govukInput({
+    label: {
+      text: "Enter your Companies House personal code again"
+    },
+     classes: "govuk-input--width-10 govuk-input--extra-letter-spacing",
+    id: "authentication-code2",
+    name: "authenticationCode2",
+    spellcheck: false
+  }) }}
+
+
+    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukDateInput({
+  id: "passport-issued",
+  namePrefix: "passport-issued",
+  fieldset: {
+    legend: {
+      text: "What is your date of birth?"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2007"
+  }
+}) }}
+    
+
+ 
+
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+{% endblock %}

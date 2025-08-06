@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
+   {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <form id="identity-verified-form">
+    {{ govukRadios({
+      name: "identity-verified",
+      fieldset: {
+        legend: {
+          text: "Has your identity been verified?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "yes", text: "Yes" },
+        { value: "no", text: "No" }
+      ]
+    }) }}
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+
+  <script>
+    document.getElementById('identity-verified-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const selected = document.querySelector('input[name="identity-verified"]:checked');
+      if (!selected) {
+        alert('Please select Yes or No.');
+        return;
+      }
+      if (selected.value === 'yes') {
+        window.location.href = 'enter-details.html';
+      } else {
+        // Optionally handle "no" here
+        window.location.href = 'confirm-presenter-information.html';
+      }
+    });
+  </script>
+{% endblock %}

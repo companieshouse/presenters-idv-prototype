@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <form id="presenter-type-form">
+    {{ govukRadios({
+      name: "Confirm the officer/employee/corporate director statements",
+      fieldset: {
+        legend: {
+          text: "Confirm the officer/employee/corporate director statements",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "officer", text: "I am an officer/employee/corporate director" },
+        { value: "delivering", text: "I'm delivering on behalf of the firm" },
+        { value: "verified", text: "My identity is verified" }
+       
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+
+ <script>
+  document.getElementById('presenter-type-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const selected = document.querySelector('input[name="Confirm the officer/employee/corporate director statements"]:checked');
+    if (selected && selected.value === 'verified') {
+      window.location.href = 'company-number.html';
+    }
+  });
+</script>
+{% endblock %}
