@@ -30,7 +30,8 @@
       items: [
         { value: "acsp", text: "ACSP or employee of ACSP" },
         { value: "director", text: "Director of a company" },
-        { value: "employee", text: "Employee of a corp director" },
+        { value: "employeeCompany", text: "Employee of a company" },
+        { value: "employeeCorporate", text: "Employee of a corporate director" },
         { value: "none", text: "None of the above" }
       ]
     }) }}
@@ -59,7 +60,7 @@
       window.location.href = 'confirm-acsp-statements.html';
     } else if (value === 'none') {
       window.location.href = 'error-page.html';
-    } else if (value === 'director' || value === 'employee') {
+    } else if (value === 'director' || value === 'employeeCompany' || value === 'employeeCorporate') {
       if (backEndVerification === 'backendVerified') {
         window.location.href = 'confirm-director-statements.html';
       } else if (backEndVerification === 'backendNotVerified') {
