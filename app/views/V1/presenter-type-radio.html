@@ -47,29 +47,21 @@
     e.preventDefault();
 
     const selected = document.querySelector('input[name="what-type-of-presenter"]:checked');
-    const backEndVerification = document.getElementById('backEndVerification').value;
+    const backEndVerification = document.getElementById('backEndVerification')?.value;
 
-    if (!selected) {
-      alert('Please select a valid presenter type.');
-      return;
-    }
+    if (!selected) return;
 
     const value = selected.value;
 
     if (value === 'acsp') {
       window.location.href = 'confirm-acsp-statements.html';
-    } else if (value === 'none') {
-      window.location.href = 'error-page.html';
-    } else if (value === 'director' || value === 'employeeCompany' || value === 'employeeCorporate') {
-      if (backEndVerification === 'backendVerified') {
+      } else if (selected && selected.value === 'none') { window.location.href = 'error-page.html';
+    } else if (value === 'director' || value === 'employeeCompany' || value === 'employeeCorporate' || value === 'none') {
+      if (!backEndVerification || backEndVerification === 'backendVerified') {
         window.location.href = 'confirm-director-statements.html';
       } else if (backEndVerification === 'backendNotVerified') {
         window.location.href = 'identity-verified-CH.html';
-      } else {
-        alert('Unknown verification status.');
       }
-    } else {
-      alert('Please select a valid presenter type.');
     }
   });
 </script>
