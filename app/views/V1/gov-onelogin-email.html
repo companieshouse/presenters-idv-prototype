@@ -1,5 +1,12 @@
 {% extends "layouts/main.html" %}
 
+<!-- Hide service navigation-->
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
+
 {% set pageName="Enter your email address to sign in to your GOV.UK One Login" %}
 
 
