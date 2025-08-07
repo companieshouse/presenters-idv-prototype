@@ -11,6 +11,13 @@
   {% from "govuk/components/button/macro.njk" import govukButton %}
 
   <form id="presenter-type-form">
+
+<input type="hidden" id="backEndVerification" value="{{ data['backEndVerification'] }}">
+
+
+
+
+
     {{ govukRadios({
       name: "what-type-of-presenter",
       fieldset: {
@@ -34,23 +41,36 @@
     }) }}
   </form>
 
-  <script>
-    document.getElementById('presenter-type-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const selected = document.querySelector('input[name="what-type-of-presenter"]:checked');
-      if (selected && selected.value === 'acsp') {
-        window.location.href = 'confirm-acsp-statements.html';
-      } else if (selected && selected.value === 'none') {
-        window.location.href = 'error-page.html';
+<script>
+  document.getElementById('presenter-type-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const selected = document.querySelector('input[name="what-type-of-presenter"]:checked');
+    const backEndVerification = document.getElementById('backEndVerification').value;
+
+    if (!selected) {
+      alert('Please select a valid presenter type.');
+      return;
+    }
+
+    const value = selected.value;
+
+    if (value === 'acsp') {
+      window.location.href = 'confirm-acsp-statements.html';
+    } else if (value === 'none') {
+      window.location.href = 'error-page.html';
+    } else if (value === 'director' || value === 'employee') {
+      if (backEndVerification === 'backendVerified') {
+        window.location.href = 'confirm-director-statements.html';
+      } else if (backEndVerification === 'backendNotVerified') {
+        window.location.href = 'identity-verified-CH.html';
       } else {
-        if (selected && selected.value === 'director', 'employee') {
-          window.location.href = 'identity-verified-CH.html';
-        } else {
-          // Handle other cases or show an error
-          alert('Please select a valid presenter type.');
-        }
-        window.location.href = '#'; // Stay on page or go elsewhere
+        alert('Unknown verification status.');
       }
-    });
-  </script>
+    } else {
+      alert('Please select a valid presenter type.');
+    }
+  });
+</script>
+
 {% endblock %}

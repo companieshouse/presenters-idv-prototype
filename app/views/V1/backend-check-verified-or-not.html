@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Choose test scenario" %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "/",
+    classes: "govuk-header--full-width-border"
+}) }}
+
+{{ govukServiceNavigation({
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="start" method="post">
+
+
+
+
+{{ govukRadios({
+  classes: "govuk-radios",
+  name: "backEndVerification",
+  fieldset: {
+    legend: {
+      text: "Choose test scenario",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "This screen would NOT be seen by users."
+  },
+  items: [
+    {
+      value: "backendVerified",
+      text: "Backend - user is verified"
+    },
+    {
+      value: "backendNotVerified",
+      text: "Backend - user is not verified"
+    }
+  ]
+}) }}
+    {{ govukButton({
+  text: "Save and continue"
+}) }}  
+
+
+
+</form>
+    </div>
+  </div>
+{% endblock %}
