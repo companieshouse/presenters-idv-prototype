@@ -10,12 +10,15 @@
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
   {% from "govuk/components/button/macro.njk" import govukButton %}
 
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
   <form id="identity-verified-form">
     {{ govukRadios({
       name: "identity-verified",
       fieldset: {
         legend: {
-          text: "Has your identity been verified?",
+          text: "Has your identity been verified for Companies House?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
@@ -47,4 +50,6 @@
       }
     });
   </script>
+  </div>
+  </div>
 {% endblock %}

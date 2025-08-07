@@ -1,5 +1,5 @@
 {
-  "serviceName": "Presenters IDV prototype",
+  "serviceName": "Presenters IDV: Companies House",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true

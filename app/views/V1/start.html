@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+Start – {{ serviceName }} – GOV.UK
 {% endblock %}
 
 {% block header %}
@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-
   {{ govukBreadcrumbs({
     items: [
       {
@@ -26,11 +25,9 @@
       }
     ]
   }) }}
-
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -38,7 +35,7 @@
         {{ serviceName }}
       </h1>
 
-      <p>You need to verify your identity before filing with Companies House. </p>
+      <p> <strong> You need to verify your identity before filing with Companies House </strong></p>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>verify your identity</li>
@@ -67,7 +64,7 @@
       </p>
 
       <p>
-        You can’t register for this service if you’re in the UK illegally.
+        You can't register for this service if you're in the UK illegally.
       </p>
 
     </div>
