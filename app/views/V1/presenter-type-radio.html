@@ -10,60 +10,30 @@
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
   {% from "govuk/components/button/macro.njk" import govukButton %}
 
-  <form id="presenter-type-form">
 
-<input type="hidden" id="backEndVerification" value="{{ data['backEndVerification'] }}">
-
-
-
-
-
-    {{ govukRadios({
-      name: "what-type-of-presenter",
-      fieldset: {
-        legend: {
-          text: "What type of presenter are you?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      items: [
-        { value: "acsp", text: "ACSP or employee of ACSP" },
-        { value: "director", text: "Director of a company" },
-        { value: "employeeCompany", text: "Employee of a company" },
-        { value: "employeeCorporate", text: "Employee of a corporate director" },
-        { value: "none", text: "None of the above" }
-      ]
-    }) }}
-
-    {{ govukButton({
-      text: "Save and continue",
-      type: "submit"
-    }) }}
-  </form>
-
-<script>
-  document.getElementById('presenter-type-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const selected = document.querySelector('input[name="what-type-of-presenter"]:checked');
-    const backEndVerification = document.getElementById('backEndVerification')?.value;
-
-    if (!selected) return;
-
-    const value = selected.value;
-
-    if (value === 'acsp') {
-      window.location.href = 'confirm-acsp-statements.html';
-      } else if (selected && selected.value === 'none') { window.location.href = 'error-page.html';
-    } else if (value === 'director' || value === 'employeeCompany' || value === 'employeeCorporate' || value === 'none') {
-      if (!backEndVerification || backEndVerification === 'backendVerified') {
-        window.location.href = 'confirm-director-statements.html';
-      } else if (backEndVerification === 'backendNotVerified') {
-        window.location.href = 'identity-verified-CH.html';
+<form action="/V1/presenter-type-radio" method="post">
+  {{ govukRadios({
+    name: "what-type-of-presenter",
+    fieldset: {
+      legend: {
+        text: "What type of presenter are you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
       }
-    }
-  });
-</script>
+    },
+    items: [
+      { value: "acsp", text: "ACSP or employee of ACSP" },
+      { value: "director", text: "Director of a company" },
+      { value: "employeeCompany", text: "Employee of a company" },
+      { value: "employeeCorporate", text: "Employee of a corporate director" },
+      { value: "none", text: "None of the above" }
+    ]
+  }) }}
+
+  {{ govukButton({
+    text: "Save and continue"
+  }) }}
+</form>
+
 
 {% endblock %}

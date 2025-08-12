@@ -10,7 +10,8 @@
   {% from "govuk/components/button/macro.njk" import govukButton %}
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-<form action="confirm-presenter-information.html" method="get">
+<form action="/V1/confirm-acsp-statements-answer" method="post">
+
     {{ govukCheckboxes({
       name: "confirm-acsp-statements",
       fieldset: {

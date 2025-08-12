@@ -18,28 +18,27 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
+  <form action="/V1/gov-onelogin-email" method="post">
     
 
     <h1 class="govuk-heading-xl">
       Create a GOV.UK OneLogin or Sign in 
     </h1>
 
-   {% from "govuk/components/button/macro.njk" import govukButton %}
 
 <div class="govuk-button-group">
   {{ govukButton({
     text: "Create a GOV.UK OneLogin"
   }) }}
 
+
   {{ govukButton({
     text: "Sign in",
-    classes: "govuk-button--secondary",
-    href: "gov-onelogin-email.html"
+    classes: "govuk-button--secondary"
   }) }}
+
 </div>
-
-
+</form>
   </div>
 </div>
 
