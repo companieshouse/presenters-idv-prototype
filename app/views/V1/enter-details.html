@@ -29,11 +29,9 @@
       <!-- Auth code -->
       <div id="auth-code-group" class="govuk-form-group">
         <label class="govuk-label" for="authentication-code">
-          What is your Companies House personal code?
+          Enter your Companies House personal code
         </label>
-        <div id="authentication-code-hint" class="govuk-hint">
-          Enter the 11 digit code you received from Companies House.
-        </div>
+
         <p id="auth-code-error" class="govuk-error-message" style="display:none">
           <span class="govuk-visually-hidden">Error:</span>
         </p>
@@ -49,7 +47,7 @@
       <!-- Auth code again -->
       <div id="auth-code2-group" class="govuk-form-group">
         <label class="govuk-label" for="authentication-code2">
-          Enter your Companies House personal code again
+          Re-enter your Companies House personal code
         </label>
         <p id="auth-code2-error" class="govuk-error-message" style="display:none">
           <span class="govuk-visually-hidden">Error:</span>
@@ -62,6 +60,19 @@
                value="{{ data.authenticationCode2 | default('') }}">
       </div>
 
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Where to find your Companies House personal code
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">This is an 11 character code that's given to a person after they've verified their identity for Companies House. 
+          <p class="govuk-body">If you've verified your identity, you can find your code in the ‘Manage account’ section of your Companies House account. You’ll need to sign in (or create an account) using the email address you provided when you verified your identity.</p>
+          <p class="govuk-body">If an authorised agent verified your identity, we sent your personal code to the email address they provided for you.</p>
+        </div>
+      </details>
+      
       <!-- DOB -->
       <div id="date-group" class="govuk-form-group">
         <fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">

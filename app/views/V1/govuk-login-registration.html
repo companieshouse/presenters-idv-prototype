@@ -21,10 +21,20 @@
   <form action="/V1/gov-onelogin-email" method="post">
     
 
-    <h1 class="govuk-heading-xl">
-      Create a GOV.UK OneLogin or Sign in 
-    </h1>
+      <h1 class="govuk-heading-l">
+        Create a GOV.UK One Login or sign in
+      </h1>
 
+      <p>You’ll need:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>an email address</li>
+        <li>a way to get security codes - this can be a mobile phone number or an authenticator app</li>
+      </ul>
+
+      <div class="govuk-inset-text">
+        The GOV.UK One Login is also available <a href=# class="govuk-link">in Welsh (Cymraeg)</a>.
+      </div>
 
 <div class="govuk-button-group">
   {{ govukButton({
@@ -37,7 +47,23 @@
     classes: "govuk-button--secondary"
   }) }}
 
+  
 </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">About GOV.UK One Login</span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">GOV.UK One Login is new. At the moment you can only use it to access some government services.
+          </p>
+
+          <p class="govuk-body">It does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).</p>
+            
+          <p class="govuk-body">In the future, you’ll be able to use GOV.UK One Login to access all services on GOV.UK.</p>
+          
+      </details>
+      
 </form>
   </div>
 </div>
