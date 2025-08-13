@@ -1,132 +1,191 @@
-//
-// For guidance on how to create routes see:
-// https://prototype-kit.service.gov.uk/docs/create-routes
-//
-
-
+// app/routes.js
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Show session data and URLs in the terminal  
-router.use((req, res, next) => {  
-  const log = {  
-    method: req.method,  
-    url: req.originalUrl,  
-    data: req.session.data  
-  }  
-  console.log(JSON.stringify(log, null, 2))  
-  next()  
-}) 
-
-// Version 1 routes
-// Backend test scenario route (EXISTING)
-router.post('/V1/start', function (req, res) {
-  req.session.data['backEndVerification'] = req.body.backEndVerification;
-  res.redirect('/V1/presenter-type-radio');
-});
-
-// Start page to GOV.UK login
-router.post('/V1/start-now', function(request, response) {
-  response.redirect('/V1/govuk-login-registration')
+// Log requests + session data (handy while debugging)
+router.use((req, res, next) => {
+  const log = {
+    method: req.method,
+    url: req.originalUrl,
+    data: req.session?.data || {}
+  }
+  console.log(JSON.stringify(log, null, 2))
+  next()
 })
 
-// GOV.UK OneLogin email to password
-router.post('/V1/gov-onelogin-email-answer', function(request, response) {
-  response.redirect('/V1/gov-onelogin-password')
+/* ---------------- Existing flows (unchanged where possible) --------------- */
+
+router.post('/V1/start', (req, res) => {
+  req.session.data['backEndVerification'] = req.body.backEndVerification
+  res.redirect('/V1/presenter-type-radio')
 })
 
-// GOV.UK OneLogin password to code entry
-router.post('/V1/gov-onelogin-password-answer', function(request, response) {
-  response.redirect('/V1/gov-onelogin-enter-code')
+router.post('/V1/start-now', (req, res) => {
+  res.redirect('/V1/govuk-login-registration')
 })
 
-// GOV.UK OneLogin code to presenter type
-router.post('/V1/gov-onelogin-code-answer', function(request, response) {
-  response.redirect('/V1/presenter-type-radio')
+router.post('/V1/gov-onelogin-email-answer', (req, res) => {
+  res.redirect('/V1/gov-onelogin-password')
 })
 
-// Main presenter type routing logic
-router.post('/V1/presenter-type-radio', function(request, response) {
-  var whatTypeOfPresenter = request.session.data['what-type-of-presenter']
-  var backEndVerification = request.session.data['backEndVerification']
-  
-  if (whatTypeOfPresenter == 'acsp') {
-    response.redirect('/V1/confirm-acsp-statements')
-  } else if (whatTypeOfPresenter == 'none') {
-    response.redirect('/V1/error-page')
-  } else if (whatTypeOfPresenter == 'director' || whatTypeOfPresenter == 'employeeCompany' || whatTypeOfPresenter == 'employeeCorporate') {
-    // Check backend verification status for these presenter types
-    if (!backEndVerification || backEndVerification == 'backendVerified') {
-      response.redirect('/V1/confirm-director-statements')
-    } else if (backEndVerification == 'backendNotVerified') {
-      response.redirect('/V1/identity-verified-CH')
+router.post('/V1/gov-onelogin-password-answer', (req, res) => {
+  res.redirect('/V1/gov-onelogin-enter-code')
+})
+
+router.post('/V1/gov-onelogin-code-answer', (req, res) => {
+  res.redirect('/V1/presenter-type-radio')
+})
+
+router.post('/V1/presenter-type-radio', (req, res) => {
+  const type = req.session.data['what-type-of-presenter']
+  const backend = req.session.data['backEndVerification']
+
+  if (type === 'acsp') {
+    res.redirect('/V1/confirm-acsp-statements')
+  } else if (type === 'none') {
+    res.redirect('/V1/error-page')
+  } else if (type === 'director' || type === 'employeeCompany' || type === 'employeeCorporate') {
+    if (!backend || backend === 'backendVerified') {
+      res.redirect('/V1/confirm-director-statements')
+    } else if (backend === 'backendNotVerified') {
+      res.redirect('/V1/identity-verified-CH')
     }
   } else {
-    // Default fallback
-    response.redirect('/V1/confirm-director-statements')
+    res.redirect('/V1/confirm-director-statements')
   }
 })
 
-// ACSP statements to presenter information
-router.post('/V1/confirm-acsp-statements-answer', function(request, response) {
-  response.redirect('/V1/confirm-presenter-information')
+router.post('/V1/confirm-acsp-statements-answer', (req, res) => {
+  res.redirect('/V1/confirm-presenter-information')
 })
 
-// Director statements routing
-router.post('/V1/confirm-director-statements-answer', function(request, response) {
-  var statements = request.session.data['director-statements']
-  
+router.post('/V1/confirm-director-statements-answer', (req, res) => {
+  const statements = req.session.data['director-statements']
   if (statements && statements.includes('verified')) {
-    response.redirect('/V1/company-number')
+    res.redirect('/V1/company-number')
   } else {
-    response.redirect('/V1/identity-verified-CH')
+    res.redirect('/V1/identity-verified-CH')
   }
 })
 
-// Identity verification check
-router.post('/V1/identity-verified-answer', function(request, response) {
-  var identityVerified = request.session.data['identity-verified']
-  
-  if (identityVerified == 'yes') {
-    response.redirect('/V1/enter-details')
+router.post('/V1/identity-verified-answer', (req, res) => {
+  const idVerified = req.session.data['identity-verified']
+  if (idVerified === 'yes') {
+    res.redirect('/V1/enter-details')
   } else {
-    response.redirect('/V1/verify-your-identity')
+    res.redirect('/V1/verify-your-identity')
   }
 })
 
-// Enter details to presenter information
-router.post('/V1/enter-details-answer', function(request, response) {
-  response.redirect('/V1/confirm-presenter-information')
+/* ---------------------- Enter Details validation -------------------------- */
+
+router.post('/V1/enter-details-answer', (req, res) => {
+  // normalise to digits only (remove spaces, NBSP, hyphens, etc.)
+  const normaliseCode = (val) => (val || '')
+    .replace(/\s/g, '')       // remove all whitespace (incl. NBSP)
+    .replace(/[^\d]/g, '')    // keep digits only
+    .slice(0, 20)             // hard cap, just in case
+
+  // IMPORTANT: these names must match your HTML inputs
+  const authCodeRaw  = req.body.authenticationCode || ''
+  const authCode2Raw = req.body.authenticationCode2 || ''
+
+  const authCode  = normaliseCode(authCodeRaw)
+  const authCode2 = normaliseCode(authCode2Raw)
+
+  const day   = (req.body['date-of-birth-day']   || '').trim()
+  const month = (req.body['date-of-birth-month'] || '').trim()
+  const year  = (req.body['date-of-birth-year']  || '').trim()
+
+  let errors = {}
+  let errorList = []
+
+  // --- Authentication Code ---
+  if (!authCode) {
+    errors.authCode = 'Enter your Companies House personal code'
+    errorList.push({ text: errors.authCode, href: '#authentication-code' })
+  } else if (!/^\d{11}$/.test(authCode)) {
+    errors.authCode = 'This code is invalid'
+    errorList.push({ text: errors.authCode, href: '#authentication-code' })
+  }
+
+  // --- Authentication Code Confirmation ---
+  if (!authCode2) {
+    errors.authCode2 = 'Enter your Companies House personal code again'
+    errorList.push({ text: errors.authCode2, href: '#authentication-code2' })
+  } else if (authCode && authCode2 !== authCode) {
+    errors.authCode2 = "This code doesn't match the one above"
+    errorList.push({ text: errors.authCode2, href: '#authentication-code2' })
+  }
+
+  // --- Date of Birth ---
+  const dayNum = parseInt(day, 10)
+  const monthNum = parseInt(month, 10)
+  const yearNum = parseInt(year, 10)
+
+  if (!day || !month || !year) {
+    errors.dateOfBirth = 'Enter your date of birth'
+    errorList.push({ text: errors.dateOfBirth, href: '#date-of-birth-day' })
+  } else {
+    const dateObj = new Date(yearNum, monthNum - 1, dayNum)
+    const today = new Date()
+
+    if (
+      Number.isNaN(dayNum) || Number.isNaN(monthNum) || Number.isNaN(yearNum) ||
+      dateObj.getDate() !== dayNum ||
+      dateObj.getMonth() !== monthNum - 1 ||
+      dateObj.getFullYear() !== yearNum
+    ) {
+      errors.dateOfBirth = 'Enter a valid date'
+      errorList.push({ text: errors.dateOfBirth, href: '#date-of-birth-day' })
+    } else if (dateObj > today) {
+      errors.dateOfBirth = 'Enter a valid date in the format DD/MM/YYYY'
+      errorList.push({ text: errors.dateOfBirth, href: '#date-of-birth-day' })
+    }
+  }
+
+  // Save values for repopulation (match your templates' keys)
+  req.session.data.authenticationCode = authCodeRaw        // show what the user typed
+  req.session.data.authenticationCode2 = authCode2Raw
+  req.session.data['date-of-birth-day'] = day
+  req.session.data['date-of-birth-month'] = month
+  req.session.data['date-of-birth-year'] = year
+
+  if (Object.keys(errors).length > 0) {
+    req.session.data.errors = errors
+    req.session.data.errorList = errorList
+    res.redirect('/V1/enter-details-error')
+  } else {
+    delete req.session.data.errors
+    delete req.session.data.errorList
+    res.redirect('/V1/confirm-presenter-information')
+  }
 })
 
-// Presenter information to company number
-router.post('/V1/confirm-presenter-information-answer', function(request, response) {
-  response.redirect('/V1/company-number')
+/* --------------------------- Remaining routes ---------------------------- */
+
+router.post('/V1/confirm-presenter-information-answer', (req, res) => {
+  res.redirect('/V1/company-number')
 })
 
-// Company number to confirm company
-router.post('/V1/company-number-answer', function(request, response) {
-  response.redirect('/V1/confirm-correct-company')
+router.post('/V1/company-number-answer', (req, res) => {
+  res.redirect('/V1/confirm-correct-company')
 })
 
-// Confirm company to authentication
-router.post('/V1/confirm-correct-company-answer', function(request, response) {
-  response.redirect('/V1/company-authentification')
+router.post('/V1/confirm-correct-company-answer', (req, res) => {
+  res.redirect('/V1/company-authentification')
 })
 
-// Company authentication (simple continue)
-router.post('/V1/company-authentification-answer', function(request, response) {
-  response.redirect('/V1/limited-partnership-overview') // or wherever this should go next
+router.post('/V1/company-authentification-answer', (req, res) => {
+  res.redirect('/V1/limited-partnership-overview')
 })
 
-// Verify identity flow
-router.post('/V1/verify-your-identity-answer', function(request, response) {
-  response.redirect('/V1/verify-identity-external-link')
+router.post('/V1/verify-your-identity-answer', (req, res) => {
+  res.redirect('/V1/verify-identity-external-link')
 })
 
-// External identity verification to completion
-router.post('/V1/verify-identity-external-answer', function(request, response) {
-  response.redirect('/V1/identity-verification-complete')
+router.post('/V1/verify-identity-external-answer', (req, res) => {
+  res.redirect('/V1/identity-verification-complete')
 })
 
 module.exports = router
