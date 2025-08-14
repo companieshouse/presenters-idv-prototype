@@ -17,7 +17,7 @@ router.use((req, res, next) => {
 
 router.post('/V1/start', (req, res) => {
   req.session.data['backEndVerification'] = req.body.backEndVerification
-  res.redirect('/V1/presenter-type-radio')
+  res.redirect('/V1/start')
 })
 
 router.post('/V1/start-now', (req, res) => {
