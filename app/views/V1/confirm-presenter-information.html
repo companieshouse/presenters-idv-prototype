@@ -10,9 +10,12 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<form class="form" action="/V1/confirm-presenter-information-answer" method="post">
+<form class="form" action="/V1/confirm-presenter-information" method="post">
       <h1 class="govuk-heading-xl">Confirm your presenter information</h1>
-             {{ govukSummaryList({
+
+{% if (data['what-type-of-presenter'] == "acsp") %}
+
+     {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
         rows: [
           {
@@ -49,6 +52,35 @@
        }
           ]
         }) }}
+
+{% else %}
+
+     {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Presenter type"
+            },
+            value: {
+              text: "TBC"
+            }
+          },
+         
+            {
+            key: {
+              text: "Email address"
+            },
+               value: {
+                  text: data['lpNumber'] or "myemail@gmail.com"
+               }
+       }
+          ]
+        }) }}
+
+{% endif %}
+
+            
    {{ govukButton({
   text: "Continue"
 }) }}

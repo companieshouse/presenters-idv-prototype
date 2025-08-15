@@ -67,10 +67,10 @@ router.post('/V1/confirm-acsp-statements-answer', (req, res) => {
   res.redirect('/V1/confirm-presenter-information')
 })
 
-router.post('/V1/confirm-director-statements-answer', (req, res) => {
+router.post('/V1/confirm-director-statements', (req, res) => {
   const statements = req.session.data['director-statements']
   if (statements && statements.includes('verified')) {
-    res.redirect('/V1/company-number')
+    res.redirect('/V1/confirm-presenter-information')
   } else {
     res.redirect('/V1/identity-verified-CH')
   }
