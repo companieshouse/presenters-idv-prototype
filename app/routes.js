@@ -167,6 +167,11 @@ router.post('/V1/enter-details-answer', (req, res) => {
 
 /* --------------------------- Remaining routes ---------------------------- */
 
+// Add this route to handle confirm-presenter-information form submission
+router.post('/V1/confirm-presenter-information', (req, res) => {
+  res.redirect('/V1/company-number')
+})
+
 router.post('/V1/confirm-presenter-information-answer', (req, res) => {
   res.redirect('/V1/company-number')
 })
