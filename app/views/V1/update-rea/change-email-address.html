@@ -7,7 +7,7 @@
      Update a registered email address
 {% endset%}
 {% block beforeContent %}
-
+   {% include "/includes/back-link-language-toggle.html" %}
   {% include "/includes/user-bar.html" %}
 {% endblock %}
 
@@ -17,7 +17,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-  {% include "/includes/back-link.html" %}
+ 
             <form class="form" action="check-your-answer" method="post">
 
 

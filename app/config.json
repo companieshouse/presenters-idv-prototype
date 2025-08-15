@@ -1,5 +1,5 @@
 {
-  "serviceName": "Presenters IDV: Companies House",
+  "serviceName": "Update a registered email address",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true

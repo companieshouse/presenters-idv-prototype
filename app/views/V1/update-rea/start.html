@@ -4,9 +4,10 @@
   Start – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set serviceName %}
-     Update a registered email address
-{% endset%}
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
 
 {% block beforeContent %}
   
