@@ -14,10 +14,11 @@
 
   <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+{{data | dump | safe}}
 
-  <form action="/V1/confirm-director-statements" method="post">
+  <form action="/V1/confirm-presenter-statements" method="post">
   {{ govukCheckboxes({
-    name: "director-statements",
+    name: "presenter-statements",
     fieldset: {
       legend: {
         text: "Confirm the presenter statements",

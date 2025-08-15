@@ -54,12 +54,12 @@ router.post('/V1/presenter-type-radio', (req, res) => {
     res.redirect('/V1/stop-screen-1')
   } else if (type === 'director' || type === 'employeeCompany' || type === 'employeeCorporate') {
     if (!backend || backend === 'backendVerified') {
-      res.redirect('/V1/confirm-director-statements')
+      res.redirect('/V1/confirm-presenter-statements')
     } else if (backend === 'backendNotVerified') {
       res.redirect('/V1/identity-verified-CH')
     }
   } else {
-    res.redirect('/V1/confirm-director-statements')
+    res.redirect('/V1/confirm-presenter-statements')
   }
 })
 
@@ -67,13 +67,8 @@ router.post('/V1/confirm-acsp-statements-answer', (req, res) => {
   res.redirect('/V1/confirm-presenter-information')
 })
 
-router.post('/V1/confirm-director-statements', (req, res) => {
-  const statements = req.session.data['director-statements']
-  if (statements && statements.includes('verified')) {
+router.post('/V1/confirm-presenter-statements', (req, res) => {
     res.redirect('/V1/confirm-presenter-information')
-  } else {
-    res.redirect('/V1/identity-verified-CH')
-  }
 })
 
 router.post('/V1/identity-verified-answer', (req, res) => {
