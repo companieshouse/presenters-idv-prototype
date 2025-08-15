@@ -1,4 +1,5 @@
 {% extends "layouts/main.html" %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
 {% set pageName="Index V1" %}
 
@@ -11,9 +12,30 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    {% set html %}
+  <p class="govuk-notification-banner__heading">
+   This version of the prototype is being actively worked on - some things might not work correctly and/or change very quickly. If you have any questions contact Andreea Popescu or James Francis.
+  </p>
+  <p class="govuk-notification-banner__heading">
+    <a class="govuk-notification-banner__link" href="backend-check-verified-or-not.html">Set a user test scenario before you start</a>
+  </p>
+{% endset %}
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        {{ html | safe }}
+      </div>
+    </div>
+
     <h1 class="govuk-heading-xl">
       Version 1 
     </h1>
+
 
     <p><a class="govuk-link" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1753702205663/ea5dc6f2c1306ed568d60372fffb1be47268c844">Screen flow in Mural</a></p>
 
