@@ -39,9 +39,17 @@ router.post('/V1/gov-onelogin-code-answer', (req, res) => {
 router.post('/V1/presenter-type-radio', (req, res) => {
   const type = req.session.data['what-type-of-presenter']
   const backend = req.session.data['backEndVerification']
+  const acspLinking = req.session.data['acspLinking']
 
   if (type === 'acsp') {
-    res.redirect('/V1/confirm-acsp-statements')
+    if (acspLinking === 'ACSPlinked') {
+      res.redirect('/V1/confirm-acsp-statements')
+    } else if (acspLinking === 'ACSPnotLinked') {
+      res.redirect('/V1/stop-screen-acsp')
+    } else {
+      // Fallback if acspLinking is not set or has unexpected value
+      res.redirect('/V1/confirm-acsp-statements')
+    }
   } else if (type === 'none') {
     res.redirect('/V1/stop-screen-1')
   } else if (type === 'director' || type === 'employeeCompany' || type === 'employeeCorporate') {

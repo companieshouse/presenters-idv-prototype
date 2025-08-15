@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Error Page" %}
+
+
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+
+
+
+{% block content %}
+  
+
+  <h1 class="govuk-heading-xl">You cannot do this</h1>
+  <p class="govuk-body">You need to login with your ACSP email</p>
+
+        {{ govukButton({
+    text: "Sign in with ACSP account",
+    href: "#"
+  }) }}
+
+
+{% endblock %}

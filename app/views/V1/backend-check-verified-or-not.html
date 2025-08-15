@@ -26,22 +26,23 @@
 
       <form class="form" action="/V1/update-rea/start" method="post">
 
+<span class="govuk-caption-l">This screen would NOT be seen by users.</span>
+<h1 class="govuk-heading-xl">Choose test scenario</h1>
 
 
+      
 
 {{ govukRadios({
   classes: "govuk-radios",
   name: "backEndVerification",
   fieldset: {
     legend: {
-      text: "Choose test scenario",
+      text: "Choose backend verified or not",
       isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
+      classes: "govuk-visually-hidden"
     }
   },
-  hint: {
-    text: "This screen would NOT be seen by users."
-  },
+  
   items: [
     {
       value: "backendVerified",
@@ -50,6 +51,31 @@
     {
       value: "backendNotVerified",
       text: "Backend - user is not verified"
+    }
+  ]
+}) }}
+
+
+<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+   {{ govukRadios({
+  classes: "govuk-radios",
+  name: "acspLinking",
+  fieldset: {
+    legend: {
+      text: "Choose ACSP link to account or not",
+      isPageHeading: true,
+       classes: "govuk-visually-hidden"
+    }
+  },
+  
+  items: [
+    {
+      value: "ACSPlinked",
+      text: "ACSP - email is linked to account"
+    },
+    {
+      value: "ACSPnotLinked",
+      text: "ACSP - email is not linked to account"
     }
   ]
 }) }}
