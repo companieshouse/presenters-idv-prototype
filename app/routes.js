@@ -43,7 +43,7 @@ router.post('/V1/presenter-type-radio', (req, res) => {
   if (type === 'acsp') {
     res.redirect('/V1/confirm-acsp-statements')
   } else if (type === 'none') {
-    res.redirect('/V1/error-page')
+    res.redirect('/V1/stop-screen-1')
   } else if (type === 'director' || type === 'employeeCompany' || type === 'employeeCorporate') {
     if (!backend || backend === 'backendVerified') {
       res.redirect('/V1/confirm-director-statements')
