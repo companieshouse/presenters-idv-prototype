@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Application submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+     Update a registered email address
+{% endset%}
+{% block beforeContent %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Registered email address update submitted",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+  <p>We have sent a confirmation email to <strong> {{ data['email'] }} </strong> which contains your reference number.</p>
+
+       <h2 class="govuk-heading-m">What happens next</h2>
+      <p>In the next few days, we'll send an email to <strong> {{ data['email'] }} </strong> to let you know if the filing has been accepted or rejected. </p>
+
+
+
+     <p>If you also need to change the email address you use to sign in to your Companies House account, you can do this in <a href="https://identity.company-information.service.gov.uk/user/account">'Your details'</a>. To change your WebFiling email address, log in to <a href="https://idam-ui.company-information.service.gov.uk/account/login/?realm=/alpha&service=CHWebFiling-Login&authIndexType=service&authIndexValue=CHWebFiling-Login">WebFiling</a> and go to 'Manage account'.</p> 
+
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+      </p>
+      
+
+    </div>
+  </div>
+{% endblock %}

@@ -15,14 +15,14 @@ router.use((req, res, next) => {
 
 /* ---------------- Existing flows (unchanged where possible) --------------- */
 
-router.post('/V1/start', (req, res) => {
-  req.session.data['backEndVerification'] = req.body.backEndVerification
-  res.redirect('/V1/start')
-})
+// router.post('/V1/start', (req, res) => {
+//   req.session.data['backEndVerification'] = req.body.backEndVerification
+//   res.redirect('/V1/start')
+// })
 
-router.post('/V1/start-now', (req, res) => {
-  res.redirect('/V1/govuk-login-registration')
-})
+// router.post('/V1/start-now', (req, res) => {
+//   res.redirect('/V1/govuk-login-registration')
+// })
 
 router.post('/V1/gov-onelogin-email-answer', (req, res) => {
   res.redirect('/V1/gov-onelogin-password')

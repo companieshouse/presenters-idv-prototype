@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answer – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+     Update a registered email address
+{% endset%}
+{% block beforeContent %}
+  
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+{% include "/includes/back-link.html" %}
+
+
+   <form class="form" action="update-submitted" method="post">
+
+ <span class="govuk-caption-m">LOWRIE'S BAKERY (SL012345)</span>
+      <h1 class="govuk-heading-xl">Check your answer before submitting this filing</h1>
+
+<!--
+      <p class="govuk-body">In the next few days, we'll be sending an email to verify this email address.</p>
+  -->
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+         
+          
+          
+          {
+            key: {
+              text: "New registered email address"
+            },
+               value: {
+            text: data['new-email']
+            },
+            actions: {
+              items: [
+                {
+                  href: "change-email-address",
+                  text: "Change",
+                  visuallyHiddenText: "email address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "waste",
+  fieldset: {
+    legend: {
+      text: "The new email address is an appropriate email address as outlined in section 88A(2) of the Companies Act 2006.",
+      isPageHeading: false,
+      classes: "govuk-visually-hidden"
+    }
+  },
+  items: [
+    {
+      value: "appropriate",
+      text: "The new email address is an appropriate email address as outlined in section 88A(2) of the Companies Act 2006."
+    }
+  ]
+}) }}
+     
+     <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate email address' mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    An email address is an 'appropriate email address' if, in the ordinary course of events, emails sent to it by the registrar would be expected to come to the attention of a person acting on behalf of the company.
+  </div>
+</details>
+
+      {# <h2 class="govuk-heading-m">Now send your application</h2>
+
+      <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p> #}
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
+
+
