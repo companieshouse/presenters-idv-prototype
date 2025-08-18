@@ -24,14 +24,16 @@
     </div>
 
     <form id="details-form" action="/V1/enter-details-answer" method="post" novalidate>
-      <h1 class="govuk-heading-l">Enter your details</h1>
+      <h1 class="govuk-heading-l">What are your identity verification details? </h1>
 
       <!-- Auth code -->
       <div id="auth-code-group" class="govuk-form-group">
         <label class="govuk-label" for="authentication-code">
-          Enter your Companies House personal code
+          Companies House personal code
         </label>
-
+        <div id="authentication-code-hint" class="govuk-hint">
+          This is an 11 character code, like A1B-2C3D-4E5F
+        </div>
         <p id="auth-code-error" class="govuk-error-message" style="display:none">
           <span class="govuk-visually-hidden">Error:</span>
         </p>
@@ -44,22 +46,6 @@
                aria-describedby="authentication-code-hint">
       </div>
 
-      <!-- Auth code again -->
-      <div id="auth-code2-group" class="govuk-form-group">
-        <label class="govuk-label" for="authentication-code2">
-          Re-enter your Companies House personal code
-        </label>
-        <p id="auth-code2-error" class="govuk-error-message" style="display:none">
-          <span class="govuk-visually-hidden">Error:</span>
-        </p>
-        <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing"
-               id="authentication-code2"
-               name="authenticationCode2"
-               type="text"
-               spellcheck="false"
-               value="{{ data.authenticationCode2 | default('') }}">
-      </div>
-
       <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
@@ -68,7 +54,7 @@
         </summary>
         <div class="govuk-details__text">
           <p class="govuk-body">This is an 11 character code that's given to a person after they've verified their identity for Companies House. 
-          <p class="govuk-body">If you've verified your identity, you can find your code in the ‘Manage account’ section of your Companies House account. You’ll need to sign in (or create an account) using the email address you provided when you verified your identity.</p>
+          <p class="govuk-body">If you've verified your identity, you can find your code in the 'Manage account' section of your Companies House account. You'll need to sign in (or create an account) using the email address you provided when you verified your identity.</p>
           <p class="govuk-body">If an authorised agent verified your identity, we sent your personal code to the email address they provided for you.</p>
         </div>
       </details>
@@ -76,8 +62,8 @@
       <!-- DOB -->
       <div id="date-group" class="govuk-form-group">
         <fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
-          <legend class="govuk-fieldset__legend">What is your date of birth?</legend>
-          <div id="date-of-birth-hint" class="govuk-hint">For example, 27 3 2007</div>
+          <legend class="govuk-fieldset__legend">Date of birth</legend>
+          <div id="date-of-birth-hint" class="govuk-hint">For example, 27 3 1992</div>
           <p id="date-error" class="govuk-error-message" style="display:none">
             <span class="govuk-visually-hidden">Error:</span>
           </p>
@@ -152,7 +138,6 @@
 
     const errors = []
     const authCode = document.getElementById('authentication-code').value.trim()
-    const authCode2 = document.getElementById('authentication-code2').value.trim()
     const day = document.getElementById('date-of-birth-day').value.trim()
     const month = document.getElementById('date-of-birth-month').value.trim()
     const year = document.getElementById('date-of-birth-year').value.trim()
@@ -161,12 +146,6 @@
       addFieldError(errors, 'auth-code-group', 'authentication-code', 'auth-code-error', 'Enter your Companies House personal code', '#authentication-code')
     } else if (authCode.length !== 11 || !/^\d+$/.test(authCode)) {
       addFieldError(errors, 'auth-code-group', 'authentication-code', 'auth-code-error', 'This code is invalid', '#authentication-code')
-    }
-
-    if (!authCode2) {
-      addFieldError(errors, 'auth-code2-group', 'authentication-code2', 'auth-code2-error', 'Enter your Companies House personal code again', '#authentication-code2')
-    } else if (authCode && authCode2 !== authCode) {
-      addFieldError(errors, 'auth-code2-group', 'authentication-code2', 'auth-code2-error', "This code doesn't match the one above", '#authentication-code2')
     }
 
     const dayNum = parseInt(day, 10)
@@ -201,9 +180,9 @@
   function clearAllErrors () {
     errorSummary.style.display = 'none'
     errorList.innerHTML = ''
-    ;['auth-code-group','auth-code2-group','date-group'].forEach(g => document.getElementById(g).classList.remove('govuk-form-group--error'))
-    ;['authentication-code','authentication-code2','date-of-birth-day','date-of-birth-month','date-of-birth-year'].forEach(i => document.getElementById(i).classList.remove('govuk-input--error'))
-    ;['auth-code-error','auth-code2-error','date-error'].forEach(e => document.getElementById(e).style.display = 'none')
+    ;['auth-code-group','date-group'].forEach(g => document.getElementById(g).classList.remove('govuk-form-group--error'))
+    ;['authentication-code','date-of-birth-day','date-of-birth-month','date-of-birth-year'].forEach(i => document.getElementById(i).classList.remove('govuk-input--error'))
+    ;['auth-code-error','date-error'].forEach(e => document.getElementById(e).style.display = 'none')
   }
 
   function showFieldError (groupId, inputId, errorId, errorText) {

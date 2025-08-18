@@ -91,10 +91,7 @@ router.post('/V1/enter-details-answer', (req, res) => {
 
   // IMPORTANT: these names must match your HTML inputs
   const authCodeRaw  = req.body.authenticationCode || ''
-  const authCode2Raw = req.body.authenticationCode2 || ''
-
   const authCode  = normaliseCode(authCodeRaw)
-  const authCode2 = normaliseCode(authCode2Raw)
 
   const day   = (req.body['date-of-birth-day']   || '').trim()
   const month = (req.body['date-of-birth-month'] || '').trim()
@@ -110,15 +107,6 @@ router.post('/V1/enter-details-answer', (req, res) => {
   } else if (!/^\d{11}$/.test(authCode)) {
     errors.authCode = 'This code is invalid'
     errorList.push({ text: errors.authCode, href: '#authentication-code' })
-  }
-
-  // --- Authentication Code Confirmation ---
-  if (!authCode2) {
-    errors.authCode2 = 'Enter your Companies House personal code again'
-    errorList.push({ text: errors.authCode2, href: '#authentication-code2' })
-  } else if (authCode && authCode2 !== authCode) {
-    errors.authCode2 = "This code doesn't match the one above"
-    errorList.push({ text: errors.authCode2, href: '#authentication-code2' })
   }
 
   // --- Date of Birth ---
@@ -149,16 +137,28 @@ router.post('/V1/enter-details-answer', (req, res) => {
 
   // Save values for repopulation (match your templates' keys)
   req.session.data.authenticationCode = authCodeRaw        // show what the user typed
-  req.session.data.authenticationCode2 = authCode2Raw
   req.session.data['date-of-birth-day'] = day
   req.session.data['date-of-birth-month'] = month
   req.session.data['date-of-birth-year'] = year
 
   if (Object.keys(errors).length > 0) {
-    req.session.data.errors = errors
-    req.session.data.errorList = errorList
-    res.redirect('/V1/enter-details-error')
+    // Track failed attempts
+    req.session.data.failedAttempts = (req.session.data.failedAttempts || 0) + 1
+    
+    // Check if user has reached 3 failed attempts
+    if (req.session.data.failedAttempts >= 3) {
+      // Clear the failed attempts counter and redirect to lockout screen
+      delete req.session.data.failedAttempts
+      res.redirect('/V1/stop-screen-acsp')
+    } else {
+      // Still have attempts left, show error page
+      req.session.data.errors = errors
+      req.session.data.errorList = errorList
+      res.redirect('/V1/enter-details-error')
+    }
   } else {
+    // Success - clear any failed attempts and continue
+    delete req.session.data.failedAttempts
     delete req.session.data.errors
     delete req.session.data.errorList
     res.redirect('/V1/confirm-presenter-information')
