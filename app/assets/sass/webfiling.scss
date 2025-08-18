@@ -1,0 +1,231 @@
+// Styles to try and mimick WebFiing UI
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+.govuk-width-container {
+    flex: 1;
+    display: flex; /* if you remove this line it works on Safari */
+  }
+.govuk-fieldset__legend, h1, h2, h3, h4, p, label, .govuk-button, ul, li, a, .govuk-table .govuk-table__cell, .govuk-table__header, .warning {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+h1, h1 a {
+    font-size: 24px !important;
+}
+
+h2 {
+    font-size: 22px !important;
+}
+
+p, label, ul, li, a, .govuk-warning-text, .govuk-hint, .govuk-fieldset__legend, select, details, .govuk-table .govuk-table__cell, .govuk-table__header, .warning {
+    font-size: 16px !important;
+}
+.webfiling-menu ul li a, .webfiling-menu p, .webfiling-menu a {
+    font-size: 14px !important;
+}
+.govuk-checkboxes__input {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+}
+
+.govuk-button {
+    color: #fff;
+    background-color: #286aa1;
+    border-color: #1c527f;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+.govuk-button:hover {
+    background-color: #3a81ba;
+}
+.webfiling-menu {
+    padding: 0 3em 0 1.4em;
+}
+.govuk-template__body {
+    background-color: #f6f6f6;
+}
+.govuk-width-container {
+    background-color: #fff;
+    padding:0.5em;
+}
+.govuk-header__container {
+    background-color: #00144D;
+    border: none;
+    padding: 0.4em 0 0;
+    margin-bottom: 0;
+}
+.govuk-header {
+    background-color: #00144D;
+    border: none;
+}
+.govuk-header__logo {
+    margin-bottom: 0;
+}
+.govuk-header__logotype-text {
+    font-size: 22px !important;
+    position: relative;
+    top: -0.3em;
+}
+a:hover {
+    text-decoration: none;
+}
+.webfiling-footer {
+    text-align: center;
+    background-color: #eaeaea;
+    border-top: 1px solid #d6d6d6;
+    padding: 0.5em 0;    
+    flex: 0;
+}
+.webfiling-footer a {
+    margin: 0 0.9em;
+    font-size: 14px !important;
+
+}
+
+.webfiling-day, .webfiling-month, .webfiling-year {
+    min-width:fit-content !important;
+    height:fit-content;
+}
+.webfiling-back-link {
+    float: right;
+    margin-right: 3em;
+}
+
+.allForms {
+    float: right;
+    margin-top: -20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.onTime {
+    color: #390;
+    background: url("/public/images/greenTick30px.png") no-repeat left center;
+    padding: 10px 0 10px 40px;
+}
+
+.wfReminders {
+    background: url("/public/images/reminder.png") no-repeat 9% 10%;
+    padding: 10px 0 10px 40px;
+}
+
+.wfPROOF {
+    background: url("/public/images/shield.png") no-repeat 9% 10%;
+    padding: 10px 0 10px 40px;
+}
+
+.wfCurrentInfo {
+    background: url("/public/images/email.png") no-repeat 9% 10%;
+    padding: 10px 0 10px 40px;
+}
+
+.wfRegisters {
+    background: url("/public/images/manage-registers.png") no-repeat 9% 10%;
+    padding: 10px 0 10px 40px;
+}
+
+
+
+.wfOverview p h1 h2 h3 :any-link {
+    font-size: 0.7rem !important;
+}
+
+
+// Banner
+
+p.warning, span.warning {
+    background: #ffffa3 url(/public/images/exclamationTriangleOrange-24.png) no-repeat 5px 3px;
+    color: #333;
+    display: block;
+    margin: 5px 0 0 -41px;
+    padding: 8px 10px 8px 41px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 342px;
+}
+
+.warning.fullwidth {
+    width: 620px!important
+}
+
+div.warning,dl.warning {
+    border-color: #fc0;
+    background-color: #ffc
+}
+
+div.information,dl.information {
+    border-color: #069;
+    background-color: #e8f2f8
+}
+
+div.message,dl.message {
+    border: 2px solid;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0 0 20px 0;
+    color: #353535
+}
+
+div.information .header,dl.information dt {
+    background-image: url(/public/images/informationIconWhite.png);
+    background-color: #069;
+    color: #fff
+}
+
+div.help {
+    border-color: #666;
+    background-color: #ffc;
+    font-size: 12px;
+    width: 320px;
+    float: right;
+    position: relative;
+    margin-right: -120px;
+    margin-top: -20px
+}
+
+div.help:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -30px;
+    top: 20px;
+    border: 15px solid;
+    border-color: transparent #666 transparent transparent
+}
+
+div.help:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -24px;
+    top: 23px;
+    border: 12px solid;
+    border-color: transparent #ffc transparent transparent
+}
+
+div.helpContainer p.header {
+    font-weight: 700;
+    margin-bottom: -1px
+}
+
+p.help {
+    margin: 0 0 10px 0
+}
+
+div.message p,dl.message dd {
+    margin: 5px
+}
+
+.message .header,dl.message dt {
+    background-repeat: no-repeat;
+    background-position: 99% center;
+    padding: 5px;
+    margin: 0 0 5px 0;
+    font-weight: 700
+}

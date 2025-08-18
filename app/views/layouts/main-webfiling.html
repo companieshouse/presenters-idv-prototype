@@ -1,0 +1,20 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% set govukRebrand = false %}
+
+{% block head %}
+  {{ super() }} {# Keep application.css and any other head content #}
+  <link rel="stylesheet" href="/public/stylesheets/webfiling.css">
+{% endblock %}
+
+{% block header %}
+{% include "includes/webfiling-header.html" %} 
+{% endblock %}
+
+{% block footer %}
+{% include "includes/webfiling-footer.html" %} 
+{% endblock %}
