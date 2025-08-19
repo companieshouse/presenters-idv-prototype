@@ -83,10 +83,10 @@ router.post('/V1/identity-verified-answer', (req, res) => {
 /* ---------------------- Enter Details validation -------------------------- */
 
 router.post('/V1/enter-details-answer', (req, res) => {
-  // normalise to digits only (remove spaces, NBSP, hyphens, etc.)
+  // normalise to alphanumeric only (remove spaces, NBSP, hyphens, etc.)
   const normaliseCode = (val) => (val || '')
     .replace(/\s/g, '')       // remove all whitespace (incl. NBSP)
-    .replace(/[^\d]/g, '')    // keep digits only
+    .replace(/[^\w]/g, '')    // keep letters, numbers, underscore only
     .slice(0, 20)             // hard cap, just in case
 
   // IMPORTANT: these names must match your HTML inputs
@@ -104,7 +104,7 @@ router.post('/V1/enter-details-answer', (req, res) => {
   if (!authCode) {
     errors.authCode = 'Enter your Companies House personal code'
     errorList.push({ text: errors.authCode, href: '#authentication-code' })
-  } else if (!/^\d{11}$/.test(authCode)) {
+  } else if (!/^[\w]{11}$/.test(authCode)) {
     errors.authCode = 'This code is invalid'
     errorList.push({ text: errors.authCode, href: '#authentication-code' })
   }
@@ -161,7 +161,7 @@ router.post('/V1/enter-details-answer', (req, res) => {
     delete req.session.data.failedAttempts
     delete req.session.data.errors
     delete req.session.data.errorList
-    res.redirect('/V1/confirm-presenter-information')
+    res.redirect('/V1/guide-user-next-steps')
   }
 })
 

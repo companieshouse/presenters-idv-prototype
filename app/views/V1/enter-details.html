@@ -112,7 +112,7 @@
     <div class="ur-shortcuts">
       <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
       <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-        <li><a class="govuk-link" href="guide-user-next-steps">Screen after 3 errors</a></li>
+        <li><a class="govuk-link" href="stop-screen-acsp">Screen after 3 errors</a></li>
       </ul>
     </div>
   </div>
@@ -142,9 +142,12 @@
     const month = document.getElementById('date-of-birth-month').value.trim()
     const year = document.getElementById('date-of-birth-year').value.trim()
 
+    // Normalize auth code to match server-side logic
+    const normalizedAuthCode = authCode.replace(/\s/g, '').replace(/[^\w]/g, '').slice(0, 20)
+
     if (!authCode) {
       addFieldError(errors, 'auth-code-group', 'authentication-code', 'auth-code-error', 'Enter your Companies House personal code', '#authentication-code')
-    } else if (authCode.length !== 11 || !/^\d+$/.test(authCode)) {
+    } else if (normalizedAuthCode.length !== 11) {
       addFieldError(errors, 'auth-code-group', 'authentication-code', 'auth-code-error', 'This code is invalid', '#authentication-code')
     }
 
