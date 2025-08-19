@@ -4,6 +4,35 @@
 // 
 
 // Add extra styles here
+.hods-loading-spinner {
+  display: flex;
+  flex-direction: column; // stack vertically
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.hods-loading-spinner__spinner {
+  width: 48px;
+  height: 48px;
+  border: 6px solid #b1b4b6;
+  border-top-color: #1d70b8;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  margin-bottom: 1rem; // space between spinner and text
+}
+
+.hods-loading-spinner__content {
+  text-align: center;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 
 //Styles for user bar and language toggle
 

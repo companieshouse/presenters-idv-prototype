@@ -10,13 +10,21 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-  <h1 class="govuk-heading-xl">We're taking you to verify your identity with GOV.UK</h1>
+  <h1 class="govuk-heading-xl">Prove your identity with GOV.UK One Login</h1>
+  <p class="govuk-body">You'll need: </p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>your photo ID</li>
+    <li>your current home address (you might also need your previous address if you've recently moved)</li>
 
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{{ govukInsetText({
+  text: "This service is also available in Welsh (Cymraeg). Not all ways to prove your identity are available in Welsh yet."
+}) }}
 
   {{ govukButton({
-    text: "Verify your identity with GOV.UK",
+    text: "Continue",
     type: "submit",
-    href: "identity-verification-complete.html"
+    href: "loading-screen.html"
   }) }}
 </div>
 </div>

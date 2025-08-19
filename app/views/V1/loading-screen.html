@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+{% set pageName="We're taking you to verify your identity with GOV.UK" %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
+   {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">This screen represents your journey through GOV.UK One Login</h1>
+    <p class="govuk-body">
+      We don't need to look at those screens right now. Imagine everything has gone well, and you return to Companies House.
+    </p>
+
+    <!-- Loading Spinner -->
+    <div class="hods-loading-spinner" role="status" aria-hidden="true">
+      <div class="hods-loading-spinner__spinner"></div>
+      <div class="hods-loading-spinner__content">
+        <h1 class="govuk-heading-m">Loading...</h1>
+      </div>
+    </div>
+
+<p class="govuk-body"> <a class= "gov-link" href= "identity-verification-complete.html"> Skip </p>
+</p>
+    
+  </div>
+</div>
+{% endblock %}
