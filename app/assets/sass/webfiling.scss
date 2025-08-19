@@ -39,6 +39,18 @@ p, label, ul, li, a, .govuk-warning-text, .govuk-hint, .govuk-fieldset__legend, 
     border-radius: 5px;
     border: none;
 }
+.govuk-button--secondary {
+    background-color: rgb(214, 214, 214);
+    border-color: #929191;
+    color: #000;
+}
+.wf-print-button {
+    float: right;
+}
+.wf-print-button:hover {
+    background-color: #929191 !important;
+}
+
 .govuk-button:hover {
     background-color: #3a81ba;
 }
@@ -228,4 +240,16 @@ div.message p,dl.message dd {
     padding: 5px;
     margin: 0 0 5px 0;
     font-weight: 700
+}
+
+.wf-light-blue-banner {
+    background-color: #d5e2ed;
+    margin: 0 -15px 10px -15px;
+    padding: 5px 15px 5px 15px;
+}
+.wf-dark-blue-banner {
+    background-color: #266aa3;
+    margin: 0 -15px 10px -15px;
+    padding: 5px 15px 5px 15px;
+    color:white;
 }

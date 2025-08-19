@@ -1,0 +1,115 @@
+{% extends "layouts/main-webfiling.html" %}
+
+{% block pageTitle %}
+Confirmation of submission – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+<!-- 
+##################################################################################################################
+
+DEVS 
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+
+##################################################################################################################
+-->
+
+
+{% block stylesheets %}
+ {{ super() }}
+<style type="text/css">
+.govuk-header__container.govuk-width-container {
+  background-color: #00144D !important;
+}
+  .govuk-width-container, .govuk-template__body, .govuk-template {
+    background-color: #f6f6f6 !important;
+}
+.govuk-main-wrapper {
+  padding-top:10px;
+}
+
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+<div class="govuk-grid-column-one-quarter webfiling-menu">
+
+        <form class="form" action="company-overview-with-filing-banner" method="post">
+
+{% include "/includes/webfiling-left-menu.html" %}
+</div>
+
+
+<div class="govuk-grid-column-three-quarters wfOverview" style="background-color:white; padding-top: 20px; margin-top:-20px; border-bottom:2px solid #286aa1;">
+
+
+
+ <p class="govuk-body govuk-!-font-size-12">Filing for: ENCOM VIDEO GAMES LIMITED</p>
+
+  {{ govukButton({
+    text: "Print page",
+    classes: "govuk-button--secondary wf-print-button"
+  }) }}
+
+
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-font-size-24">
+      <h1 class="govuk-fieldset__heading">Confirmation of submission</h1>
+    </legend>
+
+
+
+ <p class="govuk-body govuk-!-font-size-12">Thank you. Your submission has been received.</p>
+<h2>Submission details</h2>
+<div style="background-color: #f6f6f6; padding: 10px; border-radius:5px; margin-bottom:20px;">
+ <p class="govuk-body govuk-!-font-size-12">Submission number</p>
+ <p class="govuk-body govuk-!-font-size-12"><strong>041-305255</strong></p>
+ <p class="govuk-body govuk-!-font-size-12">Submission</p>
+<ul>
+  <li>(TM01) Termination of appointment of director<br>
+Terminating appointment of <strong>Kevin FLYNN</strong> on <strong>[today's date]</strong></li>
+  </ul>
+</div>
+ <p class="govuk-body govuk-!-font-size-12">A copy of this confirmation has been emailed to <strong>admin@encom.co.uk</strong></p>
+
+   {{ govukButton({
+          text: "Continue"
+        }) }}
+
+ <p class="govuk-body govuk-!-font-size-12 govuk-!-font-weight-bold"> When will I receive a response regarding my filing?</p>
+ <p class="govuk-body govuk-!-font-size-12">We will email you once your filing has been processed. This is normally within 2 working days.</p>
+ <p class="govuk-body govuk-!-font-size-12 govuk-!-font-weight-bold">What is the submission number?</p>
+ <p class="govuk-body govuk-!-font-size-12">The submission number is your unique reference for your filing. Make a note of your submission number as you will need to quote it in any communications with Companies House.</p>
+ <p class="govuk-body govuk-!-font-size-12 govuk-!-font-weight-bold">How can I track my filing?
+vYou can check the status from My recent filings.</p>
+ <p class="govuk-body govuk-!-font-size-12 govuk-!-font-weight-bold">Do I get a copy of the filing?</p>
+ <p class="govuk-body govuk-!-font-size-12">You can get a copy of the information from My recent filings. This will be available for 10 days.</p>
+ <p class="govuk-body govuk-!-font-size-12"><a href="#">Comments / Feedback / Are you satisfied with our service?</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+    </form>
+    </div>
+
+
+  
+  </div>
+ 
+{% endblock %}

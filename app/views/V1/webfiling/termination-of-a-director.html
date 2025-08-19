@@ -1,0 +1,149 @@
+{% extends "layouts/main-webfiling.html" %}
+
+{% block pageTitle %}
+Termination of a director – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+<!-- 
+##################################################################################################################
+
+DEVS 
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+
+##################################################################################################################
+-->
+
+
+{% block stylesheets %}
+ {{ super() }}
+<style type="text/css">
+.govuk-header__container.govuk-width-container {
+  background-color: #00144D !important;
+}
+  .govuk-width-container, .govuk-template__body, .govuk-template {
+    background-color: #f6f6f6 !important;
+}
+.govuk-main-wrapper {
+  padding-top:10px;
+}
+
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+
+<div class="govuk-grid-column-one-quarter webfiling-menu">
+
+<form class="form" action="confirmation-of-submission" method="post">
+
+{% include "/includes/webfiling-left-menu.html" %}
+</div>
+
+
+<div class="govuk-grid-column-three-quarters wfOverview" style="background-color:white; padding-top: 20px; margin-top:-20px; border-bottom:2px solid #286aa1;">
+
+
+
+ <p class="govuk-body govuk-!-font-size-12">Filing for: ENCOM VIDEO GAMES LIMITED</p>
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--xl govuk-!-font-size-24">
+      <h1 class="govuk-fieldset__heading">Termination of a director </h1>
+    </legend>
+
+<p class="govuk-body wf-light-blue-banner">Director's name</p>
+
+<p class="govuk-body govuk-!-font-size-19 govuk-!-font-weight-bold">Kevin FLYNN</p>
+ 
+<p class="govuk-body wf-dark-blue-banner">Termination details<p>
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h2 class="govuk-fieldset__heading">
+       When was the director's appointment terminated?
+      </h2>
+    </legend>
+    
+  <label class="govuk-visually-hidden" for="day">
+    Day
+  </label>
+  <select class="govuk-select webfiling-day" id="day" name="day">
+    <option value="day" selected>Day:</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="etc">etc</option>
+
+  </select>
+
+    <label class="govuk-visually-hidden" for="month">
+    Month
+  </label>
+  <select class="govuk-select webfiling-month" id="month" name="month">
+    <option value="month" selected>Month:</option>
+    <option value="jan">January</option>
+    <option value="feb">February</option>
+   <option value="etc">etc</option>
+
+  </select>
+
+    <label class="govuk-visually-hidden" for="year">
+   Year
+  </label>
+  <select class="govuk-select  webfiling-year" id="year" name="year">
+    <option value="published" selected>Year:</option>
+    <option value="2024">2024</option>
+    <option value="2023">2023</option>
+    <option value="etc">etc</option>
+
+  </select>
+
+
+  </fieldset>
+</div>
+
+
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <p class="govuk-visually-hidden">
+        Which types of waste do you transport?
+      </p>
+    </legend>
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+        <label class="govuk-label govuk-checkboxes__label" for="waste">
+          I confirm I want to terminate Kevin FLYNN as a director
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+   {{ govukButton({
+          text: "Submit termination"
+        }) }}
+        <a href="javascript:void(0)" class="webfiling-back-link">Cancel</a>
+
+
+
+
+    </form>
+    </div>
+
+
+  
+  </div>
+ 
+{% endblock %}
