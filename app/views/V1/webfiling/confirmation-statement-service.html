@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+<!-- Hide service navigation-->
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
+
+{% set pageName="Confirmation of statement service" %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<!-- Simple horizontal navigation -->
+<nav aria-label="Primary navigation" style="margin-top: 10px;">
+  <a class="govuk-link" href="#" style="text-decoration: underline; margin-right: 30px;">
+    Home
+  </a>
+  <a class="govuk-link" href="#" style="text-decoration: none; margin-right: 30px;">
+    Your companies
+  </a>
+  <a class="govuk-link" href="#" style="text-decoration: none; margin-right: 30px;">
+    Your filings
+  </a>
+  <a class="govuk-link" href="#" style="text-decoration: none; margin-right: 30px;">
+    File for a company
+  </a>
+  <a class="govuk-link" href="#" style="text-decoration: none;">
+    Manage account
+  </a>
+</nav>
+
+<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m">
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      For information
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Try our new File a confirmation statement service
+    </p>
+    <p class="govuk-body"> If you have a private company limited by shares, with 1 to 5 officers (including directors and secretaries), up to 5 people with significant control, and 1 shareholder, you can use our <a class="govuk-notification-banner__link" href="https://find-and-update.company-information.service.gov.uk/confirmation-statement"> new File a confirmation statement service (opens in a new tab). </a>
+      <br> <br> You will not be able to pay with a Companies House payment account.
+     
+    </p>
+  </div>
+</div>
+<h1 class="govuk-heading-l">Home</h1>
+<div id="more-detail-hint" class="govuk-hint">James Francis</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-m">
+      <a href="#" class="govuk-link" style="text-decoration: underline;">WebFiling</a>
+    </h2>
+    <p class="govuk-body">You can:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>file your company's annual accounts</li>
+      <li>file your company's confirmation statement</li>
+      <li>file your company's director or secretary changes</li>
+      <li>sign up to get email reminders</li>
+    </ul>
+  </div>
+  
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-m">
+      <a href="#" class="govuk-link" style="text-decoration: underline;">Your companies</a>
+    </h2>
+    <p class="govuk-body">You can:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>add a company to your WebFiling account</li>
+      <li>view, manage and file for companies you've added</li>
+      <li>digitally authorise people to file for your company online</li>
+      <li>view and manage digitally authorised people</li>
+    </ul>
+  </div>
+</div>
+
+
+
+  
+</div>
+
+      
+</form>
+  </div>
+</div>
+
+{% endblock %}
