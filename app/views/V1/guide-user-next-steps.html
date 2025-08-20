@@ -1,5 +1,9 @@
 {% extends "layouts/main.html" %}
-
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
 {% set pageName="Guide user to next steps" %}
 
 

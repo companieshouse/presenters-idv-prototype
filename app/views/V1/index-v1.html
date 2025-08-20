@@ -16,9 +16,7 @@
   <p class="govuk-notification-banner__heading">
    This version of the prototype is being actively worked on - some things might not work correctly and/or change very quickly. If you have any questions contact Andreea Popescu or James Francis.
   </p>
-  <p class="govuk-notification-banner__heading">
-    <a class="govuk-notification-banner__link" href="backend-check-verified-or-not.html">Set a user test scenario before you start</a>
-  </p>
+  
 {% endset %}
 
     <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
@@ -32,9 +30,37 @@
       </div>
     </div>
 
-    <h1 class="govuk-heading-xl">
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#chs">
+       CHS
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#webfiling">
+        WebFiling
+      </a>
+    </li>
+   
+  </ul>
+  <div class="govuk-tabs__panel" id="chs">
+    <h2 class="govuk-heading-l">Update a registered email address</h2>
+     <h1 class="govuk-heading-m">
       Version 1 
     </h1>
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    <a class="govuk-notification-banner__link" href="backend-check-verified-or-not.html">Set a user test scenario before you start</a>
+  </strong>
+</div>
+   
 
 
     <p><a class="govuk-link" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1753702205663/ea5dc6f2c1306ed568d60372fffb1be47268c844">Screen flow in Mural</a></p>
@@ -67,6 +93,30 @@
       <li><a class="govuk-link" href="identity-verification-complete.html">Identity verification complete</a></li>
       
     </ul>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="webfiling">
+    <h2 class="govuk-heading-l">Terminate a director</h2>
+ <p><a class="govuk-link" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1753702205663/ea5dc6f2c1306ed568d60372fffb1be47268c844?wid=0-1755261756699">Screen flow in Mural</a></p>
+
+    <ul class="govuk-list govuk-list--bullet">
+
+      <li><a class="govuk-link" href="/webfiling/sign-in-to-webfiling.html">WebFiling Start page</a></li>
+      <li><a class="govuk-link" href="/webfiling/govuk-login-registration.html">Create a GOV.UK OneLogin or Sign in</a></li>
+      <li><a class="govuk-link" href="/webfilin/gov-onelogin-email.html">Enter your email address to sign in to your GOV.UK One Login</a></li>
+      <li><a class="govuk-link" href="/webfiling/gov-onelogin-password.html">Enter your password</a></li>
+      <li><a class="govuk-link" href="/webfiling/gov-onelogin-enter-code.html">Check your phone</a></li>
+      <li><a class="govuk-link" href="/webfiling/webfiling-dashboard.html">WebFiling dashboard</a></li>
+      <li><a class="govuk-link" href="/webfiling/company-overview.html">WebFiling Company Overview</a></li>
+      <li><a class="govuk-link" href="/webfiling/termination-of-a-director.html">Termination of a director</a></li>
+      <li><a class="govuk-link" href="/webfiling/confirmation-of-submission.html">Confirmation of submission</a></li>
+        <li><a class="govuk-link" href="/webfiling/company-overview-with-filing-banner.html">WebFiling Company Overview (showing a submitted filing)</a></li>
+     
+    </ul>   
+  </div>
+  
+</div>
+
+   
 
   </div>
 </div>

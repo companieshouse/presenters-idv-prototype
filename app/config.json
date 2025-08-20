@@ -1,5 +1,5 @@
 {
-  "serviceName": "Update a registered email address",
+  "serviceName": "Presenters IDV Prototype",
   "plugins": {
     "govuk-frontend": {
       "rebrand": true
