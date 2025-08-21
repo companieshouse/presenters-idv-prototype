@@ -50,6 +50,9 @@ router.post('/V1/presenter-type-radio', (req, res) => {
       // Fallback if acspLinking is not set or has unexpected value
       res.redirect('/V1/confirm-acsp-statements')
     }
+  } else if (type === 'acspEmployee') {
+    // New route for ACSP employees - always go to ACSP statements page
+    res.redirect('/V1/confirm-acsp-statements')
   } else if (type === 'none') {
     res.redirect('/V1/stop-screen-1')
   } else if (type === 'director' || type === 'employeeCompany' || type === 'employeeCorporate') {
