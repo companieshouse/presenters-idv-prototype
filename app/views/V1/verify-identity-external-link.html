@@ -1,4 +1,9 @@
 {% extends "layouts/main.html" %}
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
 {% set pageName="We're taking you to verify your identity with GOV.UK" %}
 
 {% block beforeContent %}

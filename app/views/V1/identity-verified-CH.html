@@ -1,4 +1,9 @@
 {% extends "layouts/main.html" %}
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
 {% set pageName="Has your identity been verified for Companies House?" %}
 {% block beforeContent %}
    {% include "/includes/phase-banner.html" %}

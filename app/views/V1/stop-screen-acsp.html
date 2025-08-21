@@ -1,4 +1,9 @@
 {% extends "layouts/main.html" %}
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
 
 {% set pageName="You cannot do this" %}
 
