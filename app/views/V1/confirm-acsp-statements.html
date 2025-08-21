@@ -13,6 +13,39 @@
 
 <form action="/V1/confirm-acsp-statements-answer" method="post">
 
+{% if (data['what-type-of-presenter'] == "acsp") %}
+    {{ govukCheckboxes({
+      name: "confirm-acsp-statements",
+      fieldset: {
+        legend: {
+          text: "Confirm the ACSP presenter statements",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "I'm an Authorised Corporate Service Provider (ACSP)", text: "I'm an Authorised Corporate Service Provider (ACSP)" },
+        { value: "I'm delivering a filing on behalf of the company", text: "I'm delivering a filing on behalf of the company" }
+      ]
+    }) }}
+
+{% elif (data['what-type-of-presenter'] == "acspEmployee") %}
+    {{ govukCheckboxes({
+      name: "confirm-acsp-statements",
+      fieldset: {
+        legend: {
+          text: "Confirm the ACSP presenter statements",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "I am the employee of an ACSP", text: "I am the employee of an ACSP" },
+        { value: "I'm delivering a filing on behalf of the company", text: "I'm delivering a filing on behalf of the company" }
+      ]
+    }) }}
+
+{% else %}
     {{ govukCheckboxes({
       name: "confirm-acsp-statements",
       fieldset: {
@@ -27,6 +60,8 @@
         { value: "I'm delivering a filing on behalf of the company", text: "I'm delivering a filing on behalf of the company" }
       ]
     }) }}
+{% endif %}
+
     {{ govukButton({
       text: "Save and continue",
       type: "submit"
