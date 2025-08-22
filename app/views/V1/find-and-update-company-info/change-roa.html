@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+<!-- Hide service navigation-->
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
+
+{% set pageName="Change of registered office address" %}
+
+
+
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
+  
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+ <fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      Change of registered office address
+    </h1>
+    
+  </legend> <br><br>
+    <p class="govuk-body">Current address</p>
+    <p class="govuk-body">Crown Way, Cardiff, Wales, CF14 3UZ</p>
+    <p class="govuk-body"><strong>What is the new address of the company?</strong></p>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="address-line-1">
+      <strong>Building name or number </strong>
+    </label>
+    <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="address-postcode">
+      <strong>Postcode</strong>
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+  </div>
+</fieldset>
+
+ <p class="govuk-body"> <a class= "gov-link" href= "#"> Enter address manually </a></p> <br>
+
+ <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+        <label class="govuk-label govuk-checkboxes__label" for="waste">
+          The new registered office address is an appropriate address as outlined in section 86(2) of the Companies Act 2006.
+        </label>
+      </div>
+    </div>
+<br>
+    <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does 'appropriate address' mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+   An address is an 'appropriate address' if, in the ordinary course of events:<br><br>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>a document addressed to the company, and delivered there by hand or by post, would be expected to come to the attention of a person acting on behalf of the company, and</li>
+        <li>a person can get an acknowledgement of delivery, to record the delivery of documents to the new registered office address.</li>
+     </ul>
+  </div>
+</details>
+<br>
+
+    {{ govukButton({
+    text: "Submit changes",
+    href: "/V1/find-and-update-company-info/confirmation.html",
+    classes: "govuk-button"
+  }) }}
+    </div>
+  </div>
+
+{% endblock %}
