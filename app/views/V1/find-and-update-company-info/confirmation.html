@@ -17,29 +17,30 @@
     <div class="govuk-grid-column-two-thirds">
   {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
-  {{ govukPanel({
-    titleText: "Change of registered office address received",
-    html: "Company number 00006400<br><br>on 21 August 2025 at 3:15pm<br>Reference number 050806-958117-557856"
+   {{ govukPanel({
+    html: "<span style='font-size: 20px;'><strong>TestDefault</strong></span><br><span style='font-size: 25px;'>Company number 00006400</span><br><br><span style='font-size: 50px; font-weight: bold;'><strong>Change of registered office address received</strong></span><br><br><span style='font-size: 25px;'>on <strong>21 August 2025</strong> at <strong>3:15pm</strong><br><br>Reference number<br><strong>050806-958117-557856</strong></span>",
+    classes: "custom-teal-panel"
   }) }}
 
-  <p class="govuk-body"> <strong>What a companies house personal code is</strong></p>
-  <p class="govuk-body"> You will need to use your Companies House personal code to connect your verified identity to our records. This is so that we know the correct person is linked to the name we have on file. The code is personal to you, not your company or a company you work for.</p>
-  <p class="govuk-body"> You'll need your personal code for various reasons. For example: </p>
-  <ul class="govuk-list govuk-list--bullet">
-    <li>as part of some other company filings, such as the <a class= "gov-link" href= "https://www.gov.uk/guidance/confirmation-statement-guidance"> confirmation statement </a></li>
-    <li>when you are appointed as a director</li>
-    <li>if you become a <a class= "gov-link" href= "https://www.gov.uk/guidance/people-with-significant-control-pscs"> person with significant control (PSC)</a></li>
-    </ul>
+  <style>
+  .custom-teal-panel {
+    background-color: #27A197 !important;
+    border: 5px solid #27A197 !important;
+  }
+  </style>
 
-  <p class="govuk-body"> Your personal code is not the same as the <a class= "gov-link" href= "https://www.gov.uk/guidance/company-authentication-codes-for-online-filing"> company authentication code.</a> If you have an authentication code, you should continue to keep this safe.</p>
-  <p class="govuk-body"> <strong> Only share the code with people you trust</strong></p>
-  <p class="govuk-body"> You may need to share this code with people you trust to file on your behalf, or for your company. Keep this information secure, as you would with other unique codes such as your Unique Taxpayer Reference (UTR) for HMRC. <br><br>
-  Identity verification makes it much more difficult for criminals to impersonate someone, but not impossible.</p>
+    <p class="govuk-body"> We have sent you a confirmation email at <strong>jfrancisch@gmail.com</strong> with your reference number.</p>
+    <p class="govuk-body"> If you've not received the confirmation, check your spam or junk mail folder. You should <a class= "gov-link" href= "https://staging.company-information.service.gov.uk/help/contact-us"> contact us </a> if you haven't had an email within 30 minutes. </p>
+    <p class="govuk-body"> We'll send a second email to confirm that your filing has been processed (normally within 2 working days).</p>
+    <p class="govuk-body"> You can go to <a class= "gov-link" href= "https://identity-staging.company-information.service.gov.uk/oauth2/user/choose-your-signin?request=eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..nFgm3STlW-BeH7BymIaBOg.dZ2u8gRSIPYp90KNunptR_6ITvikH8TU1eCj4MZkbm_KpU1CigNAEAbgEgv4VYbSOyCgacq3UT0Z4Du3ebCfV1M2zfgH72Pt03lWz409UxVRZTk04RScNfhhpp9_ECPYJIg2DOQ1oSALw144JX5dyyNNuYZV7T71HytiBlEaT-EwhsEOigzLn_9yCuP6H7W705IAbU-LvDM_pz-_ipdAQDJuslDmPB0ElfzTcJQoyjr-ezgmgyHEir1mpycwYvgvV23RNCEa_7s0EQrc9glAhxoPFyPnYWfyFq02ihKJUnIF7ewl9b-6a0p1GzRVowhuQ4v_xwn7IfgNT7pWBOC7YAooaFhFEXfPszoLOWlu1AXDvbZ_jGeaRIsYEsMNAvoLWyiZGIeR0G-_DsZmQtRZKQz4qLw4rT0bZhzF8hG7bUXyE9Q_2yUiKs8v0eT8SUXsJsm7-wH3MHyPMeuboVQAOiaSumsk_SVy1eQZBXHUfELCwowN8eZhlG2Kx8B5xRxPaBuRGP0aYkrztE7ko3-TURMhseg8DwocffrAxo6UZ2_zw_o8zHbenH8H4S_2RMh4DALmdHiEVQZ5tYqtINVlZ-Jvti1buDTtruroZLwN8O4xONZNwRxHMcgpgsUgVZUH9zp6PCX9k4htoGeVOeNdyWNPsD_i5lh52ng3lt2EIjeyyNOXouqtaipbN4SouNl0PHT4pSUJJe1kaPkY9wPntbbu916iz1oXqCrUC34D6UHVGGyUPTq5Bt-f-LmhnklWMTq6Qw2FU6n_Pe3FUyQWenB-mEfkBDU4zx_J8CG38TM.1_ZhG44-Q-TkJOoSCz3zCQ"> 'Your filings'</a> to check the status or get a copy of what you have filed.</p>
+    <p class="govuk-body"> <a class= "gov-link" href= "#"> Print this page for your records</p>
 
   {{ govukButton({
     text: "Return to company overview",
     href: "/V1/webfiling/company-overview.html"
   }) }}
+
+    <p class="govuk-body"> This is a new service. Help us improve it by<a class= "gov-link" href= "#"> completing our quick survey. </p>
 
   </div>
   </div>
