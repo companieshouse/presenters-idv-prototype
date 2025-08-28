@@ -24,6 +24,16 @@ router.use((req, res, next) => {
 //   res.redirect('/V1/govuk-login-registration')
 // })
 
+
+router.post('/V1/backend-check-verified-or-not', (req, res) => {
+  const chsOrWebFiling = req.session.data['chsOrWebFiling']
+  if (chsOrWebFiling === 'webfiling') {
+    res.redirect('/V1/webfiling/sign-in-to-webfiling')
+  } else {
+    res.redirect('/V1/update-rea/start')
+  }
+})
+
 router.post('/V1/gov-onelogin-email-answer', (req, res) => {
   res.redirect('/V1/gov-onelogin-password')
 })
@@ -172,8 +182,14 @@ router.post('/V1/enter-details-answer', (req, res) => {
 
 // Add this route to handle confirm-presenter-information form submission
 router.post('/V1/confirm-presenter-information', (req, res) => {
-  res.redirect('/V1/company-number')
-})
+  const chsOrWebFiling = req.session.data['chsOrWebFiling'];
+
+  if (chsOrWebFiling === 'webfiling') {
+    res.redirect('/V1/webfiling/termination-of-a-director');
+  } else {
+    res.redirect('/V1/company-number');
+  }
+});
 
 router.post('/V1/confirm-presenter-information-answer', (req, res) => {
   res.redirect('/V1/company-number')
