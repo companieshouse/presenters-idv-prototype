@@ -51,7 +51,7 @@ router.post('/V1/presenter-type-radio', (req, res) => {
     if (acspLinking === 'ACSPlinked') {
       res.redirect('/V1/confirm-acsp-statements')
     } else if (acspLinking === 'ACSPnotLinked') {
-      res.redirect('/V1/stop-screen-acsp')
+      res.redirect('/V1/stop-screen-sign-in-acsp')
     } else {
       // Fallback if acspLinking is not set or has unexpected value
       res.redirect('/V1/confirm-acsp-statements')
