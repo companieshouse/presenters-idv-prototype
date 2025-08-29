@@ -42,8 +42,8 @@ router.post('/V1/gov-onelogin-password-answer', (req, res) => {
   res.redirect('/V1/gov-onelogin-enter-code')
 })
 
-router.post('/V1/gov-onelogin-code-answer', (req, res) => {
-  res.redirect('/V1/presenter-type-radio')
+router.post('/V1/gov-onelogin-enter-code', (req, res) => {
+  res.redirect('/V1/company-number')
 })
 
 router.post('/V1/presenter-type-radio', (req, res) => {
@@ -187,20 +187,24 @@ router.post('/V1/confirm-presenter-information', (req, res) => {
   if (chsOrWebFiling === 'webfiling') {
     res.redirect('/V1/webfiling/termination-of-a-director');
   } else {
-    res.redirect('/V1/company-number');
+    res.redirect('/V1/update-rea/change-email-address');
   }
 });
 
-router.post('/V1/confirm-presenter-information-answer', (req, res) => {
-  res.redirect('/V1/company-number')
-})
+// router.post('/V1/confirm-presenter-information-answer', (req, res) => {
+//   res.redirect('/V1/company-number')
+// }) JF: I don't think this route is doing anything
 
-router.post('/V1/company-number-answer', (req, res) => {
+router.post('/V1/company-number', (req, res) => {
   res.redirect('/V1/confirm-correct-company')
 })
 
-router.post('/V1/confirm-correct-company-answer', (req, res) => {
-  res.redirect('/V1/company-authentification')
+router.post('/V1/confirm-correct-company', (req, res) => {
+  res.redirect('/V1/company-authentication')
+})
+
+router.post('/V1/company-authentication', (req, res) => {
+  res.redirect('/V1/presenter-type-radio')
 })
 
 router.post('/V1/company-authentification-answer', (req, res) => {
