@@ -46,41 +46,75 @@
   <form action="/V1/gov-onelogin-email" method="post">
       <br>
       <h1 class="govuk-heading-xl">
-        What is the company number?
+        Confirm this is the correct company
       </h1>
-     <fieldset class="govuk-fieldset">
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    
-  <div class="govuk-form">
-    <label class="govuk-label" for="address-postcode">
-      A company number is 8 characters long.
-    </label>
-    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+
+     <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Company name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      POSEIDON LOGIC LIMITED
+    </dd>
   </div>
-</fieldset>
-<div class="govuk-inset-text">
-  If you have a company number that's 7 characters or less, enter zeros at the start so that it's 8 characters in total. For example, if it's 12345, enter 00012345.
-</div>
-    <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-    How do I find the company number?
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Company number
+    </dt>
+    <dd class="govuk-summary-list__value">
+      08351260
+    </dd>
   </div>
-</details>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Status
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Active
+    </dd>
   </div>
-</div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Incorporation date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      8 January 2013
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Company type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Private Limited Company
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Registered office address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      72 Guild Street<br>
+      London<br>
+      SE23 6FH
+    </dd>
+  </div>
+</dl>
 
     {{ govukButton({
-    text: "Continue",
-    href: "/V1/webfiling/confirm-company-rebrand"
+    text: "Confirm and continue",
+    href: "/V1/company-authentication"
   }) }}
  </div>
 </div>
 
+<a href="/" class="govuk-link--no-visited-state">Choose a different company</a>
 
 </form>
   </div>
