@@ -252,3 +252,68 @@ ul#navigation {
   text-decoration: none;
   color: #0b0c0c;
 }
+
+.chs-home .govuk-service-navigation {
+  background: #f3f2f1;
+  min-height: auto;
+}
+
+.chs-home .govuk-service-navigation__container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.chs-home .govuk-service-navigation__service-name {
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #0b0c0c;
+  padding: 14px 0;
+}
+
+.chs-home .govuk-service-navigation__link {
+  color: #0b0c0c !important;
+  text-decoration: none;
+}
+
+.chs-account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #b1b4b6;
+  padding-bottom: 10px;
+  text-decoration: none;
+  
+}
+.chs-feedback-bar {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: #f3f2f1;
+  border-top: 1px solid #b1b4b6;
+  border-bottom: 1px solid #b1b4b6;
+  font-size: 19px;
+}
+
+.chs-feedback-bar__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 15px;
+}
+
+.chs-info-link {
+  margin: 12px 0 0;
+}
+
+.chs-info-link a {
+  font-size: 19px;
+  line-height: 1.31579;
+  text-decoration: underline;
+}
+
+.chs-signin-row {
+  text-align: right;
+  border-bottom: 1px solid #b1b4b6;
+  padding-bottom: 10px;
+  margin-top: -5px;
+  font-size: 16px;
+}

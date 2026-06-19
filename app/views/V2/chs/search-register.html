@@ -1,47 +1,36 @@
 {% extends "layouts/main.html" %}
-
+{% block bodyClasses %}chs-home{% endblock %}
 {% block pageTitle %}
 Search the register
 {% endblock %}
 
-{% block header %}
-{{ govukHeader({
-  homepageUrl: "/"
-}) }}
 
-<div class="chs-service-header">
-  <div class="govuk-width-container">
-    <h1 class="chs-service-header__title">
-      <a href="index" class="govuk-link govuk-link--no-visited-state">
-        Find and update company information
-      </a>
-    </h1>
-  </div>
-</div>
 
-<div class="govuk-width-container">
-  <p class="govuk-body-s govuk-!-margin-top-3 govuk-!-margin-bottom-3">
+{% block beforeContent %}
+
+<div class="chs-feedback-bar">
+    <div class="chs-feedback-bar__inner">
     <a href="https://www.smartsurvey.co.uk/s/csat-companieshouseservice/"
        class="govuk-link">
       Tell us what you think of Companies House
     </a>
-  </p>
+  </div>
 </div>
-{% endblock %}
-
-{% block beforeContent %}
 
 <div class="govuk-width-container">
 
-  <p>
-    <a class="govuk-link govuk-link--no-visited-state"
-       href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">
+  <p class="chs-info-link">
+    <a
+      class="govuk-link govuk-link--no-visited-state"
+      href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">
       Companies House does not verify the accuracy of the information filed
     </a>
   </p>
 
-  <div class="account-banner">
-    <a href="#">Sign in / Register</a>
+  <div class="chs-signin-row">
+    <a href="sign-in-to-ch" class="govuk-link">
+      Sign in / Register
+    </a>
   </div>
 
 </div>
