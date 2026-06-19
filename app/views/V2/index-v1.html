@@ -1,0 +1,147 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set pageName="Index V1" %}
+
+{% block beforeContent %}
+  {% include "includes/back-link.html" %}
+{% endblock %} 
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% set html %}
+  <p class="govuk-notification-banner__heading">
+   This version of the prototype is being actively worked on - some things might not work correctly and/or change very quickly. If you have any questions contact the UCD Team.
+  </p>
+  
+{% endset %}
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        {{ html | safe }}
+      </div>
+    </div>
+
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#chs">
+       CHS
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#webfiling">
+        WebFiling
+      </a>
+    </li>
+   
+  </ul>
+  <div class="govuk-tabs__panel" id="chs">
+    <h2 class="govuk-heading-l">Update a registered email address</h2>
+     <h1 class="govuk-heading-m">
+      Version 1 
+    </h1>
+
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    <a class="govuk-notification-banner__link" href="backend-check-verified-or-not.html">Set a user test scenario before you start</a>
+  </strong>
+</div>
+   
+
+
+    <p><a class="govuk-link" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1753702205663/ea5dc6f2c1306ed568d60372fffb1be47268c844" rel="noreferrer noopener" target="_blank">Screen flow in Mural (opens in new tab)</a></p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a class="govuk-link" href="backend-check-verified-or-not.html">Set user test scenarios </a></li>
+      <li><a class="govuk-link" href="update-rea/start.html">Start page</a></li>
+      <li><a class="govuk-link" href="govuk-login-registration.html">Create a GOV.UK OneLogin or Sign in</a></li>
+      <li><a class="govuk-link" href="gov-onelogin-email.html">Enter your email address to sign in to your GOV.UK One Login</a></li>
+      <li><a class="govuk-link" href="gov-onelogin-password.html">Enter your password</a></li>
+      <li><a class="govuk-link" href="gov-onelogin-enter-code.html">Check your phone</a></li>
+      <li><a class="govuk-link" href="company-number.html">What is the company number?</a></li>
+      <li><a class="govuk-link" href="confirm-correct-company.html">Confirm this is the correct company</a></li>
+      <li><a class="govuk-link" href="company-authentication.html">Company authentication</a></li>
+       <li><a class="govuk-link" href="presenter-type-radio.html">What type of presenter are you?</a></li>
+      <li><a class="govuk-link" href="stop-screen-1.html">You cannot file for this company</a></li>
+      <li><a class="govuk-link" href="confirm-acsp-statements.html">Confirm the ACSP presenter statements</a></li>
+      <li><a class="govuk-link" href="confirm-presenter-information.html">Confirm your presenter information</a></li>
+      <li><a class="govuk-link" href="confirm-presenter-statements.html">Confirm the presenter statements</a></li>
+      <li><a class="govuk-link" href="identity-verified-CH">Has your identity been verified for Companies House?</a></li>
+      <li><a class="govuk-link" href="enter-details.html">What are your identity verification details?</a></li>
+      <li><a class="govuk-link" href="stop-screen-acsp.html">You've entered the wrong details too many times</a></li>
+      <li><a class="govuk-link" href="guide-user-next-steps.html">Your identity is verified and connected to your Companies House account</a></li>
+      <li><a class="govuk-link" href="verify-your-identity.html">We're taking you to verify your identity with GOV.UK One Login</a></li>
+      <li><a class="govuk-link" href="verify-identity-external-link.html">Prove your identity with GOV.UK One Login</a></li>
+      <li><a class="govuk-link" href="loading-screen.html">Loading screen</a></li>
+      <li><a class="govuk-link" href="identity-verification-complete.html">Identity verification complete</a></li>
+      <li><a class="govuk-link" href="update-rea/change-email-address.html">What is the new registered email address?</a></li>
+      <li><a class="govuk-link" href="update-rea/check-your-answer.html">Check your answer before submitting this filing</a></li>
+      <li><a class="govuk-link" href="update-rea/update-submitted.html">Registered email address update submitted</a></li>
+    </ul>
+  </div>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="webfiling">
+    <h2 class="govuk-heading-l">WebFiling journeys</h2>
+ <p><a class="govuk-link" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1772211053815/872d94e8314673a91096bb680660e33d19f4558b" rel="noreferrer noopener" target="_blank">Screen flow in Mural (opens in new tab)</a></p>
+
+ <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    <a class="govuk-notification-banner__link" href="backend-check-verified-or-not.html">Set a user test scenario before you start</a>
+  </strong>
+</div>
+
+    <ul class="govuk-list govuk-list--bullet">
+
+      <li><a class="govuk-link" href="webfiling/sign-in-to-webfiling.html">WebFiling Start page</a></li>
+      <li><a class="govuk-link" href="webfiling/onelogin-sign-in.html">We're taking you to sign in to your GOV.UK One Login</a></li>
+      <li><a class="govuk-link" href="webfiling/sign-in-to-ch.html">Sign in to Companies House</a></li>
+      <li><a class="govuk-link" href="webfiling/security-code.html">We've sent you a security code to verify your email address</a></li>
+      <li><a class="govuk-link" href="webfiling/gov-onelogin-enter-code.html">Check your phone</a></li>
+      <li><a class="govuk-link" href="webfiling/webfiling-connected.html">Your WebFiling account is now connected </a></li>
+      <li><a class="govuk-link" href="webfiling/company-number-rebrand.html">What is the company number?</a></li>
+      <li><a class="govuk-link" href="confirm-company-rebrand.html">Confirm this is the correct company</a></li>
+      <li><a class="govuk-link" href="company-authentication.html">Enter the company authentication code</a></li>
+      <li><a class="govuk-link" href="confirm-acsp-statements.html">Confirm the ACSP presenter statements</a></li>
+      <li><a class="govuk-link" href="confirm-presenter-information.html">Confirm your presenter information</a></li>
+      <li><a class="govuk-link" href="stop-screen-1.html">You cannot file for this company</a></li>
+      <li><a class="govuk-link" href="confirm-presenter-statements.html">Confirm the presenter statements</a></li>
+      <li><a class="govuk-link" href="identity-verified-CH">Has your identity been verified for Companies House?</a></li>
+      <li><a class="govuk-link" href="enter-details.html">What are your identity verification details?</a></li>
+      <li><a class="govuk-link" href="stop-screen-acsp.html">You've entered the wrong details too many times</a></li>
+      <li><a class="govuk-link" href="guide-user-next-steps.html">Your identity is verified and connected to your Companies House account</a></li>
+      <li><a class="govuk-link" href="verify-your-identity.html">We're taking you to verify your identity with GOV.UK One Login</a></li>
+      <li><a class="govuk-link" href="verify-identity-external-link.html">Prove your identity with GOV.UK One Login</a></li>
+      <li><a class="govuk-link" href="loading-screen.html">Loading screen</a></li>
+      <li><a class="govuk-link" href="identity-verification-complete.html">Identity verification complete</a></li>      
+      <li><a class="govuk-link" href="webfiling/termination-of-a-director.html">Termination of a director</a></li>
+      <li><a class="govuk-link" href="webfiling/confirmation-of-submission.html">Confirmation of submission</a></li>
+      <li><a class="govuk-link" href="webfiling/company-overview-with-filing-banner.html">WebFiling company overview (showing a submitted filing)</a></li>
+     
+    </ul>   
+  </div>
+  
+</div>
+
+   
+
+  </div>
+</div>
+
+{% endblock %}

@@ -84,3 +84,171 @@ ul#navigation {
 .govuk-link:visited {
     color: #1d70b8 !important;
 }
+
+#chs-customer-insights-top {
+  position: relative;
+  background-color: #376EB3;
+  padding: 5px;
+  z-index: 10;
+  color: #fff;
+}
+
+.blue-banner {
+  color: #FFFFFF !important;
+}
+
+h1, h2, p, a, li {
+  font-family: "GDS Transport", Arial, Helvetica, sans-serif !important;
+}
+
+.footer_blue_banner{
+  background-color: #376EB3;
+  padding: 10px 10px 1px 10px; 
+  margin: -20px 0px -45px;
+}
+
+.footer_blue_line {
+  border: 5px solid #376EB3;
+  margin: -2px 0px -4px 0px;
+}
+
+.account-banner {
+    text-align: right;
+    font-size: 16px;
+    font-family: 'proxima_nova', Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    z-index: 60;
+    clear: none;
+    background: transparent;
+    vertical-align: middle;
+}
+
+ul#navigation {
+  font-size: 0.9em;
+  text-align: right;
+  float: right;
+  li {
+    display: inline;
+    font-family: 'nta', Arial;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    a {margin-left: 0.9em;}
+  }
+}
+.no-wrap {
+  white-space: nowrap;
+}
+
+
+.blue-banner a {
+  color: white;
+  margin: 30px;
+}
+
+.idv_warning_box {
+  background-color: #FDF2D5;
+  border-style: solid;
+  border-color: #F5C25C;
+  padding: 10px 10px 0px 10px; 
+  margin: -20px 0px 45px;
+}
+
+.grey-box {
+  background-color: #DFE1E1;
+  padding: 10px 10px 5px 10px; 
+}
+
+
+.tabs {
+  background-color: white !important;
+}
+
+
+.tabs li a {
+  padding: 16px;
+  font-size: 16px;
+  color: #1D70B8 !important;
+  font-weight: normal !important;
+}
+
+.tabs li a:hover {
+  text-decoration: underline;
+}
+
+.input-group {
+  border-collapse: separate;
+  display: table;
+  position: relative;
+  width:100%;
+}
+
+.input-group>div {
+  display: table-cell;
+}
+
+.input-group>div:first-child {
+  width: 100%;
+} 
+
+.search_input {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  font-size: .875rem;
+  line-height: 1.5;
+  height: 47px;
+  font-size: 19px;
+  border: 2px solid black;
+}
+
+.search_button {
+  border: 0;
+  padding: .375rem .75rem;
+  text-align: center;
+  white-space: nowrap;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url("/public/images/search_icon.png"); 
+  background-size: cover; 
+  background-position: center; 
+  color: white; 
+  background-color: #275CA0;
+}
+
+
+.active_tab {
+  text-decoration: underline solid #275CA0 50%;
+  text-underline-offset: 13px;
+}
+
+.verified-tag {
+  display: flex;
+  align-items: top;
+  gap: 0.4em;
+  line-height: 1.3;
+}
+
+.verified-icon img {
+  display: block;
+  width: 1.7em;
+  height: auto;
+}
+
+.chs-service-header {
+  background: #f3f2f1;
+  border-bottom: 1px solid #b1b4b6;
+}
+
+.chs-service-header__title {
+  margin: 0;
+  padding: 16px 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.chs-service-header__title a {
+  text-decoration: none;
+  color: #0b0c0c;
+}

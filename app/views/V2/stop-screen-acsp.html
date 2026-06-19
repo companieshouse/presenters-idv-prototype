@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
+
+{% set pageName="You cannot do this" %}
+
+
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  
+
+  <h1 class="govuk-heading-xl">You've entered the wrong details too many times</h1>
+<p class="govuk-body">This means we cannot confirm that your identity is verified, so you cannot file for this company.</p>
+<p class="govuk-body">Check that you have the correct Companies House personal code, and try again later.</p>
+<p class="govuk-body">If your identity was verified by an Authorised Corporate Service Provider (ACSP), you may want to contact them and check they provided the correct details for you.</p>
+
+       
+  </div>
+</div>
+
+
+{% endblock %}
