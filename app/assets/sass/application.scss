@@ -344,3 +344,32 @@ ul#navigation {
   white-space: nowrap;
 }
 
+.search-tabs {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: flex;
+  border-bottom: 1px solid #b1b4b6;
+}
+
+.search-tabs li {
+  margin: 0 35px 0 0;
+}
+
+.search-tabs a {
+  display: block;
+  padding: 0 0 12px;
+  text-decoration: none;
+  color: #1D70B8;
+  font-family: "GDS Transport", Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 700 !important;
+}
+
+.search-tabs a:hover {
+  text-decoration: underline;
+}
+
+.search-tabs .active a {
+  border-bottom: 5px solid #1d70b8;
+}
