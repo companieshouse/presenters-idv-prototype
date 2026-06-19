@@ -8,7 +8,6 @@ Search the register
 
 {% block beforeContent %}
 
-
 <div class="chs-feedback-bar">
     <div class="chs-feedback-bar__inner">
     <a href="https://www.smartsurvey.co.uk/s/csat-companieshouseservice/"
@@ -28,11 +27,23 @@ Search the register
     </a>
   </p>
 
-  <div class="chs-signin-row">
-    <a href="sign-in-to-CH" class="govuk-link">
-      Sign in / Register
-    </a>
-  </div>
+   <div class="chs-account-nav">
+
+  <span class="chs-account-email">
+    mharidas@companieshouse.gov.uk:
+  </span>
+
+  <a href="#" class="govuk-link">Manage account</a>
+
+  <a href="#" class="govuk-link">Your filings</a>
+
+  <a href="#" class="govuk-link">Companies you follow</a>
+
+  <a href="#" class="govuk-link">Basket (0)</a>
+
+  <a href="#" class="govuk-link">Sign out</a>
+
+</div>
 
 </div>
 
@@ -48,13 +59,19 @@ Search the register
 
 
 {% set html %}
-  
-  <p class="govuk-notification-banner__heading"><a class="govuk-notification-banner__link" href="https://changestoukcompanylaw.campaign.gov.uk/" class="govuk-link">UK company law is changing</a>.</p>
+
+  <p class="govuk-notification-banner__fullwidth"><a class="govuk-notification-banner__link" href="https://changestoukcompanylaw.campaign.gov.uk/" class="govuk-link">UK company law is changing</a>.</p>
 {% endset %}
 
-{{ govukNotificationBanner({
-  html: html
-}) }}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
+
+  </div>
+</div>
 
 <h1 class="govuk-heading-xl govuk-!-text-align-centre">Search the register </h1>
 
@@ -66,7 +83,7 @@ Search the register
       </p>
       <div class="input-group">
           <div><input class="search_input"></input></div>
-          <div><button class="govuk-button search_button"></button></div>
+          <div><button class="govuk-button search_button" a href="#"></button></div>
       </div>
     </div>
   </div>

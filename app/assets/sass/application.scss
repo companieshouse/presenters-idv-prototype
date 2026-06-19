@@ -301,7 +301,8 @@ ul#navigation {
 }
 
 .chs-info-link {
-  margin: 12px 0 0;
+  margin: 0 0 20px 0;;
+  margin-top: 20px;
 }
 
 .chs-info-link a {
@@ -317,3 +318,29 @@ ul#navigation {
   margin-top: -5px;
   font-size: 16px;
 }
+
+.chs-account-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 12px 0;
+  border-bottom: 1px solid #b1b4b6;
+  width: calc(100% + 150px);
+}
+
+.chs-account-email {
+  margin: 0;
+  padding: 0;
+  font-family: "GDS Transport", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  white-space: nowrap;
+}
+
+.chs-account-nav a {
+  font-family: "GDS Transport", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  white-space: nowrap;
+}
+
