@@ -148,11 +148,25 @@ Enter your Companies House personal code and date of birth
         </fieldset>
       </div>
 
+      {# Use "/binding-success" for an absolute path. Uncomment the formmethod line below if the target expects GET instead of POST. #}
       {{ govukButton({
-        text: "Continue"
+        text: "Continue",
+        attributes: {
+          type: "submit",
+          formaction: "binding-success"
+        }
       }) }}
 
     </form>
+  </div>
+</div>
+
+    <div class="ur-shortcuts">
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+      <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+        <li><a class="govuk-link" href="binding-fail-locked">Screen after 3 errors</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
