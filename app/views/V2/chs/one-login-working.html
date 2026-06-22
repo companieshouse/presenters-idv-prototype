@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  One login working...
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        This screen represents your journey through GOV.UK One Login
+      </h1>
+
+      <p>We don't need to look at those screens right now. Imagine everything has gone well, and you return to Companies House.</p>
+
+
+      <a href="">
+      <div class="spinner">
+        <img src="/public/images/loading-spinner.png" alt="">
+      </div>
+      </a>
+
+
+      <p><a href="success">Skip</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}

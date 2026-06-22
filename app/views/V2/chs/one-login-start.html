@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Prove your identity with GOV.UK account GOV.UK – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Prove your identity with GOV.UK One Login
+      </h1>
+      <form action="{{currentUrl}}" method="post">
+
+        <p class="govuk-body">You'll need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>your photo ID</li>
+          <li>your current home address (you might also need your previous address if you’ve recently moved)</li>
+        </ul>
+
+        <div class="govuk-inset-text">
+          This service is also available in <a href="#" class="govuk-link"> Welsh (Cymraeg)</a>. Not all ways to prove your identity are available in Welsh yet.
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  We're taking you to one login
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/account-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      We’re taking you to verify your identity with GOV.UK One Login
+    </h1>
+
+    <p class="govuk-body">GOV.UK will ask you some simple questions to find the best way for you to verify your identity. Depending on the answers you provide, you’ll then be guided to use one of the following routes:</p>
+
+    <h2 class="govuk-heading-s">
+      Route 1: Use the GOV.UK mobile phone app   
+    </h2>
+
+    <p class="govuk-body">This is the fastest way to verify. GOV.UK One Login allows you to download an app that scans your biometric ID.  </p>
+    <p class="govuk-body">The mobile app: </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>is fast and simple </li>
+      <li>works with any up-to-date mobile phone </li>
+      <li>is secure - the app only communicates data, it doesn’t store anything </li>
+    </ul>
+
+    <p class="govuk-body">You can delete the app when you've finished.</p>
+
+    <p class="govuk-body">
+      <a href="https://www.gov.uk/guidance/using-the-govuk-id-check-app" class="govuk-link" rel="noreferrer noopener" target="_blank">Check if your mobile phone can use the GOV.UK app (opens in new tab)</a>
+    </p>
+
+    <h2 class="govuk-heading-s">
+      Route 2: Verify online without the mobile phone app 
+    </h2>
+
+    <p class="govuk-body">If you cannot verify using the mobile phone app, you can still verify online without it. You'll need to answer a few questions about yourself to confirm who you are. </p>
+
+    <h2 class="govuk-heading-s">
+      Route 3: Verify in person 
+    </h2>
+
+
+    <p class="govuk-body">If you cannot verify using the mobile phone app or online, GOV.UK One Login will tell you how to verify in person at the Post Office. </p>
+
+    {{ govukButton({
+      text: "Continue",
+      href: "../one-login/one-login-start"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
