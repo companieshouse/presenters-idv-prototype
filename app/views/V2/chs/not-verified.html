@@ -25,7 +25,7 @@ Has your identity been verified for Companies House?
         errorList: errorList
       }) }}
     {% endif %}
-    <form action="{{currentUrl}}" method="post">
+    <form action="/v2/chs/check-verification" method="post">
 
       <!-- Check for error -->
       {% if errorHaveVerified %}
@@ -51,7 +51,7 @@ Has your identity been verified for Companies House?
 
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="haveVerified" name="haveVerified" type="radio" value="yes" href="/v2/chs/verified-details">
+              <input class="govuk-radios__input" id="haveVerified" name="haveVerified" type="radio" value="yes">
               <label class="govuk-label govuk-radios__label" for="haveVerified">
                 Yes
               </label>

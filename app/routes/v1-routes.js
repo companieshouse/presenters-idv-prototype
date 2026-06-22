@@ -233,4 +233,13 @@ router.post('/V1/company-authentification-answer', (req, res) => {
   res.redirect('/V1/limited-partnership-overview')
 })
 
+router.post('/v2/chs/check-verification', (req, res) => {
+  const haveVerified = req.body.haveVerified
+
+  if (haveVerified === 'yes') {
+    res.redirect('/V2/chs/verified-details')
+  } else {
+    res.redirect('/V2/chs/one-login-intro')
+  }
+})
 module.exports = router;
