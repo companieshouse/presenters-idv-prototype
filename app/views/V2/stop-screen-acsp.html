@@ -23,12 +23,14 @@
   <div class="govuk-grid-column-two-thirds">
   
 
-  <h1 class="govuk-heading-xl">You've entered the wrong details too many times</h1>
-<p class="govuk-body">This means we cannot confirm that your identity is verified, so you cannot file for this company.</p>
-<p class="govuk-body">Check that you have the correct Companies House personal code, and try again later.</p>
-<p class="govuk-body">If your identity was verified by an Authorised Corporate Service Provider (ACSP), you may want to contact them and check they provided the correct details for you.</p>
+  <h1 class="govuk-heading-xl">You cannot file for this company</h1>
+<p class="govuk-body">You need to log in with your Authorised Corporate Service Provider (ACSP) email. </p>
 
-       
+{{ govukButton({
+  text: "Sign in with your ACSP account",
+  href: "confirm-acsp-statements.html"
+}) }}
+
   </div>
 </div>
 
