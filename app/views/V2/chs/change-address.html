@@ -1,0 +1,170 @@
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Presenters IDV prototype – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+  Presenters IDV Prototype
+{% endset %}
+ <a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
+{% block beforeContent %}
+  <div class="govuk-width-container">
+
+  <p class="chs-info-link">
+    <a
+      class="govuk-link govuk-link--no-visited-state"
+      href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">
+      Companies House does not verify the accuracy of the information filed
+    </a>
+  </p>
+
+   <div class="chs-account-nav">
+
+  <span class="chs-account-email">
+    bjones@companieshouse.gov.uk:
+  </span>
+
+  <a href="#" class="govuk-link">Manage account</a>
+
+  <a href="#" class="govuk-link">Your filings</a>
+
+  <a href="#" class="govuk-link">Companies you follow</a>
+
+  <a href="#" class="govuk-link">Basket (0)</a>
+
+  <a href="#" class="govuk-link">Sign out</a>
+
+</div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <p class="govuk-body">Filing for <a href="#" class="govuk-link">NR1 TRADINGS LTD (07913287)</a></p>
+
+      <ul class="govuk-list">
+        
+  <li class="govuk-heading-xl govuk-!-margin-top-4">Change of registered office address</li>
+  <li class="govuk-!-margin-top-4">Current address</li>
+  <li>1 Any Street, Any Town, Any City, AB12 3CD</li>
+  <fieldset class="govuk-fieldset govuk-!-margin-top-4">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+   
+  </legend>
+
+</fieldset>
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h2 class="govuk-fieldset__heading">
+      What is the new address of the company?  
+    </h2>
+  </legend>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="address-line-1">
+     <strong> Building name or number </strong>
+    </label>
+    <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+  </div>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="address-postcode">
+     <strong> Postcode </strong>
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
+  </div>
+</fieldset>
+
+<p class="govuk-body"><a href="#" class="govuk-link"> Enter address manually</a></p>
+<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+        <label class="govuk-label govuk-checkboxes__label" for="waste">
+          The new registered office address is an appropriate address as outlined in section 86 of the Companies Act 2006.
+        </label>
+      </div>
+      <br>
+      <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does appropriate address mean?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    An appropriate address is one that meets the requirements set out in section 86 of the Companies Act 2006. This means it must be a physical address where the company can be contacted and where official documents can be served.
+  </div>
+</details>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Submit changes
+      </button>
+
+      <p class="govuk-body"><a href="#" class="govuk-link"> Cancel
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+
+<footer class="govuk-footer">
+  <div class="govuk-width-container">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <p class="govuk-body">
+          <a href="../manage-prototype" class="govuk-link" style="padding-right:20px;">Manage your prototype</a>
+          <a href="../manage-prototype/clear-data" class="govuk-link">Clear data</a>
+        </p>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41">
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+          © Crown copyright
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/application.js"></script>
+{% endblock %}
