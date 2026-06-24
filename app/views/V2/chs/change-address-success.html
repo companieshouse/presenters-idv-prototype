@@ -49,7 +49,20 @@
 </div>
 
 </div>
-
+<form action="{{currentUrl}}" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p class="govuk-body">
+        <p> Search for a company or officer </p>
+      </p>
+      <div class="input-group">
+         
+          <div><input type="text" name="q" class="search_input" /></div>
+          <div><a class="govuk-button search_button" href="chs-company-overview.html"></a></div>
+      </div>
+    </div>
+  </div>
+</form>
 
 {% endblock %}
 
@@ -60,64 +73,54 @@
 
 
 
-      <p class="govuk-body">Filing for <a href="#" class="govuk-link">NR1 TRADINGS LTD (07913287)</a></p>
+      <p class="govuk-body"><a href="#" class="govuk-link">Advanced company search</a></p>
+
+  <div class="govuk-panel govuk-panel--confirmation chs-confirmation-panel">
+
+  <div class="chs-confirmation-company">
+    NR1TRADING
+    <br>
+    <span>Company number 01234567</span>
+  </div>
+
+  <h1 class="govuk-panel__title">
+  Change of registered office address received
+</h1>
+
+  <div class="chs-confirmation-date">
+    on <strong>6 May 2026</strong> at <strong>2:31pm</strong>
+  </div>
+
+  <div class="govuk-panel__body">
+    Reference number
+    <br>
+    <strong>139303-809817-780738</strong>
+  </div>
+
+</div>
 
       <ul class="govuk-list">
         
-  <li class="govuk-heading-xl govuk-!-margin-top-4">Change of registered office address</li>
-  <li class="govuk-!-margin-top-4">Current address</li>
-  <li>1 Any Street, Any Town, Any City, AB12 3CD</li>
+  <li class="govuk-!-margin-top-4">We have sent you a confirmation email at</li>
+  <li><strong>bjones@companieshouse.gov.uk</strong> with your reference number.</li>
+  <li class="govuk-!-margin-top-4">If you've not received the application confirmation email, please check your spam or junk mail folder. You should <a href="" class="govuk-link">contact us </a>if you haven't had an email within 30 minutes. </li>
+  <li class="govuk-!-margin-top-4">We'll send a second email to confirm that your filing has been processed (normally within 2 working days).</li>
+  <li class="govuk-!-margin-top-4">You can go to <a href="#" class="govuk-link">Your filings</a> to check the status or get a copy of what you have filed.</li>
+  <li class="govuk-!-margin-top-4"> <a href="#" class="govuk-link">Print this page for your records</a></li>
+  <li class="govuk-!-margin-top-4">
   <fieldset class="govuk-fieldset govuk-!-margin-top-4">
   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
    
   </legend>
 
 </fieldset>
-<fieldset class="govuk-fieldset">
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-    <h2 class="govuk-fieldset__heading">
-      What is the new address of the company?  
-    </h2>
-  </legend>
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="address-line-1">
-     <strong> Building name or number </strong>
-    </label>
-    <input class="govuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
-  </div>
 
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="address-postcode">
-     <strong> Postcode </strong>
-    </label>
-    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" autocomplete="postal-code">
-  </div>
-</fieldset>
 
-<p class="govuk-body"><a href="#" class="govuk-link"> Enter address manually</a></p>
-<div class="govuk-checkboxes" data-module="govuk-checkboxes">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-        <label class="govuk-label govuk-checkboxes__label" for="waste">
-          The new registered office address is an appropriate address as outlined in section 86 of the Companies Act 2006.
-        </label>
-      </div>
-      <br>
-      <details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      What does appropriate address mean?
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-    An appropriate address is one that meets the requirements set out in section 86 of the Companies Act 2006. This means it must be a physical address where the company can be contacted and where official documents can be served.
-  </div>
-</details>
-<a href="/V2/chs/change-address-success" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-  Submit changes
-</a>
-    
-      <p class="govuk-body"><a href="#" class="govuk-link"> Cancel
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Return to company overview
+      </button>
+
+      
     </div>
   </div>
 {% endblock %}

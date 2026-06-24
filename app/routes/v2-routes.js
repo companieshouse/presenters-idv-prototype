@@ -35,5 +35,10 @@ router.post('/V2/presenter-type-radio', function(req, res) {
   return res.redirect('/V2/chs/confirm-presenter-statements')
 
 })
+router.post('/V2/chs/confirm-presenter-statements-answer', function(req, res) {
+
+  res.redirect('/V2/chs/change-address')
+
+})
 
 module.exports = router
