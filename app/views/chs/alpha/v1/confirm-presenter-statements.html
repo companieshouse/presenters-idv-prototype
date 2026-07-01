@@ -1,0 +1,155 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Confirm presenter statements" %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <!-- Check for error -->
+  {% if errorStatements %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errorList
+    }) }}
+  {% endif %}
+
+    <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorStatements %}
+        <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+        <div class="govuk-form-group">
+        {% endif %} 
+          <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                <!-- ACSP -->
+                {% if data['presenterType'] == "acsp" %}
+                  Confirm the ACSP statements
+
+                <!-- acspEmployee -->
+                {% elif data['presenterType'] == "acspEmployee" %} 
+                  Confirm the ACSP employee statements
+
+                <!-- externalPresenter -->
+                {% elif data['presenterType'] == "externalPresenter" %} 
+                  Confirm the external presenter statements
+
+                <!-- insolvencyPractitioner -->
+                {% elif data['presenterType'] == "insolvencyPractitioner" %} 
+                  Confirm the insolvency practitioner statements
+
+                <!-- Officer or employee of the company, officer or employee of a corporate director -->
+                {% else %}
+                  Confirm the officer statements
+                {% endif %} 
+              </h1>
+            </legend>
+            <!-- Check for error -->
+            {% if errorStatements %}
+            <p id="statements-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>Select the statements
+            </p>
+            {% endif %}
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <!-- ACSP -->
+                {% if data['presenterType'] == "acsp" %}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I am an Authorised Corporate Service Provider (ACSP)
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
+                    I'm delivering a filing on behalf of the company
+                  </label>
+                </div>
+
+                <!-- acspEmployee -->
+                {% elif data['presenterType'] == "acspEmployee" %} 
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I am an employee of an ACSP
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
+                    I'm delivering a filing on behalf of the company
+                  </label>
+                </div>
+
+                <!-- externalPresenter -->
+                {% elif data['presenterType'] == "externalPresenter" %} 
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I am an external presenter
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+
+                <!-- insolvencyPractitioner -->
+                {% elif data['presenterType'] == "insolvencyPractitioner" %} 
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I am an insolvency practitioner
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+
+                <!-- Officer or employee of the company, officer or employee of a corporate director -->
+                {% else %}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I am an officer or employee of the company, or an officer or employee of a corporate director of the company
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
+                    I'm delivering a filing on behalf of the company
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-3" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-3">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+                {% endif %} 
+            </div>
+          </fieldset>
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button> 
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

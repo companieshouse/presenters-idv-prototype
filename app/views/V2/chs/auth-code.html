@@ -71,15 +71,10 @@
             <span class="govuk-visually-hidden">Error:</span> Enter the company authentication code
           </p>
           {% endif %} 
-          <input 
-    class="govuk-input govuk-input--width-10" 
-    id="companyNumber" 
-    name="companyNumber" 
-    type="text" 
-    aria-describedby="companyNumber-hint companyNumber-inset"
-  />
+          <input class="govuk-input govuk-input--width-10" id="authCode" name="authCode" type="text" aria-describedby="authCode-hint"/>
 
-<br> <br>
+<br> 
+<br>
 
 {{ govukDetails({
   summaryText: "I do not have an authentication code",

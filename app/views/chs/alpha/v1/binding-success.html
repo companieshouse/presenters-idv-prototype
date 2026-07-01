@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Identity verification complete – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Your identity is verified and connected to your Companies House account</h1>
+
+
+    <p class="govuk-body">
+      To view your Companies House personal code, go to
+        <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">Manage account (opens in new tab)</a>.
+    </p>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What is a Companies House personal code?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+      <p>This is an 11 character code that is given to a person once they’ve verified their identity. The code is personal to you, not your company or a company you work for.</p>
+
+        <p class="govuk-body">You'll need your personal code for various reasons. For example:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>as part of some company filings, such as the <a href="https://www.gov.uk/guidance/confirmation-statement-guidance" class="govuk-link" rel="noreferrer noopener" target="_blank">confirmation statement (opens in new tab)</a></li>
+        <li>if you are appointed as a director</li>
+        <li>if you become a <a href="https://www.gov.uk/guidance/people-with-significant-control-pscs#:~:text=A%20person%20with%20significant%20control,someone%20associated%20with%20your%20company." class="govuk-link" rel="noreferrer noopener" target="_blank">person with significant control (PSC) (opens in new tab)</a>
+      </li>
+      </ul>
+      
+      <p class="govuk-body">If you are a director or a PSC, you'll need to use your Companies House personal code to connect your verified identity to our records. This is a requirement, and will ensure that we know the correct person is linked to the name we have on file.</p> </p>
+      </div>
+      
+    </details>
+
+    <h2 class="govuk-heading-m">Check if there’s anything else you need to do</h2>
+    <p class="govuk-body">You may have to use your personal code to complete other tasks to comply with identity verification requirements. This depends on your role, and when you started that role.</p>
+
+    <p class="govuk-body">To find out if there’s anything else you need to do,
+      <a href="https://prove-your-identity-prototype.herokuapp.com/release1-dev-v3/pre-one-login/guidance#content-6" class="govuk-link" rel="noreferrer noopener" target="_blank">check the guidance (opens in new tab)</a>.
+    </p>
+
+  </div>
+</div>
+
+
+{% endblock %}

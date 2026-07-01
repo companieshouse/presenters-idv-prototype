@@ -1,0 +1,183 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Find and update company information
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  {{ govukTag({
+    classes: "govuk-tag--blue govuk-!-margin-bottom-4",
+    text: "Alpha - Version 1"
+  }) }}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Find and update company information <span class="govuk-caption-xl"></span>
+      </h1>
+
+      <a href="search-register" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Start now
+      </a>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-l">Prototype data</h2>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Auth code
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                123456
+              </dt>
+              <dd class="govuk-summary-list__value">
+                User has not been verified with sign in email
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+
+      <h2 class="govuk-heading-l">Individual screen links</h2>
+
+      <ul class="govuk-list govuk-list--bullet"> 
+        <li>
+          <a class="govuk-link" href="search-register">Start - Search register</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="sign-in">Sign in</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="search-signed-in">Search register - signed in</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="search-results">Search results</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="chs-company-overview">Company overview</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="auth-code">Auth code</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="chs-file-accounts">Company overview - Filing</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="presenter-type-radio">Presenter type radio</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="confirm-presenter-statements">Confirm presenter statements</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="auth-code">Auth code</a>
+        </li>   
+        <li>
+          <a class="govuk-link" href="auth-code">Auth code</a>
+        </li>   
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m" id="authScreens">Changes this version</h2>
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          First version
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m">User research</h2>
+      <ul class="govuk-list govuk-list--bullet">      
+        <li>
+          <a class="govuk-link" target="_blank" href="#">tbd</a>
+        </li>
+      </ul>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m">Journey flow</h2>
+      <p class="govuk-body"><a class="govuk-link" target="_blank" href="https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1782734126197/5f366bf99e7a223e4070b68f406b6422e3382a82">Flow diagrams</a></p>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible govuk-!-margin-bottom-6">
+
+      <h2 class="govuk-heading-m">
+        IDV services
+      </h2>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col">Links</th>
+
+            <th class="govuk-table__header" scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://idv-prototype.herokuapp.com/">Register as an Authorised Corporate Service Provider</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://prove-your-identity-prototype.herokuapp.com/">How people verify prototype</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="https://submit-psc-statement-prototype-8cf558a5f32b.herokuapp.com/">Provide identity verification details for a PSC or relevant legal entity</a>
+            </td>
+          
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                PROTOTYPE
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+        
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}

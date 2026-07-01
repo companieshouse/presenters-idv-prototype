@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+{% set pageName="What type of presenter are you?" %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorPresenterType %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+
+
+    <form action="{{currentUrl}}" method="post">
+      <!-- Check for error -->
+      {% if errorPresenterType %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" aria-describedby="presenterType-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What type of presenter are you?
+            </h1>
+          </legend>
+          <!-- Check for error -->
+          {% if errorPresenterType %}
+          <p id="presenterType-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select what type of presenter you are
+          </p>
+          {% endif %} 
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType" name="presenterType" type="radio" value="acsp">
+              <label class="govuk-label govuk-radios__label" for="presenterType">
+                ACSP (Account owner)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-2" name="presenterType" type="radio" value="acspEmployee">
+              <label class="govuk-label govuk-radios__label" for="presenterType-2">
+                Employee of an ACSP
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-3" name="presenterType" type="radio" value="director">
+              <label class="govuk-label govuk-radios__label" for="presenterType-3">
+                Officer of the company
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-4" name="presenterType" type="radio" value="employeeCompany">
+              <label class="govuk-label govuk-radios__label" for="presenterType-4">
+                Employee of the company
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-5" name="presenterType" type="radio" value="employeeCorporate">
+              <label class="govuk-label govuk-radios__label" for="presenterType-5">
+                Employee of a corporate director
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-6" name="presenterType" type="radio" value="externalPresenter">
+              <label class="govuk-label govuk-radios__label" for="presenterType-6">
+                External presenter (IDVed individual)
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-7" name="presenterType" type="radio" value="insolvencyPractitioner">
+              <label class="govuk-label govuk-radios__label" for="presenterType-7">
+                Insolvency practitioner
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-8" name="presenterType" type="radio" value="none">
+              <label class="govuk-label govuk-radios__label" for="presenterType-8">
+                None of the above
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

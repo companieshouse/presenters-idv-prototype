@@ -1,6 +1,5 @@
 {% extends "layouts/main.html" %}
 {% block bodyClasses %}chs-home{% endblock %}
-
 {% block pageTitle %}
 Search the register
 {% endblock %}
@@ -8,6 +7,7 @@ Search the register
 
 
 {% block beforeContent %}
+
 
 <div class="chs-feedback-bar">
     <div class="chs-feedback-bar__inner">
@@ -28,23 +28,11 @@ Search the register
     </a>
   </p>
 
-   <div class="chs-account-nav">
-
-  <span class="chs-account-email">
-    bjones@companieshouse.gov.uk:
-  </span>
-
-  <a href="#" class="govuk-link">Manage account</a>
-
-  <a href="#" class="govuk-link">Your filings</a>
-
-  <a href="#" class="govuk-link">Companies you follow</a>
-
-  <a href="#" class="govuk-link">Basket (0)</a>
-
-  <a href="#" class="govuk-link">Sign out</a>
-
-</div>
+  <div class="chs-signin-row">
+    <a href="sign-in" class="govuk-link">
+      Sign in / Register
+    </a>
+  </div>
 
 </div>
 
@@ -60,35 +48,27 @@ Search the register
 
 
 {% set html %}
-
-  <p class="govuk-notification-banner__fullwidth"><a class="govuk-notification-banner__link" href="https://changestoukcompanylaw.campaign.gov.uk/" class="govuk-link">UK company law is changing</a>.</p>
+  
+  <p class="govuk-notification-banner__heading"><a class="govuk-notification-banner__link" href="https://changestoukcompanylaw.campaign.gov.uk/" class="govuk-link">UK company law is changing</a>.</p>
 {% endset %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-    {{ govukNotificationBanner({
-      html: html
-    }) }}
-
-  </div>
-</div>
+{{ govukNotificationBanner({
+  html: html
+}) }}
 
 <h1 class="govuk-heading-xl govuk-!-text-align-centre">Search the register </h1>
 
-<form action="{{currentUrl}}" method="post">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <p class="govuk-body">
-        Enter company name, number or officer name
-      </p>
-      <div class="input-group">
-          <div><input type="text" name="q" class="search_input" /></div>
-          <div><a class="govuk-button search_button" href="search-results.html"></a></div>
-      </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <p class="govuk-body">
+      Enter company name, number or officer name
+    </p>
+    <div class="input-group">
+        <div><input class="search_input"></input></div>
+        <div><button class="govuk-button search_button"></button></div>
     </div>
   </div>
-</form>
+</div>
 
 <p class="govuk-body govuk-!-margin-top-6"><a href="#" class="govuk-link">Advanced company search</a></p>
 

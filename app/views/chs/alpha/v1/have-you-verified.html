@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Has your identity been verified for Companies House?
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorHaveVerified %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <form action="{{currentUrl}}" method="post">
+
+      <!-- Check for error -->
+      {% if errorHaveVerified %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" aria-describedby="haveVerified-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Has your identity been verified for Companies House?
+            </h1>
+          </legend>
+          <div id="haveVerified-hint" class="govuk-hint">You need to have verified your identity to use this service.
+            
+          </div>
+          <!-- Check for error -->
+          {% if errorHaveVerified %}
+          <p id="haveVerified-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select yes if you have verified your identity with Companies House
+          </p>
+          {% endif %} 
+
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="haveVerified" name="haveVerified" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="haveVerified">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="haveVerified-2" name="haveVerified" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="haveVerified-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+      {{ govukDetails({
+        summaryText: "If you used GOV.UK One Login to verify your identity",
+        text: "You must be signed in with the email address you verified with to use this service."
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

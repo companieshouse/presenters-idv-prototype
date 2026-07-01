@@ -101,25 +101,25 @@ text: "I confirm that my identity is verified"
   <div class="govuk-grid-column-two-thirds">
 
 
-<form action="/V2/chs/confirm-presenter-statements-answer" method="post">
+    <form action="/V2/chs/confirm-presenter-statements-answer" method="post">
 
-  {{ govukCheckboxes({
-    name: "presenter-statements",
-    fieldset: {
-      legend: {
-        text: heading,
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    items: statementItems
-  }) }}
+      {{ govukCheckboxes({
+        name: "presenter-statements",
+        fieldset: {
+          legend: {
+            text: heading,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: statementItems
+      }) }}
 
-  {{ govukButton({
-    text: "Confirm and continue"
-  }) }}
+      {{ govukButton({
+        text: "Confirm and continue"
+      }) }}
 
-</form>
+    </form>
 
 
   </div>

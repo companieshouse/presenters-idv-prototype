@@ -2,8 +2,7 @@
 {% set pageName="What type of presenter are you?" %}
 
 {% block beforeContent %}
-  
-   {% include "/includes/back-link.html" %}
+  {% include "/includes/back-link.html" %}
   {% include "/includes/user-bar.html" %}
 {% endblock %}
 
@@ -12,31 +11,31 @@
   {% from "govuk/components/button/macro.njk" import govukButton %}
 
 
-<form action="/V2/presenter-type-radio" method="post">
-  {{ govukRadios({
-    name: "what-type-of-presenter",
-    fieldset: {
-      legend: {
-        text: "What type of presenter are you?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    items: [
-      { value: "acsp", text: "ACSP (Account owner)" },
-      { value: "acspEmployee", text: "Employee of an ACSP" },
-      { value: "director", text: "Officer of the company" },
-      { value: "employeeCompany", text: "Employee of the company" },
-      { value: "employeeCorporate", text: "Employee of a corporate director" },
-      { value: "externalPresenter", text: "External presenter (IDVed individual)" },
-      { value: "insolvencyPractitioner", text: "Insolvency practitioner" },
-      { value: "none", text: "None of the above" }
-    ]
-  }) }}
+  <form action="{{currentUrl}}" method="post">
+    {{ govukRadios({
+      name: "what-type-of-presenter",
+      fieldset: {
+        legend: {
+          text: "What type of presenter are you?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "acsp", text: "ACSP (Account owner)" },
+        { value: "acspEmployee", text: "Employee of an ACSP" },
+        { value: "director", text: "Officer of the company" },
+        { value: "employeeCompany", text: "Employee of the company" },
+        { value: "employeeCorporate", text: "Employee of a corporate director" },
+        { value: "externalPresenter", text: "External presenter (IDVed individual)" },
+        { value: "insolvencyPractitioner", text: "Insolvency practitioner" },
+        { value: "none", text: "None of the above" }
+      ]
+    }) }}
 
-  {{ govukButton({
-    text: "Save and continue"
-  }) }}
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
 </form>
 
 
