@@ -10,8 +10,9 @@ Enter your Companies House personal code and date of birth
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "includes/phase-banner.html" %}
-  {% include "includes/back-link.html" %}
+{% include "includes/phase-banner.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% include "/includes/user-bar.html" %}
 {% endblock %}
 
 {% block content %}
