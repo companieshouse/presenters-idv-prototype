@@ -32,30 +32,30 @@
               <h1 class="govuk-fieldset__heading">
                 <!-- ACSP -->
                 {% if data['presenterType'] == "acsp" %}
-                  Confirm the ACSP statements
+                  Confirm the statements
 
                 <!-- acspEmployee -->
                 {% elif data['presenterType'] == "acspEmployee" %} 
-                  Confirm the ACSP employee statements
+                  Confirm the statements
 
                 <!-- externalPresenter -->
                 {% elif data['presenterType'] == "externalPresenter" %} 
-                  Confirm the external presenter statements
+                  Confirm the statements
 
                 <!-- insolvencyPractitioner -->
                 {% elif data['presenterType'] == "insolvencyPractitioner" %} 
-                  Confirm the insolvency practitioner statements
+                  Confirm the statements
 
                 <!-- Officer or employee of the company, officer or employee of a corporate director -->
                 {% else %}
-                  Confirm the officer statements
+                  Confirm the statements
                 {% endif %} 
               </h1>
             </legend>
             <!-- Check for error -->
             {% if errorStatements %}
             <p id="statements-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span>Select the statements
+              <span class="govuk-visually-hidden">Error:</span>Select to confirm the statements
             </p>
             {% endif %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -70,7 +70,7 @@
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-2">
-                    I'm delivering a filing on behalf of the company
+                    I'm delivering a filing on behalf of FICTUS LTD
                   </label>
                 </div>
 
@@ -79,13 +79,13 @@
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
-                    I am an employee of an ACSP
+                    I am an officer or employee of an Authorised Corporate Service Provider (ACSP)
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-2">
-                    I'm delivering a filing on behalf of the company
+                    I'm delivering a filing on behalf of FICTUS LTD
                   </label>
                 </div>
 
@@ -124,13 +124,13 @@
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
-                    I am an officer or employee of the company, or an officer or employee of a corporate director of the company
+                    I am an officer or employee of FICTUS LTD
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-2">
-                    I'm delivering a filing on behalf of the company
+                    I'm delivering a filing on behalf of FICTUS LTD
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">

@@ -29,13 +29,13 @@
         <fieldset class="govuk-fieldset" aria-describedby="presenterType-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              What type of presenter are you?
+              What is your role in this filing?
             </h1>
           </legend>
           <!-- Check for error -->
           {% if errorPresenterType %}
           <p id="presenterType-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> Select what type of presenter you are
+            <span class="govuk-visually-hidden">Error:</span> Select your role in this filing
           </p>
           {% endif %} 
 
@@ -43,51 +43,34 @@
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="presenterType" name="presenterType" type="radio" value="acsp">
               <label class="govuk-label govuk-radios__label" for="presenterType">
-                ACSP (Account owner)
+                I'm an Authorised Corporate Service Provider (ACSP) 
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="presenterType-2" name="presenterType" type="radio" value="acspEmployee">
               <label class="govuk-label govuk-radios__label" for="presenterType-2">
-                Employee of an ACSP
+                I'm an officer or an employee of an ACSP 
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="presenterType-3" name="presenterType" type="radio" value="director">
               <label class="govuk-label govuk-radios__label" for="presenterType-3">
-                Officer of the company
+                I'm an officer of FICTUS LTD
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="presenterType-4" name="presenterType" type="radio" value="employeeCompany">
               <label class="govuk-label govuk-radios__label" for="presenterType-4">
-                Employee of the company
+                I'm an employee of FICTUS LTD
               </label>
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="presenterType-5" name="presenterType" type="radio" value="employeeCorporate">
               <label class="govuk-label govuk-radios__label" for="presenterType-5">
-                Employee of a corporate director
+                I'm an officer or employee of a corporate director of FICTUS LTD
               </label>
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="presenterType-6" name="presenterType" type="radio" value="externalPresenter">
-              <label class="govuk-label govuk-radios__label" for="presenterType-6">
-                External presenter (IDVed individual)
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="presenterType-7" name="presenterType" type="radio" value="insolvencyPractitioner">
-              <label class="govuk-label govuk-radios__label" for="presenterType-7">
-                Insolvency practitioner
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="presenterType-8" name="presenterType" type="radio" value="none">
-              <label class="govuk-label govuk-radios__label" for="presenterType-8">
-                None of the above
-              </label>
-            </div>
+
           </div>
         </fieldset>
       </div>
