@@ -30,26 +30,7 @@
           <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                <!-- ACSP -->
-                {% if data['presenterType'] == "acsp" %}
                   Confirm the statements
-
-                <!-- acspEmployee -->
-                {% elif data['presenterType'] == "acspEmployee" %} 
-                  Confirm the statements
-
-                <!-- externalPresenter -->
-                {% elif data['presenterType'] == "externalPresenter" %} 
-                  Confirm the statements
-
-                <!-- insolvencyPractitioner -->
-                {% elif data['presenterType'] == "insolvencyPractitioner" %} 
-                  Confirm the statements
-
-                <!-- Officer or employee of the company, officer or employee of a corporate director -->
-                {% else %}
-                  Confirm the statements
-                {% endif %} 
               </h1>
             </legend>
             <!-- Check for error -->
@@ -89,12 +70,18 @@
                   </label>
                 </div>
 
-                <!-- externalPresenter -->
-                {% elif data['presenterType'] == "externalPresenter" %} 
+                <!-- officer or employee -->
+                {% elif data['presenterType'] == "employeeCorporate" %} 
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
-                    I am an external presenter
+                    I am an officer or employee of a corporate officer of FICTUS LTD
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
+                    I'm delivering a filing on behalf of FICTUS LTD
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
@@ -104,23 +91,8 @@
                   </label>
                 </div>
 
-                <!-- insolvencyPractitioner -->
-                {% elif data['presenterType'] == "insolvencyPractitioner" %} 
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
-                  <label class="govuk-label govuk-checkboxes__label" for="statements">
-                    I am an insolvency practitioner
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
-                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
-                    I confirm that my identity is verified
-                  </label>
-                </div>
-
-                <!-- Officer or employee of the company, officer or employee of a corporate director -->
-                {% else %}
+                <!-- corporate employee or officer -->
+                {% else%} 
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
@@ -128,8 +100,8 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
-                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
+                  <input class="govuk-checkboxes__input" id="statements-3" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-3">
                     I'm delivering a filing on behalf of FICTUS LTD
                   </label>
                 </div>
