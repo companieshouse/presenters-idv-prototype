@@ -89,7 +89,7 @@ router.post('/chs/alpha/v1/presenter-type-radio', function (req, res) {
   if (typeof req.session.data['presenterType'] === 'undefined') {
     // No value so add error to array
     errors.push({
-      text: 'Select what type of presenter you are',
+      text: 'Select your role in this filing',
       href: '#presenterType'
     })
 
@@ -99,10 +99,7 @@ router.post('/chs/alpha/v1/presenter-type-radio', function (req, res) {
       errorList: errors
     })
   } else {
-    if (req.session.data['presenterType'] === 'none') {
-      res.redirect('/chs/alpha/v1/cannot-file')
-    } 
-    else if (req.session.data['authCode'] === '123456') {
+    if (req.session.data['authCode'] === '123456') {
       res.redirect('/chs/alpha/v1/have-you-verified')
     } 
     else {
@@ -128,7 +125,7 @@ router.post('/chs/alpha/v1/confirm-presenter-statements', function (req, res) {
   if (typeof req.session.data['statements'] === 'undefined') {
     // No value so add error to array
     errors.push({
-      text: 'Select the statements',
+      text: 'Select to confirm the statements',
       href: '#statements'
     })
 
