@@ -1,0 +1,92 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+We are changing the way you sign in to some of our services – {{ serviceName }} - GOV.UK
+{% endblock %}
+
+{% set serviceName %}
+ 
+{% endset %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="{{currentUrl}}" method="post">
+
+          <a href="#" class="govuk-back-link govuk-!-padding-top-0">Back</a>
+          <h1 class="govuk-heading-xl">We're taking you to GOV.UK One Login to sign in to this service</h1>
+
+          <h2 class="govuk-heading-m">Connecting existing accounts</h2>
+
+          <p class="govuk-body">If you have an existing WebFiling or Companies House account, or both, we'll connect them to your GOV.UK One Login (unless you've done so already).  </p>
+
+          <p class="govuk-body">To connect the accounts:</p>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Create or sign in to your GOV.UK One Login on the next screen.</li>
+            <li>We'll ask you to enter a security code that we'll send to your email address.</li>
+          </ol>
+
+          <p class="govuk-body"> You'll only need to do this once, so that you can keep the existing information in your accounts.</p>
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              You will lose any existing information if you do not use the same email address to sign in to each account. You must also use the same email address for your GOV.UK One Login.
+            </strong>
+          </div>
+ 
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                What to do if you already have existing accounts or a GOV.UK One Login that use different email addresses to sign in
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>If you want to connect your accounts that use different email addresses to sign in, you'll need to update them so they're all the same. It is up to you which email addresses you update. You'll need to sign in to do this. </p>
+              <p class="govuk-body">The following links open in a new tab:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  <li><a href="webfiling-email-address-return-to-sign-in" class="govuk-link" rel="noreferrer noopener" target="_blank">update your WebFiling email address<span class="govuk-visually-hidden">(opens in a new tab)</span></a></li>
+                  <li><a href="choose-sign-in" class="govuk-link" rel="noreferrer noopener" target="_blank">update your Companies House account email address<span class="govuk-visually-hidden">(opens in a new tab)</span></a></li>
+                  <li><a href="https://find-update-company-info.herokuapp.com/public-beta-release-2/create-or-sign-in-9" class="govuk-link" rel="noreferrer noopener" target="_blank">update your GOV.UK One Login email address<span class="govuk-visually-hidden">(opens in a new tab)</span></a></li>
+                </ul>
+
+    <p>Then come back to this page and continue to sign in.</p>
+              </ul>
+            </div>
+          </details>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+            
+                What to do if you share access to your accounts with other people
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body">Only <strong>one</strong> person can connect each account to their GOV.UK One Login.</p>
+              <p class="govuk-body">
+                Anyone else who shares access to these accounts will need to create their own GOV.UK One Login, using a different email address. They will no longer be able to access the information in the accounts.
+              </p>
+              <p>These changes may affect the way your business currently accesses Companies House services. It is up to each business how to adapt to these changes.</p>
+            </div>
+          </details>
+
+          {{ govukButton({
+            text: "Go to GOV.UK One Login",
+            classes: "govuk-!-margin-top-4 govuk-!-margin-bottom-8"
+          }) }}
+ 
+        </form>
+   </div>
+ </div>
+ 
+ </div>
+ {% endblock %}
