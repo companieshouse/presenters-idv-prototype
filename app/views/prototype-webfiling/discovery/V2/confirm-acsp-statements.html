@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Confirm the ACSP presenter statements" %}
+
+{% block beforeContent %}
+   {% include "/includes/phase-banner.html" %}
+   {% include "/includes/back-link-language-toggle.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+<form action="/V1/confirm-acsp-statements-answer" method="post">
+
+{% if (data['what-type-of-presenter'] == "acsp") %}
+    {{ govukCheckboxes({
+      name: "confirm-acsp-statements",
+      fieldset: {
+        legend: {
+          text: "Confirm the ACSP presenter statements",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "I'm an Authorised Corporate Service Provider (ACSP)", text: "I'm an Authorised Corporate Service Provider (ACSP)" },
+        { value: "I'm delivering a filing on behalf of the company", text: "I'm delivering a filing on behalf of the company" }
+      ]
+    }) }}
+
+{% elif (data['what-type-of-presenter'] == "acspEmployee") %}
+    {{ govukCheckboxes({
+      name: "confirm-acsp-statements",
+      fieldset: {
+        legend: {
+          text: "Confirm the ACSP presenter statements",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "I am the employee of an ACSP", text: "I am the employee of an ACSP" },
+        { value: "I'm delivering a filing on behalf of the company", text: "I'm delivering a filing on behalf of the company" }
+      ]
+    }) }}
+
+{% else %}
+    {{ govukCheckboxes({
+      name: "confirm-acsp-statements",
+      fieldset: {
+        legend: {
+          text: "Confirm the ACSP presenter statements",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "I'm an Authorised Corporate Service Provider (ACSP), or an employee of one", text: "I'm an Authorised Corporate Service Provider (ACSP), or an employee of one" },
+        { value: "I'm delivering a filing on behalf of the company", text: "I'm delivering a filing on behalf of the company" }
+      ]
+    }) }}
+{% endif %}
+
+    {{ govukButton({
+      text: "Save and continue",
+      type: "submit"
+    }) }}
+  </form>
+{% endblock %}

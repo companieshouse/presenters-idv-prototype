@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}   
+
+{% block header %}
+
+  <!-- Companies House header -->
+  <div style="background:#0b0c0c; padding:10px 0;">
+    <div class="govuk-width-container" style="display:flex; align-items:center;">
+      <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
+        <img src="http://resources.companieshouse.gov.uk/images/royal-coat-of-arms-white.png"
+             alt="UK Government crest" height="32">
+      </a>
+      <a href="https://www.gov.uk/government/organisations/companies-house"
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
+        Companies House
+      </a>
+    </div>
+  </div>
+
+  <!-- Blue underline -->
+  <div style="background-color:#005EA5; height:10px; width:100%;"></div>
+{% endblock %}
+
+{% block pageTitle %}
+  NR1 TRADINGS LTD – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block beforeContent %}
+ 
+  {% include "includes/language-toggle.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorCompanyNumber %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorCompanyNumber %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+        <div id="hint-text" class="govuk-hint"> NR1 TRADINGS LTD (07913287) </div>
+
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="companyNumber">
+              Enter the company authentication code
+            </label>
+          </h1>
+          <div id="companyNumber-hint" class="govuk-hint">
+            This is a 6 character code issued by us to each company. 
+          </div>
+          <!-- Check for error -->
+          {% if errorCompanyNumber %}
+          <p id="emailAddress-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter the company authentication code
+          </p>
+          {% endif %} 
+          <input class="govuk-input govuk-input--width-10" id="authCode" name="authCode" type="text" aria-describedby="authCode-hint"/>
+
+<br> 
+<br>
+
+{{ govukDetails({
+  summaryText: "I do not have an authentication code",
+  html: 'You\'ll need to <a class="govuk-link" href="V2/review-address">request an authentication code</a>. It is sent by post.'
+}) }}
+
+
+<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="save" name="save" type="checkbox" value="save details">
+        <label class="govuk-label govuk-checkboxes__label" for="save">
+          Save the company details
+        </label>
+        <span id="save-hint" class="govuk-hint govuk-checkboxes__hint">If you save the details, we'll add the company to your account. You will not need to re-enter the authentication code for most online filings. You'll also be able to digitally authorise other people to file online for this company.</span>
+      </div>
+
+<br> <br>
+              
+        {{ govukButton({
+          text: "Continue",
+          href: "chs-file-accounts"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

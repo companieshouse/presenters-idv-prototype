@@ -1,0 +1,63 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK One Login prototype
+{% endblock %}
+
+{% set serviceName %}
+{% endset %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Confirm this is the correct company</h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Company name</dt>
+          <dd class="govuk-summary-list__value">
+            Big Shop Ltd
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Company number</dt>
+          <dd class="govuk-summary-list__value">{{ data['companyNumber'] }}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Status</dt>
+          <dd class="govuk-summary-list__value">
+            Active
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Incorporation date</dt>
+          <dd class="govuk-summary-list__value">8 February 2022</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Company type</dt>
+          <dd class="govuk-summary-list__value">Private limited company</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Registered office address</dt>
+          <dd class="govuk-summary-list__value">25 Old Street <br> Parkland <br> Townville  <br> England <br> XX2 ZZ4</dd>
+        </div>
+      </dl>
+
+      <form action="{{currentUrl}}" method="post">
+
+        {{ govukButton({
+          text: "Confirm and continue"
+        }) }}
+
+      </form>
+
+
+      <p><a href="company-number" class="govuk-link govuk-link--no-visited-state">Choose a different company</a></p>
+    </div>
+  </div>
+
+{% endblock %}

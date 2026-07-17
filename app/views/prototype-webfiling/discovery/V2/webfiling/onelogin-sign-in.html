@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+<!-- Hide service navigation-->
+{% block header %}
+<!-- Companies House header -->
+  <div style="background:#0b0c0c; padding:10px 0;">
+    <div class="govuk-width-container" style="display:flex; align-items:center;">
+      <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
+        <img src="http://resources.companieshouse.gov.uk/images/royal-coat-of-arms-white.png"
+             alt="UK Government crest" height="32">
+      </a>
+      <a href="https://www.gov.uk/government/organisations/companies-house"
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
+        Companies House
+      </a>
+    </div>
+  </div>
+
+  <!-- Blue underline -->
+  <div style="background-color:#005EA5; height:10px; width:100%;"></div>
+{% endblock %}
+
+
+
+{% set pageName="Sign in to WebFiling" %}
+
+{% block beforeContent %}
+  {% include "/includes/language-toggle.html" %}
+  {% include "/includes/back-link.html" %}
+   
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+ 
+  <form action="/V1/gov-onelogin-email" method="post">
+      <br>
+      <h1 class="govuk-heading-xl">
+        We're taking you to a GOV.UK One Login to sign in to this service
+      </h1>
+
+      <h2 class="govuk-heading-m">Connecting existing accounts</h2>
+      <p class="govuk-body">If you have an existing WebFiling account, you can connect it to a GOV.UK One Login. This will allow you to sign in to WebFiling and other government services using the same account.</p>
+      <p>To connect the accounts:</p>
+
+      <ul class="govuk-list govuk-list--number">
+        <li>Create or sign in to your GOV.UK One Login on the next screen.</li>
+        <li>We'll ask you to enter a security code that we'll send to your email address.</li>
+      </ul>
+
+      <p>You'll only need to do this once, so that you can keep the existing information in your accounts.</p>
+
+    <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    You will lose any existing information if you do not use the same email address to sign in to each account. You must also use the same email address for your GOV.UK One Login.
+  </strong>
+</div>
+
+     <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What to do if you already have existing accounts or a GOV.UK One Login that use different email addresses to sign in
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+  </div>
+</details>
+
+ <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What to do if you share access to your accounts with other people
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+  </div>
+</details>
+
+    {{ govukButton({
+    text: "Go to GOV.UK One Login",
+    href: "/V2/webfiling/sign-in-to-ch"
+  }) }}
+ </div>
+</div>
+
+  
+</div>
+
+      
+</form>
+  </div>
+</div>
+
+{% endblock %}

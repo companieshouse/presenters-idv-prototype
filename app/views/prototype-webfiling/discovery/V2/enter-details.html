@@ -1,0 +1,212 @@
+{% extends "layouts/main.html" %}
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
+{% set pageName = "Enter details" %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+  {% include "/includes/back-link-language-toggle.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- Error summary hidden initially -->
+    <div id="error-summary" class="govuk-error-summary" data-module="govuk-error-summary" style="display:none">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">There is a problem</h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list" id="error-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <form id="details-form" action="/V1/enter-details-answer" method="post" novalidate>
+      <h1 class="govuk-heading-l">What are your identity verification details? </h1>
+
+      <!-- Auth code -->
+      <div id="auth-code-group" class="govuk-form-group">
+        <label class="govuk-label" for="authentication-code">
+          Companies House personal code
+        </label>
+        <div id="authentication-code-hint" class="govuk-hint">
+          This is an 11 character code, like A1B-2C3D-4E5F
+        </div>
+        <p id="auth-code-error" class="govuk-error-message" style="display:none">
+          <span class="govuk-visually-hidden">Error:</span>
+        </p>
+        <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing"
+               id="authentication-code"
+               name="authenticationCode"
+               type="text"
+               spellcheck="false"
+               value="{{ data.authenticationCode | default('') }}"
+               aria-describedby="authentication-code-hint">
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Where to find your Companies House personal code
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">This is an 11 character code that's given to a person after they've verified their identity for Companies House. 
+          <p class="govuk-body">If you've verified your identity, you can find your code in the 'Manage account' section of your Companies House account. You'll need to sign in (or create an account) using the email address you provided when you verified your identity.</p>
+          <p class="govuk-body">If an authorised agent verified your identity, we sent your personal code to the email address they provided for you.</p>
+        </div>
+      </details>
+      
+      <!-- DOB -->
+      <div id="date-group" class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+          <legend class="govuk-fieldset__legend">Date of birth</legend>
+          <div id="date-of-birth-hint" class="govuk-hint">For example, 27 3 1992</div>
+          <p id="date-error" class="govuk-error-message" style="display:none">
+            <span class="govuk-visually-hidden">Error:</span>
+          </p>
+
+          <div class="govuk-date-input" id="date-of-birth">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-day">Day</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                       id="date-of-birth-day"
+                       name="date-of-birth-day"
+                       type="text"
+                       inputmode="numeric"
+                       value="{{ data['date-of-birth-day'] | default('') }}">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-month">Month</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                       id="date-of-birth-month"
+                       name="date-of-birth-month"
+                       type="text"
+                       inputmode="numeric"
+                       value="{{ data['date-of-birth-month'] | default('') }}">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="date-of-birth-year">Year</label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4"
+                       id="date-of-birth-year"
+                       name="date-of-birth-year"
+                       type="text"
+                       inputmode="numeric"
+                       value="{{ data['date-of-birth-year'] | default('') }}">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {{ govukButton({ text: "Continue", type: "submit" }) }}
+    </form>
+
+    <div class="ur-shortcuts">
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+      <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+        <li><a class="govuk-link" href="stop-screen-acsp">Screen after 3 errors</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+(function ready(fn){
+  if (window.GOVUKPrototypeKit && window.GOVUKPrototypeKit.documentReady) {
+    window.GOVUKPrototypeKit.documentReady(fn)
+  } else if (document.readyState !== 'loading') {
+    fn()
+  } else {
+    document.addEventListener('DOMContentLoaded', fn)
+  }
+})(function () {
+  const form = document.getElementById('details-form')
+  const errorSummary = document.getElementById('error-summary')
+  const errorList = document.getElementById('error-list')
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault()
+    clearAllErrors()
+
+    const errors = []
+    const authCode = document.getElementById('authentication-code').value.trim()
+    const day = document.getElementById('date-of-birth-day').value.trim()
+    const month = document.getElementById('date-of-birth-month').value.trim()
+    const year = document.getElementById('date-of-birth-year').value.trim()
+
+    // Normalize auth code to match server-side logic
+    const normalizedAuthCode = authCode.replace(/\s/g, '').replace(/[^\w]/g, '').slice(0, 20)
+
+    if (!authCode) {
+      addFieldError(errors, 'auth-code-group', 'authentication-code', 'auth-code-error', 'Enter your Companies House personal code', '#authentication-code')
+    } else if (normalizedAuthCode.length !== 11) {
+      addFieldError(errors, 'auth-code-group', 'authentication-code', 'auth-code-error', 'This code is invalid', '#authentication-code')
+    }
+
+    const dayNum = parseInt(day, 10)
+    const monthNum = parseInt(month, 10)
+    const yearNum = parseInt(year, 10)
+
+    if (!day || !month || !year) {
+      addFieldError(errors, 'date-group', 'date-of-birth-day', 'date-error', 'Enter your date of birth', '#date-of-birth-day')
+    } else {
+      const dateObj = new Date(yearNum, monthNum - 1, dayNum)
+      const today = new Date()
+      if (Number.isNaN(dayNum) || Number.isNaN(monthNum) || Number.isNaN(yearNum) ||
+          dateObj.getDate() !== dayNum || dateObj.getMonth() !== monthNum - 1 || dateObj.getFullYear() !== yearNum) {
+        addFieldError(errors, 'date-group', 'date-of-birth-day', 'date-error', 'Enter a valid date', '#date-of-birth-day')
+      } else if (dateObj > today) {
+        addFieldError(errors, 'date-group', 'date-of-birth-day', 'date-error', 'Enter a valid date in the format DD/MM/YYYY', '#date-of-birth-day')
+      }
+    }
+
+    if (errors.length) {
+      showErrorSummary(errors)
+      errors.forEach(err => showFieldError(err.groupId, err.fieldId, err.errorId, err.message))
+    } else {
+      form.submit()
+    }
+  })
+
+  function addFieldError(errors, groupId, fieldId, errorId, message, href) {
+    errors.push({ href, text: message, groupId, fieldId, errorId, message })
+  }
+
+  function clearAllErrors () {
+    errorSummary.style.display = 'none'
+    errorList.innerHTML = ''
+    ;['auth-code-group','date-group'].forEach(g => document.getElementById(g).classList.remove('govuk-form-group--error'))
+    ;['authentication-code','date-of-birth-day','date-of-birth-month','date-of-birth-year'].forEach(i => document.getElementById(i).classList.remove('govuk-input--error'))
+    ;['auth-code-error','date-error'].forEach(e => document.getElementById(e).style.display = 'none')
+  }
+
+  function showFieldError (groupId, inputId, errorId, errorText) {
+    document.getElementById(groupId).classList.add('govuk-form-group--error')
+    document.getElementById(inputId).classList.add('govuk-input--error')
+    const el = document.getElementById(errorId)
+    el.innerHTML = '<span class="govuk-visually-hidden">Error:</span> ' + errorText
+    el.style.display = 'block'
+  }
+
+  function showErrorSummary (errors) {
+    errorList.innerHTML = errors.map(e => `<li><a href="${e.href}">${e.text}</a></li>`).join('')
+    errorSummary.style.display = 'block'
+    errorSummary.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    errorSummary.focus()
+  }
+})
+</script>
+{% endblock %}

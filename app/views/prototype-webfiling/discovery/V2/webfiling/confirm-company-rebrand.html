@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+<!-- Hide service navigation-->
+{% block header %}
+<!-- Companies House header -->
+  <div style="background:#0b0c0c; padding:10px 0;">
+    <div class="govuk-width-container" style="display:flex; align-items:center;">
+      <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
+        <img src="http://resources.companieshouse.gov.uk/images/royal-coat-of-arms-white.png"
+             alt="UK Government crest" height="32">
+      </a>
+      <a href="https://www.gov.uk/government/organisations/companies-house"
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
+        Companies House
+      </a>
+    </div>
+  </div>
+
+  <!-- Blue underline -->
+  <div style="background-color:#005EA5; height:10px; width:100%;"></div>
+{% endblock %}
+
+
+
+{% set pageName="Sign in to WebFiling" %}
+
+{% block beforeContent %}
+  {% include "/includes/language-toggle.html" %}
+  {% include "/includes/back-link.html" %}
+ 
+   
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+ 
+  <form action="/V1/gov-onelogin-email" method="post">
+      <br>
+      <h1 class="govuk-heading-xl">
+        Confirm this is the correct company
+      </h1>
+
+     <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Company name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      POSEIDON LOGIC LIMITED
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Company number
+    </dt>
+    <dd class="govuk-summary-list__value">
+      08351260
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Status
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Active
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Incorporation date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      8 January 2013
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Company type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Private Limited Company
+    </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Registered office address
+    </dt>
+    <dd class="govuk-summary-list__value">
+      72 Guild Street<br>
+      London<br>
+      SE23 6FH
+    </dd>
+  </div>
+</dl>
+
+    {{ govukButton({
+    text: "Confirm and continue",
+    href: "/V2/company-authentication"
+  }) }}
+ </div>
+</div>
+
+<a href="/" class="govuk-link--no-visited-state">Choose a different company</a>
+
+</form>
+  </div>
+</div>
+
+{% endblock %}

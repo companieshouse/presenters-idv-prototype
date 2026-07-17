@@ -1,0 +1,128 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Confirm presenter statements" %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% set presenter = data['what-type-of-presenter'] %}
+
+
+
+{% if presenter == "acsp" %}
+
+{% set heading = "Confirm the ACSP statements" %}
+
+{% set statementItems = [
+{
+value: "acsp",
+text: "I am an Authorised Corporate Service Provider (ACSP)"
+},
+{
+value: "delivering",
+text: "I'm delivering a filing on behalf of the company"
+}
+] %}
+
+{% elif presenter == "acspEmployee" %}
+
+{% set heading = "Confirm the ACSP employee statements" %}
+
+{% set statementItems = [
+{
+value: "employee",
+text: "I am an employee of an ACSP"
+},
+{
+value: "delivering",
+text: "I'm delivering a filing on behalf of the company"
+}
+] %}
+
+{% elif presenter == "externalPresenter" %}
+
+{% set heading = "Confirm the external presenter statements" %}
+
+{% set statementItems = [
+{
+value: "external",
+text: "I am an external presenter"
+},
+{
+value: "verified",
+text: "I confirm that my identity is verified"
+}
+] %}
+
+{% elif presenter == "insolvencyPractitioner" %}
+
+{% set heading = "Confirm the insolvency practitioner statements" %}
+
+{% set statementItems = [
+{
+value: "ip",
+text: "I am an insolvency practitioner"
+},
+{
+value: "verified",
+text: "I confirm that my identity is verified"
+}
+] %}
+
+{% else %}
+
+{% set heading = "Confirm the officer statements" %}
+
+{% set statementItems = [
+{
+value: "officer",
+text: "I am an officer or employee of the company, or an officer or employee of a corporate director of the company"
+},
+{
+value: "delivering",
+text: "I'm delivering a filing on behalf of the company"
+},
+{
+value: "verified",
+text: "I confirm that my identity is verified"
+}
+] %}
+
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <form action="/V2/chs/confirm-presenter-statements-answer" method="post">
+
+      {{ govukCheckboxes({
+        name: "presenter-statements",
+        fieldset: {
+          legend: {
+            text: heading,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: statementItems
+      }) }}
+
+      {{ govukButton({
+        text: "Confirm and continue"
+      }) }}
+
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}

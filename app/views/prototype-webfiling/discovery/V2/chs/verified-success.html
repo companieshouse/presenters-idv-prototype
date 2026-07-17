@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Identity verification complete – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+      Identity verification complete
+      </h1>
+    </div>
+
+    <div class="highlight-box">
+      <p class="govuk-body govuk-!-font-weight-regular">Your Companies House personal code is: <strong>X77-R2D2-C3PQ</strong> </p>
+    
+      <p class="govuk-body">You can also find your code in the <a href="https://find-update-company-info.herokuapp.com/v5/chs-one-login-settings" class="govuk-link" rel="noreferrer noopener" target="_blank">Manage account (opens in new tab)</a> section of your Companies House account.</p>
+    </div>
+
+    <h2 class="govuk-heading-s">What you'll need your Companies House personal code for</h2>
+
+    <p class="govuk-body">You will need to use your personal code to connect your verified identity to our records. This is so that we know the correct person is linked to the name we have on file. The code is personal to you, not your company or a company you work for.
+    </p>
+
+   
+
+    <p class="govuk-body">
+      You'll need your personal code for various reasons. For example:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>as part of some company filings, such as the <a href="https://www.gov.uk/guidance/confirmation-statement-guidance" class="govuk-link" rel="noreferrer noopener" target="_blank">confirmation statement (opens in new tab)</a></li>
+      <li>if you are appointed as a director</li>
+      <li>if you become a <a href="https://www.gov.uk/guidance/people-with-significant-control-pscs#:~:text=A%20person%20with%20significant%20control,someone%20associated%20with%20your%20company." class="govuk-link" rel="noreferrer noopener" target="_blank">person with significant control (PSC) (opens in new tab)</a>
+    </li>
+    </ul>
+
+    <p class="govuk-body">
+      Your personal code is not the same as the <a href="https://www.gov.uk/guidance/company-authentication-codes-for-online-filing" class="govuk-link" rel="noreferrer noopener" target="_blank">company authentication code (opens in new tab)</a>. If you have an authentication code, you should continue to keep this safe as you'll need it to file online. You may need your personal code for some online filings as well.
+    </p>
+
+    <h2 class="govuk-heading-s">Only share the code with people you trust </h2>
+
+    <p class="govuk-body">You may need to share this code with people you trust to file on your behalf, or for your company. Keep this information secure, as you would with other unique codes such as your Unique Taxpayer Reference (UTR) for HMRC.</p> 
+    
+    <p class="govuk-body">Identity verification makes it much more difficult for 
+      criminals to impersonate someone, but not impossible.</p>
+
+    {% if data['version'] == 'sole-trader' %}
+    {{ govukButton({
+      text: "Continue",
+      href: "#"
+    }) }}
+    {% else %}
+    {{ govukButton({
+      text: "Continue",
+      href: "#"
+    }) }}
+    {% endif %} 
+
+    <h3 class="govuk-heading-s">Feedback</h3>
+    <p class="govuk-body">This is a new service. Help us improve it by completing our
+      <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">quick survey (opens in new tab)</a>.
+    </p>
+
+  </div>
+</div>
+
+
+{% endblock %}

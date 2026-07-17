@@ -1,0 +1,86 @@
+
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK One Login prototype
+{% endblock %}
+
+{% set serviceName %}
+{% endset %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds ">
+
+      <form action="{{currentUrl}}" method="post">
+
+        <span class='govuk-caption-l'>BIG SHOP LTD ({{ data['companyNumber'] }})</span> 
+        <h1 class="govuk-heading-l">Enter the company authentication code</h1>  
+        <div id="authentication-code-hint" class="govuk-hint">
+          This is a 6 character code issued by us to each company.
+        </div>
+
+        {{ govukInput({
+          label: {
+            html: "",
+            classes: "govuk-!-font-weight-bold"
+          },
+          classes: "govuk-input--width-10",
+          id: "authentication-code",
+          name: "authentication-code"
+        }) }}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              I do not have an authentication code
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+          <p class="govuk-body">You'll need to <a href="#" class="govuk-link"> request the authentication code</a>. It is sent by post.</p>
+          </div>
+        </details>
+
+        {{ govukCheckboxes({
+            name: "add-company",
+            fieldset: {
+              legend: {
+                text: "",
+                classes: "govuk-fieldset__legend--m "
+              }
+            },
+            hint: {
+              text: ""
+            },
+            items: [
+              {
+                value: "add-company",
+                text: "Save the company details",
+                hint: {
+                  text: "If you save the details, we'll add the company to your account. You will not need to re-enter the authentication code for most online filings. You'll also be able to digitally authorise other people to file online for this company."
+                }
+              }
+            ]
+        }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+   
+
+
+
+
+

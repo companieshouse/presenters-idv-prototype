@@ -1,0 +1,76 @@
+
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK One Login prototype
+{% endblock %}
+
+{% set serviceName %}
+{% endset %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds ">
+      <form action="{{currentUrl}}" method="post">
+
+
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              You've saved the company details for BIG SHOP LTD.
+            </h3>
+          </div>
+        </div>
+
+        <span class='govuk-caption-l'>BIG SHOP LTD ({{ data['companyNumber'] }})</span> 
+        <h1 class="govuk-heading-l">What happens now you've saved the details for this company</h1>  
+
+        <p class="govuk-body">We've added the company to your account. You can now:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            file most information online for this company without the authentication code
+          </li>
+          <li>
+            view and manage other people who are digitally 
+            authorised to file online for this company
+          </li>
+          <li>
+            digitally authorise other people to file online for this company
+          </li>
+        </ul>
+
+        <p class="govuk-body">Keep the company authentication code in a safe place, as you may still need it in the future.</p>
+
+        {{ govukInsetText({
+          text: "We’ve sent an email to any other people who are authorised. 
+          We’ve let them know you are digitally authorised to file online 
+          for this company."
+        }) }}
+
+        {{ govukButton({
+          text: "Go to company overview",
+          classes:"govuk-!-margin-top-3"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+ 
+{% endblock %}
+
+   
+
+
+
+
+

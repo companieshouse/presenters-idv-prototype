@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You've entered the wrong details too many times
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">You are locked out of the service: contact your authorised agent</h1>
+
+    <p>You entered the wrong details too many times. You must ask the Companies House authorised agent who verified your identity to <a href="https://www.gov.uk/contact-companies-house" class="govuk-link">contact us</a> before you can try again. If they email us, ask them to use the subject line: ‘Wrong verification details entered too many times’.</p>
+
+    <p class="govuk-body">
+      For security reasons, you cannot continue using this service until the authorised agent has contacted us.
+    </p>
+    
+    <p>An authorised agent is also known as an Authorised Corporate Service Provider (ACSP).</p>
+
+
+  </div>
+</div>
+
+{% endblock %}

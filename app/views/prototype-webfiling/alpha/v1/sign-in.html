@@ -1,0 +1,76 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+  Sign in to WebFiling
+{% endblock %}
+
+{% set serviceName %}
+ 
+{% endset %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="{{currentUrl}}" method="post">
+    
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Important
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            How you sign in to WebFiling has changed
+          </h3>
+          <p class="govuk-body">From now on, you'll sign in using GOV.UK One Login. You'll be able to create a GOV.UK One Login if you do not already have one.</p>
+          <p class="govuk-body"><a href="comms-article" class="govuk-link">Read more about the  changes to signing in to WebFiling</a>.
+          </p>
+        </div>
+      </div>
+      
+      <h1 class="govuk-heading-l">Sign in to WebFiling</h1>
+  
+      <p class="govuk-body">In WebFiling, you can:</p>
+  
+      <ul class="govuk-list govuk-list--bullet">
+        <li>file your company’s annual accounts and confirmation statement</li>
+        <li>file director and secretary information</li>
+        <li>sign up to get <a href="https://www.gov.uk/guidance/register-for-email-reminders-from-companies-house" class="govuk-link">email reminders</a> when your accounts and confirmation statement are due</li>
+          <li>digitally authorise people to file for your company online</li>
+      </ul>
+  
+      {{ govukButton({
+        text: "Continue",
+        classes:"govuk-!-margin-top-5"
+      }) }}   
+  
+      <ul class="govuk-list">
+        <li>
+          <a href="https://ewf.companieshouse.gov.uk/sframe?name=aboutWebFiling&lang=en" class="govuk-link">Who can use WebFiling</a></p>
+        </li>
+    
+        <li>
+        <a href="https://ewf.companieshouse.gov.uk/help/en/stdwf/faqHelp.html" class="govuk-link">Read the WebFiling guidance</a></p>
+        </li>
+        <li>
+        <a href="https://ewf-legacy.companieshouse.gov.uk//seclogin?tc=1" class="govuk-link">I need to file a charge (mortgage) document using a lender authentication code</a></p>
+        </li>
+      </ul>
+  
+      <h2 class="govuk-heading-m">Try our new 'File a confirmation statement' service</h2>
+  
+      <p class="govuk-body">If you have a private company limited by shares, with 1 to 5 officers (including directors and secretaries), up to 5 people with significant control, and 1 shareholder, you can use our new
+        <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">'File a confirmation statement' service (opens in a new tab)</a>. You will not be able to pay with a Companies House payment account.
+      </p>
+    </form>
+  
+  </div>
+</div>
+
+{% endblock %}

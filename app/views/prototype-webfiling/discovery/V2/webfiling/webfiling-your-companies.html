@@ -1,0 +1,134 @@
+{% extends "layouts/main.html" %}
+
+<!-- Hide service navigation-->
+{% block header %}
+{{ govukHeader({
+  rebrand: true
+}) }}
+{% endblock %}
+
+{% set pageName="Your companies" %}
+
+{% block beforeContent %}
+  {% include "/includes/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+<!-- Simple horizontal navigation -->
+<nav aria-label="Primary navigation" style="margin-top: 10px;">
+  <a class="govuk-link" href="webfiling-dashboard" style="text-decoration: none; margin-right: 30px;">
+    Home
+  </a>
+  <a class="govuk-link" href="javascript:void(0)" style="text-decoration: underline; margin-right: 30px;">
+    Your companies
+  </a>
+  <a class="govuk-link" href="javascript:void(0)" style="text-decoration: none; margin-right: 30px;">
+    Your filings
+  </a>
+  <a class="govuk-link" href="javascript:void(0)" style="text-decoration: none; margin-right: 30px;">
+    File for a company
+  </a>
+  <a class="govuk-link" href="javascript:void(0)" style="text-decoration: none;">
+    Manage account
+  </a>
+</nav>
+
+<hr class="govuk-section-break govuk-section-break--visible govuk-section-break--m">
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l">Your companies</h1>
+
+{{ govukButton({
+  text: "Add a company"
+}) }}
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+{{ govukInput({
+  label: {
+    text: "Search for a company you've added",
+    classes: "govuk-label--m"
+  },
+    hint: {
+    text: "Enter the company name or number
+"
+  },
+    classes: "govuk-!-width-two-thirds",
+
+  id: "search",
+  name: "search"
+}) }}
+{{ govukButton({
+  text: "Search",
+  classes: "govuk-button--secondary"
+}) }}
+  <a href="javascript:void(0)" class="govuk-link govuk-link--no-visited-state">Clear search</a>
+
+<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+
+
+
+    <div style="padding: 20px; border: 1px solid #b1b4b6;">
+      
+<h2 class="govuk-heading-m">ENCOM VIDEO GAMES LIMITED<span class="govuk-caption-m">01234567</span></h2>
+
+
+
+<p class="govuk-body">
+Correspondence address<br>
+<strong>1 Any Street, Any Town, Any City, AB12 3CD</strong></p>
+
+<p class="govuk-body"><strong>People digitally authorised to file online for this company</strong><br>
+Anyone with access to the current authentication code can also file online for this company</p>
+
+{{ govukTable({
+  caption: "Dates and amounts",
+  captionClasses: "govuk-visually-hidden",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Authorisation status"
+    },
+    {
+      text: ""
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Kevin FLYNN"
+      },
+      {
+        html: ' <strong class="govuk-tag govuk-tag--green">Confirmed</strong>'
+      },
+      {
+        html: '<a href="javascript:void(0)" class="govuk-link govuk-link--no-visited-state">View details</a>'
+      }
+    ]
+  ]
+}) }}
+
+<p class="govuk-body">
+  <a href="company-overview" class="govuk-link govuk-link--no-visited-state">File for this company</a>
+</p>
+<p class="govuk-body">
+
+ <a href="javascript:void(0)" class="govuk-link govuk-link--no-visited-state">Digitally authorise a person to file online for this company</a>
+</p>
+
+  
+ 
+</div>
+
+
+{% endblock %}

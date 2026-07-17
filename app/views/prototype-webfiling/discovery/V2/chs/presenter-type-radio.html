@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+{% set pageName="What type of presenter are you?" %}
+
+{% block beforeContent %}
+  {% include "/includes/back-link.html" %}
+  {% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
+  <form action="{{currentUrl}}" method="post">
+    {{ govukRadios({
+      name: "what-type-of-presenter",
+      fieldset: {
+        legend: {
+          text: "What is your role in this filing?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        { value: "acsp", text: "ACSP (Account owner)" },
+        { value: "acspEmployee", text: "Employee of an ACSP" },
+        { value: "director", text: "Officer of the company" },
+        { value: "employeeCompany", text: "Employee of the company" },
+        { value: "employeeCorporate", text: "Employee of a corporate director" },
+        { value: "externalPresenter", text: "External presenter (IDVed individual)" },
+        { value: "insolvencyPractitioner", text: "Insolvency practitioner" },
+        { value: "none", text: "None of the above" }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Save and continue"
+    }) }}
+</form>
+
+
+{% endblock %}

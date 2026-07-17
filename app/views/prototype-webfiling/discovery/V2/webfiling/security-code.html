@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+<!-- Hide service navigation-->
+{% block header %}
+<!-- Companies House header -->
+  <div style="background:#0b0c0c; padding:10px 0;">
+    <div class="govuk-width-container" style="display:flex; align-items:center;">
+      <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
+        <img src="http://resources.companieshouse.gov.uk/images/royal-coat-of-arms-white.png"
+             alt="UK Government crest" height="32">
+      </a>
+      <a href="https://www.gov.uk/government/organisations/companies-house"
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
+        Companies House
+      </a>
+    </div>
+  </div>
+
+  <!-- Blue underline -->
+  <div style="background-color:#005EA5; height:10px; width:100%;"></div>
+{% endblock %}
+
+
+
+{% set pageName="Sign in to WebFiling" %}
+
+{% block beforeContent %}
+  {% include "/includes/language-toggle.html" %}
+ 
+   
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+ 
+  <form action="/V1/gov-onelogin-email" method="post">
+      <br>
+      <h1 class="govuk-heading-xl">
+        We've sent you a security code to verify your email address for Companies House
+      </h1>
+
+      <p class="govuk-body">We've sent the security code to <strong>a******s@companieshouse.gov.uk</strong>.</p>
+      <p>It might take a few minutes to arrive. The code will expire after 30 minutes.</p>
+
+      <div class="govuk-form-group govuk-password-input" data-module="govuk-password-input">
+  <label class="govuk-label" for="password-input">
+    Enter your 6 digit security code
+  </label>
+  <div class="govuk-input__wrapper govuk-password-input__wrapper">
+    <input class="govuk-input govuk-password-input__input govuk-js-password-input-input" id="password-input" name="password" type="password" spellcheck="false" autocomplete="current-password" autocapitalize="none">
+    
+  </div>
+</div>
+
+    {{ govukButton({
+    text: "Continue",
+    href: "/V2/webfiling/webfiling-connected"
+  }) }}
+ </div>
+</div>
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+    Problems with the code
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+  </div>
+</details>
+
+</form>
+  </div>
+</div>
+
+{% endblock %}

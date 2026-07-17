@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+<!-- Hide service navigation-->
+{% block header %}
+<!-- Companies House header -->
+  <div style="background:#0b0c0c; padding:10px 0;">
+    <div class="govuk-width-container" style="display:flex; align-items:center;">
+      <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
+        <img src="http://resources.companieshouse.gov.uk/images/royal-coat-of-arms-white.png"
+             alt="UK Government crest" height="32">
+      </a>
+      <a href="https://www.gov.uk/government/organisations/companies-house"
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
+        Companies House
+      </a>
+    </div>
+  </div>
+
+  <!-- Blue underline -->
+  <div style="background-color:#005EA5; height:10px; width:100%;"></div>
+{% endblock %}
+
+
+
+{% set pageName="Sign in to WebFiling" %}
+
+{% block beforeContent %}
+  {% include "/includes/language-toggle.html" %}
+ 
+   
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+ 
+  <form action="/V1/gov-onelogin-email" method="post">
+      <br>
+      <h1 class="govuk-heading-xl">
+        Your WebFiling account is now connected to your GOV.UK One Login account
+      </h1>
+      <p>We've saved your existing account information.</p>
+      <p class="govuk-body">If you have an existing Companies House account that uses <strong>a******s@companieshouse.gov.uk</strong> we've also connected it to your GOV.UK One Login and saved your account information.</p>
+    
+
+      <div class="govuk-inset-text">
+  Next time you sign in to WebFiling or your Companies House account, use your GOV.UK One Login sign in details.
+</div>
+    <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+    What is a Companies House account?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+  </div>
+</details>
+  </div>
+</div>
+
+    {{ govukButton({
+    text: "Continue to WebFiling",
+    href: "/V1/webfiling/company-number-rebrand"
+  }) }}
+ </div>
+</div>
+
+
+</form>
+  </div>
+</div>
+
+{% endblock %}

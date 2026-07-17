@@ -1,0 +1,52 @@
+{% extends "layouts/layout.html" %}
+
+{% block pageTitle %}
+{{ serviceName }} – GOV.UK One Login prototype
+{% endblock %}
+
+{% set serviceName %}
+{% endset %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="{{currentUrl}}" method="post">
+
+        <h1 class="govuk-heading-l">Check your phone</h1>
+
+        <div class="govuk-inset-text">
+          <p class="govuk-body"> We have sent a code to your phone number ending with  <span class="govuk-!-font-weight-bold">896</span></p>
+        </div>
+    
+        <p class="govuk-body"> It might take a few minutes to arrive. The code will expire after 15 minutes.
+        </p>
+    
+          {{ govukInput({
+            label: {
+              text: "Enter the 6 digit code"
+            },
+            classes: "govuk-input--width-10",
+            id: "width-3",
+            name: "width-3"
+          }) }}
+
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+    
+          {{ govukDetails({
+            summaryText: "Problems with the code?",
+            html: "<p> We can <a href='' class='govuk-link'>send the code again</a> if the code is not working or you did not receive it.</p>
+            <p> If you no longer have access to this phone number, <a href='#' class='govuk-link'>check if you can change how you get security codes</a>.</p>"
+          }) }}
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

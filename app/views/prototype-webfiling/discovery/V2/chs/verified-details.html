@@ -1,0 +1,173 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Enter your Companies House personal code and date of birth
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/phase-banner.html" %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Check for error -->
+    {% if errorVerified %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+    {% endif %}
+    <form action="{{currentUrl}}" method="post">
+
+      <h1 class="govuk-heading-l">What are your identity verification details?</h1>
+
+
+      <!-- Check for error -->
+    {% if errorVerifiedCode or matchError %}
+      <div class="govuk-form-group govuk-form-group--error">
+    {% else %}
+      <div class="govuk-form-group">
+    {% endif %} 
+        <label class="govuk-label govuk-date-input__label" for="personalCode">
+          Companies House personal code
+        </label>
+        <div id="email-hint" class="govuk-hint">
+          This is an 11 character code, like A1B-2C3D-4E5F
+        </div>
+
+        <!-- Check for error -->
+        {% if matchError %} 
+          <p id="personalCode-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Check you've entered the correct Companies House personal code
+          </p>
+          <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="personalCode" name="personalCode" type="text" aria-describedby="personalCode-hint" value="{{ data['personalCode'] }}">
+        {% elif errorVerified %} 
+          <p id="personalCode-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter a Companies House personal code
+          </p>
+          <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing govuk-input--error" id="personalCode" name="personalCode" type="text" aria-describedby="personalCode-hint" value="{{ data['personalCode'] }}">
+        {% else %}
+          <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="personalCode" name="personalCode" type="text" aria-describedby="personalCode-hint" value="{{ data['personalCode'] }}">
+        {% endif %} 
+      </div> 
+    
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Where to find your Companies House personal code
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>We sent your personal code to the email address your Companies House authorised agent provided for you.
+         </p>
+        
+          <p class="govuk-body">If you cannot find the email, you can:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>check your junk folder</li>
+  <li>ask your authorised agent which email address they provided</li>
+</ul>
+          <p>An authorised agent is also known as an Authorised Corporate Service Provider (ACSP). </p>
+
+
+        </div>
+      </details>
+
+      <!-- Check for error -->
+      {% if errorVerifiedDobDay or errorVerifiedDobMonth or errorVerifiedDobYear %}
+      <div class="govuk-form-group govuk-form-group--error">
+      {% else %}
+      <div class="govuk-form-group">
+      {% endif %} 
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="verifiedDob-hint">
+          <label class="govuk-label" for="verifiedDob">
+            Date of birth
+          </label>
+          <!-- Check for error -->
+          {% if matchError %}
+          <p id="verifiedDob-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Check you've entered the correct date of birth
+          </p>
+          {% elif errorVerifiedDobDay or errorVerifiedDobMonth or errorVerifiedDobYear %}
+          <p id="verifiedDob-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> The date must include a day, month and year
+          </p>
+          {% endif %} 
+          <div id="verifiedDob-hint" class="govuk-hint">
+            For example, 27 3 1992
+          </div>
+    
+          <div class="govuk-date-input" id="verifiedDob">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="verifiedDob-day">
+                  Day
+                </label>
+                <!-- Check for error -->
+                {% if errorVerifiedDobDay %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="verifiedDob-day" name="verifiedDob-day" type="text" value="{{ data['verifiedDob-day'] }}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="verifiedDob-day-one" name="verifiedDob-day" type="text" value="{{ data['verifiedDob-day'] }}">
+                {% endif %} 
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="verifiedDob-month">
+                  Month
+                </label>
+                <!-- Check for error -->
+                {% if errorVerifiedDobMonth %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-input--error" id="verifiedDob-month" name="verifiedDob-month" type="text" value="{{ data['verifiedDob-month'] }}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="verifiedDob-month" name="verifiedDob-month" type="text">
+                {% endif %} 
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="verifiedDob-year">
+                  Year
+                </label>
+                <!-- Check for error -->
+                {% if errorVerifiedDobYear %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-input--error" id="verifiedDob-year" name="verifiedDob-year" type="text" value="{{ data['verifiedDob-year'] }}">
+                {% else %}
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="pscDob-year" name="verifiedDob-year" type="text" value="{{ data['verifiedDob-year'] }}">
+                {% endif %} 
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      {# Use "/binding-success" for an absolute path. Uncomment the formmethod line below if the target expects GET instead of POST. #}
+      {{ govukButton({
+        text: "Continue",
+        attributes: {
+          type: "submit",
+          formaction: "binding-success"
+        }
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+    <div class="ur-shortcuts">
+      <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
+      <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
+        <li><a class="govuk-link" href="binding-fail-locked">Screen after 3 errors</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
