@@ -76,12 +76,12 @@ router.post('/prototype-chs/alpha/v1/auth-code', function (req, res) {
 // ******* presenter-type-radio javascript ********************************
 router.get('/prototype-chs/alpha/v1/chs-presenter-type', function (req, res) {
   // Set URl
-  res.render('prototype-chs/alpha/v1/chs-presenter-type-radio', {
+  res.render('prototype-chs/alpha/v1/chs-presenter-type', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-chs/alpha/v1/chs-presenter-type-radio', function (req, res) {
+router.post('/prototype-chs/alpha/v1/chs-presenter-type', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -94,7 +94,7 @@ router.post('/prototype-chs/alpha/v1/chs-presenter-type-radio', function (req, r
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('prototype-chs/alpha/v1/chs-presenter-type-radio', {
+    res.render('prototype-chs/alpha/v1/chs-presenter-type', {
       errorPresenterType: true,
       errorList: errors
     })
