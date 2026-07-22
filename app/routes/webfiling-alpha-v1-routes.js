@@ -146,7 +146,7 @@ router.post('/prototype-webfiling/alpha/v1/new-company-added', function (req, re
 })
 
 
-// ******* new-company-added javascript ********************************
+// ******* webfiling-presenter-type javascript ********************************
 router.get('/prototype-webfiling/alpha/v1/webfiling-presenter-type', function (req, res) {
   // Set URl
   res.render('prototype-webfiling/alpha/v1/webfiling-presenter-type', {
@@ -156,6 +156,58 @@ router.get('/prototype-webfiling/alpha/v1/webfiling-presenter-type', function (r
 
 router.post('/prototype-webfiling/alpha/v1/webfiling-presenter-type', function (req, res) {
   res.redirect('/prototype-webfiling/alpha/v1/webfiling-presenter-statements')
+})
+
+
+// ******* webfiling-presenter-statements javascript ********************************
+router.get('/prototype-webfiling/alpha/v1/webfiling-presenter-statements', function (req, res) {
+  // Set URl
+  res.render('prototype-webfiling/alpha/v1/webfiling-presenter-statements', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/prototype-webfiling/alpha/v1/webfiling-presenter-statements', function (req, res) {
+  res.redirect('/prototype-webfiling/alpha/v1/change-address')
+})
+
+
+// ******* change-address javascript ********************************
+router.get('/prototype-webfiling/alpha/v1/change-address', function (req, res) {
+  // Set URl
+  res.render('prototype-webfiling/alpha/v1/change-address', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/prototype-webfiling/alpha/v1/change-address', function (req, res) {
+  res.redirect('/prototype-webfiling/alpha/v1/change-address-confirmation')
+})
+
+
+// ******* change-address-lookup javascript ********************************
+router.get('/prototype-webfiling/alpha/v1/change-address-lookup', function (req, res) {
+  // Set URl
+  res.render('prototype-webfiling/alpha/v1/change-address-lookup', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/prototype-webfiling/alpha/v1/change-address-lookup', function (req, res) {
+  res.redirect('/prototype-webfiling/alpha/v1/change-address-confirmation')
+})
+
+
+// ******* change-address-confirmation javascript ********************************
+router.get('/prototype-webfiling/alpha/v1/change-address-confirmation', function (req, res) {
+  // Set URl
+  res.render('prototype-webfiling/alpha/v1/change-address-confirmation', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/prototype-webfiling/alpha/v1/change-address-confirmation', function (req, res) {
+  res.redirect('/prototype-webfiling/alpha/v1/company-overview')
 })
 
 

@@ -11,9 +11,9 @@ html, body {
 .govuk-fieldset__legend, h1, h2, h3, h4, p, label, .govuk-button, ul, li, a, .govuk-table .govuk-table__cell, .govuk-table__header, .warning {
     font-family: Arial, Helvetica, sans-serif !important;
 }
-h1, h1 a {
-    font-size: 24px !important;
-}
+// h1, h1 a {
+//     font-size: 24px !important;
+// }
 
 h2 {
     font-size: 22px !important;
@@ -142,9 +142,9 @@ a:hover {
 
 
 
-.wfOverview p h1 h2 h3 :any-link {
-    font-size: 0.7rem !important;
-}
+// .wfOverview p h1 h2 h3 :any-link {
+//     font-size: 0.7rem !important;
+// }
 
 
 // Banner
@@ -249,7 +249,36 @@ div.message p,dl.message dd {
 }
 .wf-dark-blue-banner {
     background-color: #266aa3;
-    margin: 0 -15px 10px -15px;
+    margin: 0 -5px 10px -30px;
     padding: 5px 15px 5px 15px;
     color:white;
+    font-weight: bold;
+}
+
+.horizontal-components {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+.horizontal-components-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right:20px;
+}
+
+.button-dark-grey {
+    background-color: #545454;
+    border-color: #929191;
+    color: #000;
+    color:white;
+    margin-top: 20px;
+}
+
+
+.grey-area {
+    background-color: #F6F6F6;
+    padding: 20px;
+    margin: 20px 20px 20px 0px;
 }

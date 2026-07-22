@@ -1,0 +1,89 @@
+{% extends "layouts/main-webfiling.html" %}
+
+{% block pageTitle %}
+Change of offce address ({{ data['companyNumber'] }}) – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+<!-- 
+##################################################################################################################
+
+DEVS 
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+
+##################################################################################################################
+-->
+
+{% block content %}
+<form action="{{currentUrl}}" method="post">
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-quarter webfiling-menu">
+    {% include "/includes/webfiling-left-menu.html" %}
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <span class="govuk-caption-m govuk-!-margin-bottom-4">Filing for: BIG SHOP LTD (11112222)</span>
+      <h1 class="govuk-heading-l">Confirmation of submission</h1>
+
+      <div class="horizontal-components-split">
+        <p class="govuk-body">Thank you. Your submission has been received</p>
+
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Print page
+        </button>
+      </div>
+
+      <p class="govuk-body govuk-!-font-size-24 govuk-!-font-weight-bold">Submission details</p>
+
+      <div class="grey-area">
+        <p class="govuk-body">Submission number</p>
+
+        <p class="govuk-body">041-317041</p>
+
+        <p class="govuk-body">Submission</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>(AD01) Change of registered Office Address</li>
+        </ul>
+      </div>
+
+      <p class="govuk-body">A copy of this confirmation has been emailed to <b>{{ data['one-login-email']}}</b>.</p>
+
+      <form action="{{currentUrl}}" method="post">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+
+      <h3 class="govuk-heading-s">When will I receive a response regarding my filing?</h3>
+
+      <p class="govuk-body">We will email you once your filing has been processed. This is normally within 2 working days.</p>
+
+      <h3 class="govuk-heading-s">What is the submission number?</h3>
+
+      <p class="govuk-body">The submission number is the unique reference for your filing. Make a note of your submission number 
+        as you will need to quote it in any communications with Companies House.
+      </p>
+
+      <h3 class="govuk-heading-s">How can I track my filing?</h3>
+
+      <p class="govuk-body">You can track the status from My recent filings.</p>
+
+      <h3 class="govuk-heading-s">Do I get a copy of the filing?</h3>
+
+      <p class="govuk-body">YOu can get a copy of the information from My recent filings. This will be available for 10 days.</p>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Comments / Feedback / Are you satisfied with our service</a>
+      </p>
+
+    </div>
+
+  </div>
+</form>
+{% endblock %}
