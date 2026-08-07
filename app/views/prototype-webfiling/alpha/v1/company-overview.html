@@ -18,7 +18,7 @@ This HTML is completely unsuitable for use in production sites
 -->
 
 {% block content %}
-<form action="{{currentUrl}}" method="post">
+
 
   <div class="govuk-grid-row">
 
@@ -37,7 +37,11 @@ This HTML is completely unsuitable for use in production sites
 
       <p class="govuk-body">A Private Limited Company incorporated on <strong>8 February 2022</strong></p>
 
-      <p class="govuk-body">Registered office address is <strong>25 Old Street, Parkland, Townville, England, XX2 ZZ4</strong> <a href="webfiling-presenter-type" class="govuk-link--no-visited-state">Change address</a></p>
+      <form action="{{currentUrl}}" method="post">
+
+        <p class="govuk-body">Registered office address is <strong>25 Old Street, Parkland, Townville, England, XX2 ZZ4</strong> <button class="button-link">Change address</button></p>
+
+      </form>
 
       <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
@@ -169,5 +173,4 @@ This HTML is completely unsuitable for use in production sites
     </div>
 
   </div>
-</form>
 {% endblock %}

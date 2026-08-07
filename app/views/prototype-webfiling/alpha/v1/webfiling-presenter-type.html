@@ -33,30 +33,50 @@ This HTML is completely unsuitable for use in production sites
 
       <fieldset class="govuk-fieldset" aria-describedby="presenterType-hint">
         <div class="govuk-radios" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="presenterType" name="presenterType" type="radio" value="acsp">
-            <label class="govuk-label govuk-radios__label" for="presenterType">
-              I'm an Authorised Corporate Service Provider (ACSP) 
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="presenterType-2" name="presenterType" type="radio" value="acspEmployee">
-            <label class="govuk-label govuk-radios__label" for="presenterType-2">
-              I'm an officer or employee of an ACSP 
-            </label>
-          </div>
+
+          <!-- ACSP doing a company filing -->
+          {% if data['scenarios'] == 'acsp_company_filing' %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-2" name="presenterType" type="radio" value="acspEmployee">
+              <label class="govuk-label govuk-radios__label" for="presenterType-2">
+                ACSP - officer or employee (or) ACSP - sole trader 
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-3" name="presenterType" type="radio" value="director">
+              <label class="govuk-label govuk-radios__label" for="presenterType-3">
+                I'm an officer or employee of BIG SHOP LTD
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="presenterType-5" name="presenterType" type="radio" value="employeeCorporate">
+              <label class="govuk-label govuk-radios__label" for="presenterType-5">
+                I'm an officer or employee of a corporate director of BIG SHOP LTD
+              </label>
+            </div>
+
+          <!-- A verified company officer/ employee doing a company filing -->
+          {% elif data['scenarios'] == 'verified_company_company_filing' %}
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="presenterType-3" name="presenterType" type="radio" value="director">
             <label class="govuk-label govuk-radios__label" for="presenterType-3">
-              I'm an officer or employee of NR1 TRADINGS LTD
+              I'm an officer or employee of BIG SHOP LTD
             </label>
           </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="presenterType-5" name="presenterType" type="radio" value="employeeCorporate">
             <label class="govuk-label govuk-radios__label" for="presenterType-5">
-              I'm an officer or employee of a corporate director of NR1 TRADINGS LTD
+              I'm an officer or employee of a corporate director of BIG SHOP LTD
             </label>
           </div>
+          {% else%} 
+            A N Other Company ltd
+          {% endif %}
+
+
+
+
+
         </div>
       </fieldset>
 

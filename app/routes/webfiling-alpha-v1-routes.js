@@ -16,6 +16,19 @@ router.use((req, res, next) => {
 }) 
 
 
+// ******* scenario javascript ********************************
+router.get('/prototype-webfiling/alpha/v1/scenario', function (req, res) {
+  // Set URl
+  res.render('prototype-webfiling/alpha/v1/scenario', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/prototype-webfiling/alpha/v1/scenario', function (req, res) {
+  res.redirect('/prototype-webfiling/alpha/v1/sign-in')
+})
+
+
 // ******* Sign-in javascript ********************************
 router.get('/prototype-webfiling/alpha/v1/sign-in', function (req, res) {
   // Set URl
@@ -92,6 +105,28 @@ router.get('/prototype-webfiling/alpha/v1/one-login-enter-code', function (req, 
 router.post('/prototype-webfiling/alpha/v1/one-login-enter-code', function (req, res) {
   res.redirect('/prototype-webfiling/alpha/v1/your-companies')
 })
+
+
+
+// ******* company-overview javascript ********************************
+router.get('/prototype-webfiling/alpha/v1/company-overview', function (req, res) {
+  // Set URl
+  res.render('prototype-webfiling/alpha/v1/company-overview', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/prototype-webfiling/alpha/v1/company-overview', function (req, res) {
+  if (req.session.data['scenarios'] === 'acsp_company_filing' ||
+      req.session.data['scenarios'] === 'verified_company_company_filing') {
+    res.redirect('/prototype-webfiling/alpha/v1/webfiling-presenter-type')
+  } 
+  else {
+    // User inputted value so move to next page
+    res.redirect('/prototype-webfiling/alpha/v1/sign-in')
+  }
+})
+
 
 
 // ******* company-number javascript ********************************
