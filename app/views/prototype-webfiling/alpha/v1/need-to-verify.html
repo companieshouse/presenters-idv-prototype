@@ -1,0 +1,38 @@
+{% extends "layouts/main-webfiling.html" %}
+
+{% block pageTitle %}
+Change of offce address ({{ data['companyNumber'] }}) – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+<!-- 
+##################################################################################################################
+
+DEVS 
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+This HTML is completely unsuitable for use in production sites
+
+##################################################################################################################
+-->
+
+{% block content %}
+<form action="{{currentUrl}}" method="post">
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-quarter webfiling-menu">
+    {% include "/includes/webfiling-left-menu.html" %}
+    </div>
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <span class="govuk-caption-m govuk-!-margin-bottom-4">Filing for: BIG SHOP LTD (11112222)</span>
+      <h1 class="govuk-heading-l">You need to verify</h1>
+
+    </div>
+
+  </div>
+</form>
+{% endblock %}

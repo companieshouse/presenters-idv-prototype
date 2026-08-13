@@ -36,7 +36,7 @@ This HTML is completely unsuitable for use in production sites
           <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <!-- ACSP -->
-                {% if data['presenterType'] == "acsp" %}
+                {% if data['presenterType'] == "acspSoleTrader" %}
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
@@ -87,7 +87,7 @@ This HTML is completely unsuitable for use in production sites
                 </div>
 
                 <!-- corporate employee or officer -->
-                {% else%} 
+                {% elif data['presenterType'] == "director" %} 
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
@@ -103,6 +103,31 @@ This HTML is completely unsuitable for use in production sites
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-3" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-3">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+
+                <!-- Filing for myself -->
+                {% elif data['presenterType'] == "myself" %} 
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+
+                <!-- Filing for someone else -->
+                {% elif data['presenterType'] == "someoneElse" %} 
+                  <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I'm filing on behalf of someone else
+                  </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
                     I confirm that my identity is verified
                   </label>
                 </div>

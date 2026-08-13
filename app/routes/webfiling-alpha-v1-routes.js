@@ -108,76 +108,35 @@ router.post('/prototype-webfiling/alpha/v1/one-login-enter-code', function (req,
 
 
 
-// ******* company-overview javascript ********************************
-router.get('/prototype-webfiling/alpha/v1/company-overview', function (req, res) {
+// ******* company-overview-bigshop javascript ********************************
+router.get('/prototype-webfiling/alpha/v1/company-overview-bigshop', function (req, res) {
   // Set URl
-  res.render('prototype-webfiling/alpha/v1/company-overview', {
+  res.render('prototype-webfiling/alpha/v1/company-overview-bigshop', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-webfiling/alpha/v1/company-overview', function (req, res) {
-  if (req.session.data['scenarios'] === 'acsp_company_filing' ||
-      req.session.data['scenarios'] === 'verified_company_company_filing') {
+router.post('/prototype-webfiling/alpha/v1/company-overview-bigshop', function (req, res) {
+  // if (req.session.data['scenarios'] === 'acsp_company_filing' ||
+  //     req.session.data['scenarios'] === 'sole_acsp_company_filing' ||
+  //     req.session.data['scenarios'] === 'verified_employee_company_filing') {
     res.redirect('/prototype-webfiling/alpha/v1/webfiling-presenter-type')
-  } 
-  else {
-    // User inputted value so move to next page
-    res.redirect('/prototype-webfiling/alpha/v1/sign-in')
-  }
 })
 
 
-
-// ******* company-number javascript ********************************
-router.get('/prototype-webfiling/alpha/v1/company-number', function (req, res) {
+// ******* company-overview-nr1 javascript ********************************
+router.get('/prototype-webfiling/alpha/v1/company-overview-nr1', function (req, res) {
   // Set URl
-  res.render('prototype-webfiling/alpha/v1/company-number', {
+  res.render('prototype-webfiling/alpha/v1/company-overview-nr1', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-webfiling/alpha/v1/company-number', function (req, res) {
-  res.redirect('/prototype-webfiling/alpha/v1/confirm-company')
-})
-
-
-// ******* confirm_company javascript ********************************
-router.get('/prototype-webfiling/alpha/v1/confirm-company', function (req, res) {
-  // Set URl
-  res.render('prototype-webfiling/alpha/v1/confirm-company', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/prototype-webfiling/alpha/v1/confirm-company', function (req, res) {
-  res.redirect('/prototype-webfiling/alpha/v1/auth-code')
-})
-
-
-// ******* auth-code javascript ********************************
-router.get('/prototype-webfiling/alpha/v1/auth-code', function (req, res) {
-  // Set URl
-  res.render('prototype-webfiling/alpha/v1/auth-code', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/prototype-webfiling/alpha/v1/auth-code', function (req, res) {
-  res.redirect('/prototype-webfiling/alpha/v1/new-company-added')
-})
-
-
-// ******* new-company-added javascript ********************************
-router.get('/prototype-webfiling/alpha/v1/new-company-added', function (req, res) {
-  // Set URl
-  res.render('prototype-webfiling/alpha/v1/new-company-added', {
-    currentUrl: req.originalUrl
-  })
-})
-
-router.post('/prototype-webfiling/alpha/v1/new-company-added', function (req, res) {
-  res.redirect('/prototype-webfiling/alpha/v1/company-overview')
+router.post('/prototype-webfiling/alpha/v1/company-overview-nr1', function (req, res) {
+  // if (req.session.data['scenarios'] === 'acsp_company_filing' ||
+  //     req.session.data['scenarios'] === 'sole_acsp_company_filing' ||
+  //     req.session.data['scenarios'] === 'verified_employee_company_filing') {
+    res.redirect('/prototype-webfiling/alpha/v1/webfiling-presenter-type')
 })
 
 
@@ -190,7 +149,13 @@ router.get('/prototype-webfiling/alpha/v1/webfiling-presenter-type', function (r
 })
 
 router.post('/prototype-webfiling/alpha/v1/webfiling-presenter-type', function (req, res) {
-  res.redirect('/prototype-webfiling/alpha/v1/webfiling-presenter-statements')
+
+  if (req.session.data['scenarios'] === 'unverified_employee_company_filing' ||
+      req.session.data['scenarios'] === 'unverified_individual_filing'
+  ) {
+    res.redirect('/prototype-webfiling/alpha/v1/need-to-verify') }
+  else
+    {res.redirect('/prototype-webfiling/alpha/v1/webfiling-presenter-statements')}
 })
 
 
