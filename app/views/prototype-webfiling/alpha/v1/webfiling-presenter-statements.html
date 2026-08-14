@@ -28,7 +28,7 @@ This HTML is completely unsuitable for use in production sites
 
     <div class="govuk-grid-column-three-quarters">
 
-      <span class="govuk-caption-m govuk-!-margin-bottom-4">Filing for: BIG SHOP LTD (11112222)</span>
+      <span class="govuk-caption-m govuk-!-margin-bottom-4">Filing for: {{ data['company'] }} ({{ data['companyNumber'] }})</span>
       <h1 class="govuk-heading-l">Confirm the statements</h1>
 
 
@@ -46,7 +46,7 @@ This HTML is completely unsuitable for use in production sites
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-2">
-                    I'm delivering a filing on behalf of NR1 TRADINGS LTD
+                    I'm delivering a filing on behalf of {{ data['company'] }}
                   </label>
                 </div>
 
@@ -61,7 +61,7 @@ This HTML is completely unsuitable for use in production sites
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-2">
-                    I'm delivering a filing on behalf of NR1 TRADINGS LTD
+                    I'm delivering a filing on behalf of {{ data['company'] }}
                   </label>
                 </div>
 
@@ -70,13 +70,13 @@ This HTML is completely unsuitable for use in production sites
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
-                    I am an officer or employee of a corporate officer of NR1 TRADINGS LTD
+                    I am an officer or employee of a corporate officer of {{ data['company'] }}
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-2">
-                    I'm delivering a filing on behalf of NR1 TRADINGS LTD
+                    I'm delivering a filing on behalf of {{ data['company'] }}
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
@@ -91,13 +91,13 @@ This HTML is completely unsuitable for use in production sites
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
-                    I am an officer or employee of NR1 TRADINGS LTD
+                    I am an officer or employee of {{ data['company'] }}
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-3" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-3">
-                    I'm delivering a filing on behalf of NR1 TRADINGS LTD
+                    I'm delivering a filing on behalf of {{ data['company'] }}
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
