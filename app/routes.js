@@ -8,6 +8,7 @@ router.use('/', require('./routes/v1-routes.js'));
 
 // chs routes
 router.use('/', require('./routes/chs-alpha-v1-routes.js'));
+router.use('/', require('./routes/chs-alpha-v2-routes.js'));
 
 
 // web filing routes
