@@ -15,16 +15,28 @@ router.use((req, res, next) => {
   next()  
 }) 
 
-
-// ******* Sign-in javascript ********************************
-router.get('/prototype-chs/alpha/v1/sign-in', function (req, res) {
+// ******* scenario javascript ********************************
+router.get('/prototype-chs/alpha/v2/scenario', function (req, res) {
   // Set URl
-  res.render('prototype-chs/alpha/v1/sign-in', {
+  res.render('prototype-chs/alpha/v2/scenario', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-chs/alpha/v1/sign-in', function (req, res) {
+router.post('/prototype-chs/alpha/v2/scenario', function (req, res) {
+  res.redirect('/prototype-chs/alpha/v2/search-register')
+})
+
+
+// ******* Sign-in javascript ********************************
+router.get('/prototype-chs/alpha/v2/sign-in', function (req, res) {
+  // Set URl
+  res.render('prototype-chs/alpha/v2/sign-in', {
+    currentUrl: req.originalUrl
+  })
+})
+
+router.post('/prototype-chs/alpha/v2/sign-in', function (req, res) {
   // Create empty array and set error variables to false
   var errors = []
 
@@ -34,25 +46,25 @@ router.post('/prototype-chs/alpha/v1/sign-in', function (req, res) {
       href: '#email'
     })
     
-    res.render('prototype-chs/alpha/v1/sign-in', {
+    res.render('prototype-chs/alpha/v2/sign-in', {
       errorEmail: true,
       errorList: errors
     })
   } else {
-      res.redirect('/prototype-chs/alpha/v1/search-signed-in')
+      res.redirect('/prototype-chs/alpha/v2/search-signed-in')
     }
 })
 
 
 // ******* authcode javascript ********************************
-router.get('/prototype-chs/alpha/v1/auth-code', function (req, res) {
+router.get('/prototype-chs/alpha/v2/auth-code', function (req, res) {
   // Set URl
-  res.render('prototype-chs/alpha/v1/auth-code', {
+  res.render('prototype-chs/alpha/v2/auth-code', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-chs/alpha/v1/auth-code', function (req, res) {
+router.post('/prototype-chs/alpha/v2/auth-code', function (req, res) {
   // Create empty array and set error variables to false
   var errors = []
 
@@ -62,26 +74,26 @@ router.post('/prototype-chs/alpha/v1/auth-code', function (req, res) {
       href: '#authCode'
     })
     
-    res.render('prototype-chs/alpha/v1/auth-code', {
+    res.render('prototype-chs/alpha/v2/auth-code', {
       errorAuthcode: true,
       errorList: errors
     })
   } else {
-      res.redirect('/prototype-chs/alpha/v1/chs-file-accounts')
+      res.redirect('/prototype-chs/alpha/v2/chs-file-accounts')
     }
 })
 
 
 
 // ******* presenter-type-radio javascript ********************************
-router.get('/prototype-chs/alpha/v1/chs-presenter-type', function (req, res) {
+router.get('/prototype-chs/alpha/v2/chs-presenter-type', function (req, res) {
   // Set URl
-  res.render('prototype-chs/alpha/v1/chs-presenter-type', {
+  res.render('prototype-chs/alpha/v2/chs-presenter-type', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-chs/alpha/v1/chs-presenter-type', function (req, res) {
+router.post('/prototype-chs/alpha/v2/chs-presenter-type', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -94,31 +106,35 @@ router.post('/prototype-chs/alpha/v1/chs-presenter-type', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('prototype-chs/alpha/v1/chs-presenter-type', {
+    res.render('prototype-chs/alpha/v2/chs-presenter-type', {
       errorPresenterType: true,
       errorList: errors
     })
   } else {
     if (req.session.data['authCode'] === '123456') {
-      res.redirect('/prototype-chs/alpha/v1/have-you-verified')
+      res.redirect('/prototype-chs/alpha/v2/have-you-verified')
     } 
     else {
-      // User inputted value so move to next page
-      res.redirect('/prototype-chs/alpha/v1/chs-presenter-statements')
+      if (req.session.data['scenarios'] === 'unverified_employee_company_filing' ||
+          req.session.data['scenarios'] === 'unverified_individual_filing'
+      ) {
+        res.redirect('/prototype-chs/alpha/v2/you-need-to-verify') }
+      else
+        {res.redirect('/prototype-chs/alpha/v2/chs-presenter-statements')}
     }
   }
 })
 
 
 // ******* chs-presenter-statements javascript ********************************
-router.get('/prototype-chs/alpha/v1/chs-presenter-statements', function (req, res) {
+router.get('/prototype-chs/alpha/v2/chs-presenter-statements', function (req, res) {
   // Set URl
-  res.render('prototype-chs/alpha/v1/chs-presenter-statements', {
+  res.render('prototype-chs/alpha/v2/chs-presenter-statements', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-chs/alpha/v1/chs-presenter-statements', function (req, res) {
+router.post('/prototype-chs/alpha/v2/chs-presenter-statements', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -130,25 +146,25 @@ router.post('/prototype-chs/alpha/v1/chs-presenter-statements', function (req, r
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('prototype-chs/alpha/v1/chs-presenter-statements', {
+    res.render('prototype-chs/alpha/v2/chs-presenter-statements', {
       errorStatements: true,
       errorList: errors
     })
   } else {
-      res.redirect('/prototype-chs/alpha/v1/change-address')
+      res.redirect('/prototype-chs/alpha/v2/change-address')
   }
 })
 
 
 // ******* have-you-verified javascript ********************************
-router.get('/prototype-chs/alpha/v1/have-you-verified', function (req, res) {
+router.get('/prototype-chs/alpha/v2/have-you-verified', function (req, res) {
   // Set URl
-  res.render('prototype-chs/alpha/v1/have-you-verified', {
+  res.render('prototype-chs/alpha/v2/have-you-verified', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-chs/alpha/v1/have-you-verified', function (req, res) {
+router.post('/prototype-chs/alpha/v2/have-you-verified', function (req, res) {
   // Create empty array
   var errors = []
 
@@ -161,16 +177,16 @@ router.post('/prototype-chs/alpha/v1/have-you-verified', function (req, res) {
     })
 
     // Re-show page with error value as true so errors will show
-    res.render('prototype-chs/alpha/v1/have-you-verified', {
+    res.render('prototype-chs/alpha/v2/have-you-verified', {
       errorHaveVerified: true,
       errorList: errors
     })
   } else {
     if (req.session.data['haveVerified'] === 'yes') {
-      res.redirect('/prototype-chs/alpha/v1/verified-details')
+      res.redirect('/prototype-chs/alpha/v2/verified-details')
     } else {
       // User inputted value so move to next page
-      res.redirect('/prototype-chs/alpha/v1/verify-your-identity')
+      res.redirect('/prototype-chs/alpha/v2/verify-your-identity')
     }
   }
 })
@@ -178,14 +194,14 @@ router.post('/prototype-chs/alpha/v1/have-you-verified', function (req, res) {
 
 
 // ******* verified-details javascript ******************************
-router.get('/prototype-chs/alpha/v1/verified-details', function (req, res) {
+router.get('/prototype-chs/alpha/v2/verified-details', function (req, res) {
   // Set URl
-  res.render('prototype-chs/alpha/v1/verified-details', {
+  res.render('prototype-chs/alpha/v2/verified-details', {
     currentUrl: req.originalUrl
   })
 })
 
-router.post('/prototype-chs/alpha/v1/verified-details', function (req, res) {
+router.post('/prototype-chs/alpha/v2/verified-details', function (req, res) {
   // Create empty array and set error variables to false
   var errors = []
   var codeHasError = false
@@ -242,7 +258,7 @@ router.post('/prototype-chs/alpha/v1/verified-details', function (req, res) {
   // Check if ether filed not filled out
   if (detailsError) {
     // Re-show page with error value as true so errors will show
-    res.render('prototype-chs/alpha/v1/verified-details', {
+    res.render('prototype-chs/alpha/v2/verified-details', {
       errorVerified: detailsError,
       errorVerifiedDobDay: dayHasError,
       errorVerifiedDobMonth: monthHasError,
@@ -256,7 +272,7 @@ router.post('/prototype-chs/alpha/v1/verified-details', function (req, res) {
     href: '#personalCode'
     })
     
-    res.render('prototype-chs/alpha/v1/verified-details', {
+    res.render('prototype-chs/alpha/v2/verified-details', {
       errorVerified: true,
       matchError: true,
       errorVerifiedDobDay: true,
@@ -266,10 +282,10 @@ router.post('/prototype-chs/alpha/v1/verified-details', function (req, res) {
     })
   } else if (req.session.data['personalCode'] === '111-2222-3333'){
     // User inputted incorrect value so move to fail page
-    res.redirect('/prototype-chs/alpha/v1/binding-fail-locked')
+    res.redirect('/prototype-chs/alpha/v2/binding-fail-locked')
   } else {
     // User inputted value so move to next page
-    res.redirect('/prototype-chs/alpha/v1/binding-success')
+    res.redirect('/prototype-chs/alpha/v2/binding-success')
   }
 })
 

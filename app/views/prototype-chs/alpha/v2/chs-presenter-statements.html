@@ -11,37 +11,21 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-  <!-- Check for error -->
-  {% if errorStatements %}
-    {{ govukErrorSummary({
-      titleText: "There is a problem",
-      errorList: errorList
-    }) }}
-  {% endif %}
+
 
     <form action="{{currentUrl}}" method="post">
 
-        <!-- Check for error -->
-        {% if errorStatements %}
-        <div class="govuk-form-group govuk-form-group--error">
-        {% else %}
+
         <div class="govuk-form-group">
-        {% endif %} 
           <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                   Confirm the statements
               </h1>
             </legend>
-            <!-- Check for error -->
-            {% if errorStatements %}
-            <p id="statements-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span>Select to confirm the statements
-            </p>
-            {% endif %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <!-- ACSP -->
-                {% if data['presenterType'] == "acsp" %}
+                {% if data['presenterType'] == "acspSoleTrader" %}
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
@@ -92,7 +76,7 @@
                 </div>
 
                 <!-- corporate employee or officer -->
-                {% else%} 
+                {% elif data['presenterType'] == "director" %} 
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
@@ -108,6 +92,31 @@
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements-3" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements-3">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+
+                <!-- Filing for myself -->
+                {% elif data['presenterType'] == "myself" %} 
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+
+                <!-- Filing for someone else -->
+                {% elif data['presenterType'] == "someoneElse" %} 
+                  <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I'm filing on behalf of someone else
+                  </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
                     I confirm that my identity is verified
                   </label>
                 </div>

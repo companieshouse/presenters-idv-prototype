@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Web Filing
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  {{ govukTag({
+    classes: "govuk-tag--blue govuk-!-margin-bottom-4",
+    text: "Alpha - Version 1"
+  }) }}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form action="{{currentUrl}}" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Scenarios
+              </h1>
+            </legend>
+
+            <h3 class="govuk-heading-s">Company filing</h3>
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scenarios" name="scenarios" type="radio" value="acsp_company_filing">
+                <label class="govuk-label govuk-radios__label" for="scenarios">
+                  An ACSP doing a company filing
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scenarios-2" name="scenarios" type="radio" value="sole_acsp_company_filing">
+                <label class="govuk-label govuk-radios__label" for="scenarios-2">
+                  A sole trader ACSP doing a company filing
+                </label>
+              </div>
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scenarios-3" name="scenarios" type="radio" value="verified_employee_company_filing">
+                <label class="govuk-label govuk-radios__label" for="scenarios-3">
+                  A verified company officer/ employee doing a company filing
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scenarios-4" name="scenarios" type="radio" value="unverified_employee_company_filing">
+                <label class="govuk-label govuk-radios__label" for="scenarios-4">
+                  An unverified company officer/ employee doing a company filing
+              </div>
+
+              <h3 class="govuk-heading-s govuk-!-padding-top-5">Individual filing</h3>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scenarios-5" name="scenarios" type="radio" value="acsp_individual_filing">
+                <label class="govuk-label govuk-radios__label" for="scenarios-5">
+                 An ACSP doing an individual filing
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scenarios-6" name="scenarios" type="radio" value="sole_acsp_individual_filing">
+                <label class="govuk-label govuk-radios__label" for="scenarios-6">
+                 A sole trader ACSP doing an individual filing
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scenarios-7" name="scenarios" type="radio" value="individual_filing">
+                <label class="govuk-label govuk-radios__label" for="scenarios-7">
+                 A verified individual doing an individual filing
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="scenarios-8" name="scenarios" type="radio" value="unverified_individual_filing">
+                <label class="govuk-label govuk-radios__label" for="scenarios-8">
+                 An unverified individual doing an individual filing
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}
