@@ -20,7 +20,7 @@
           <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                  Confirm the statement
+                 Confirm the statement
               </h1>
             </legend>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -58,10 +58,13 @@
                 </div>
 
                 <!-- officer or employee -->
-                {% elif data['presenterType'] == "employeeCorporate" %} 
+                {% elif data['presenterType'] == "director" %} 
                 <div class="govuk-hint">
                   We'll store your details to record that you submitted this filing. We will not show these details on the public register.
                 </div>
+
+
+
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
                   <label class="govuk-label govuk-checkboxes__label" for="statements">
@@ -70,13 +73,16 @@
                       <li>I am an officer or employee of NR1 TRADINGS LTD</li>
                       <li>I am delivering a filing on behalf of NR1 TRADINGS LTD</li>
                       <li>my identity is verified</li>
+                      <li>my date of birth is 2 September 1990</li>
+                      <li>my personal code is HZ24-25P-5THL</li>
+
                       </ul>
                   </label>
                 </div>
 
 
                 <!-- corporate employee or officer -->
-                {% elif data['presenterType'] == "director" %} 
+                {% elif data['presenterType'] == "employeeCorporate" %} 
                 <div class="govuk-hint">
                   We'll store your details to record that you submitted this filing. We will not show these details on the public register.
                 </div>
