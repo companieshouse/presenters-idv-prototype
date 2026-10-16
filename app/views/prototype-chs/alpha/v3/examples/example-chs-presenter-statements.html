@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Confirm presenter statements" %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <form action="{{currentUrl}}" method="post">
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                 Confirm your details and role
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+ 
+
+                <!-- officer or employee -->
+                <div class="govuk-hint">
+                  We'll store your details to record that you submitted this filing. We will not show these details on the public register.
+                </div>
+
+                <h2 class="govuk-heading-m">
+                  Confirm your details 
+              </h2>
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Jamie Morgan
+                    </dd>
+   
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      2 September 1990
+                    </dd>
+   
+                  </div>
+
+
+
+                </dl>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    <p> I, Jamie Morgan, confirm my details are correct and my identity is verified.</p>
+ 
+                  </label>
+                </div>
+
+
+                <h2 class="govuk-heading-m">
+                  Confirm your role
+              </h2>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    <p> I, Jamie Morgan, confirm:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>I am an officer or employee of NR1 TRADINGS LTD</li>
+                      <li>I am delivering a filing on behalf of NR1 TRADINGS LTD</li>
+
+                      </ul>
+                  </label>
+                </div>
+
+
+            </div>
+          </fieldset>
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button> 
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

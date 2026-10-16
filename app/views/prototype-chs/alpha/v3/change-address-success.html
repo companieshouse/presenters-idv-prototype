@@ -1,0 +1,172 @@
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Presenters IDV prototype – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set serviceName %}
+  Presenters IDV Prototype
+{% endset %}
+ <a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
+{% block beforeContent %}
+  <div class="govuk-width-container">
+
+    <p class="chs-info-link">
+      <a
+        class="govuk-link govuk-link--no-visited-state"
+        href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">
+        Companies House does not verify the accuracy of the information filed
+      </a>
+    </p>
+
+   <div class="chs-account-nav">
+
+  <span class="chs-account-email">
+    bjones@companieshouse.gov.uk:
+  </span>
+
+  <a href="#" class="govuk-link">Manage account</a>
+
+  <a href="#" class="govuk-link">Your filings</a>
+
+  <a href="#" class="govuk-link">Companies you follow</a>
+
+  <a href="#" class="govuk-link">Basket (0)</a>
+
+  <a href="#" class="govuk-link">Sign out</a>
+
+</div>
+
+</div>
+<form action="{{currentUrl}}" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <p class="govuk-body">
+        <p> Search for a company or officer </p>
+      </p>
+      <div class="input-group">
+         
+          <div><input type="text" name="q" class="search_input" /></div>
+          <div><a class="govuk-button search_button" href="chs-company-overview.html"></a></div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <p class="govuk-body"><a href="#" class="govuk-link">Advanced company search</a></p>
+
+  <div class="govuk-panel govuk-panel--confirmation chs-confirmation-panel">
+
+  <div class="chs-confirmation-company">
+    NR1TRADING
+    <br>
+    <span>Company number 01234567</span>
+  </div>
+
+  <h1 class="govuk-panel__title">
+  Change of registered office address received
+</h1>
+
+  <div class="chs-confirmation-date">
+    on <strong>6 May 2026</strong> at <strong>2:31pm</strong>
+  </div>
+
+  <div class="govuk-panel__body">
+    Reference number
+    <br>
+    <strong>139303-809817-780738</strong>
+  </div>
+
+</div>
+
+      <ul class="govuk-list">
+        
+  <li class="govuk-!-margin-top-4">We have sent you a confirmation email at</li>
+  <li><strong>bjones@companieshouse.gov.uk</strong> with your reference number.</li>
+  <li class="govuk-!-margin-top-4">If you've not received the application confirmation email, please check your spam or junk mail folder. You should <a href="" class="govuk-link">contact us </a>if you haven't had an email within 30 minutes. </li>
+  <li class="govuk-!-margin-top-4">We'll send a second email to confirm that your filing has been processed (normally within 2 working days).</li>
+  <li class="govuk-!-margin-top-4">You can go to <a href="#" class="govuk-link">Your filings</a> to check the status or get a copy of what you have filed.</li>
+  <li class="govuk-!-margin-top-4"> <a href="#" class="govuk-link">Print this page for your records</a></li>
+  <li class="govuk-!-margin-top-4">
+  <fieldset class="govuk-fieldset govuk-!-margin-top-4">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+   
+  </legend>
+
+</fieldset>
+
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Return to company overview
+      </button>
+
+      
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+
+<footer class="govuk-footer">
+  <div class="govuk-width-container">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <p class="govuk-body">
+          <a href="../manage-prototype" class="govuk-link" style="padding-right:20px;">Manage your prototype</a>
+          <a href="../manage-prototype/clear-data" class="govuk-link">Clear data</a>
+        </p>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41">
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+            class="govuk-footer__link"
+            href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">
+          © Crown copyright
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/application.js"></script>
+{% endblock %}

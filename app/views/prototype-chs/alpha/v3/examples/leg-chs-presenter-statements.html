@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Confirm presenter statements" %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <form action="{{currentUrl}}" method="post">
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                 Confirm your role and details
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+ 
+
+                <!-- officer or employee -->
+                <div class="govuk-hint">
+                  We'll store your details to record that you submitted this filing. We will not show this on the public register.
+                </div>
+
+           
+                    <p>I’m an officer or employee for a corporate officer of either: </p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>NR1 TRADINGS LTD</li>
+                        <li>a company that’s part of the same corporate group as NR1 TRADINGS LTD</li>
+                       </ul>   
+
+                       <p>I'm delivering a filing on behalf of NR1 TRADINGS LTD.</p>
+                      
+
+                   <p>My identity is verified and my: </p>
+                   <ul class="govuk-list govuk-list--bullet">
+                      <li>name is John Smith</li>
+                      <li>date of birth is 22 September 1990</li>
+</ul>
+
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                      I confirm my role and details are correct. 
+                    </label>
+                    </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button> 
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

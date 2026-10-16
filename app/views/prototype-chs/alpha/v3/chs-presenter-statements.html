@@ -1,0 +1,349 @@
+{% extends "layouts/main.html" %}
+{% set pageName="Confirm presenter statements" %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.html" %}
+{% include "/includes/back-link-language-toggle.html" %}
+{% include "/includes/user-bar.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <form action="{{currentUrl}}" method="post">
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="statements-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                 Confirm your details and role
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <!-- ACSP -->
+                {% if data['presenterType'] == "acspSoleTrader" %}
+                <div class="govuk-hint">
+                  We'll store your name and ACSP details to record that you submitted this filing. We will not show these details on the public register.
+                </div>
+
+                <h2 class="govuk-heading-m">
+                  Confirm your ACSP details 
+              </h2>
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Your email address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      jamie.morgan@outlook.co.uk
+                    </dd>
+   
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      ACSP name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      MORGAN ACCOUNTING ACSP
+                    </dd>
+   
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      ACSP number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                     0225687
+                    </dd>
+                  </div>
+                </dl>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                   <p> I, Jamie Morgan, confirm these details are correct.</p>
+
+                  </label>
+                </div>
+
+                <h2 class="govuk-heading-m">
+                  Confirm your role
+              </h2>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    <p> I, Jamie Morgan, confirm I am:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>JAMES MORGAN ACSP</li>
+                      <li>delivering a filing on behalf of NR1 TRADINGS LTD</li>
+                      </ul>
+                  </label>
+                </div>
+
+
+                <!-- acspEmployee -->
+                {% elif data['presenterType'] == "acspEmployee" %} 
+
+
+    
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Your email address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      jamie@morganaccounting.co.uk
+                    </dd>
+   
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      ACSP name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      MORGAN ACCOUNTING ACSP
+                    </dd>
+   
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      ACSP number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                     0225687
+                    </dd>
+ 
+                  </div>
+
+
+                </dl>
+
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                   <p> I, Jamie Morgan, confirm:</p>
+                   <ul class="govuk-list govuk-list--bullet">
+                      <li>I am an Authorised Corporate Service Provider (ACSP), or an officer, employee or authorised representative of an ACSP</li>
+                      <li>I am delivering a filing on behalf of NR1 TRADINGS LTD</li>
+                      <li>my ACSP details are correct</li>
+                      </ul>
+                  </label>
+                </div>
+
+                <!-- officer or employee -->
+                {% elif data['presenterType'] == "director" %} 
+
+
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Jamie Morgan
+                    </dd>
+   
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      2 September 1990
+                    </dd>
+   
+                  </div>
+
+
+
+                </dl>
+
+
+
+
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    <p> I, Jamie Morgan, confirm:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>I am an officer or employee of NR1 TRADINGS LTD</li>
+                      <li>I am delivering a filing on behalf of NR1 TRADINGS LTD</li>
+                      <li>my details are correct, and my identity is verified</li>
+
+                      </ul>
+                  </label>
+                </div>
+
+
+                <!-- corporate employee or officer -->
+                {% elif data['presenterType'] == "employeeCorporate" %} 
+
+
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Jamie Morgan
+                    </dd>
+   
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      2 September 1990
+                    </dd>
+   
+                  </div>
+                </dl>
+
+    
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    <p> I, Jamie Morgan, confirm:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>I am an officer or employee of a corporate officer of NR1 TRADINGS LTD</li>
+                      <li>I am delivering a filing on behalf of NR1 TRADINGS LTD</li>
+                      <li>my details are correct, and my identity is verified</li>
+
+                      </ul>
+                    </label>
+                </div>
+
+
+                                <!-- employee of a firm part of same group -->
+                                {% elif data['presenterType'] == "groupUndertaking" %} 
+
+
+                                <dl class="govuk-summary-list">
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                      Name
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      Jamie Morgan
+                                    </dd>
+                   
+                                  </div>
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                      Date of birth
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      2 September 1990
+                                    </dd>
+                   
+                                  </div>
+                                </dl>
+                
+                    
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                                    <p> I, Jamie Morgan, confirm:</p>
+                                    <ul class="govuk-list govuk-list--bullet">
+                                      <li>I am an officer or employee of a firm that's a group undertaking of NR1 TRADINGS LTD, or an officer or employee of one of its corporate officers</li>
+                                      <li>I am delivering a filing on behalf of NR1 TRADINGS LTD</li>
+                                      <li>my details are correct, and my identity is verified</li>
+                
+                                      </ul>
+                                    </label>
+                                </div>
+
+                                <!-- judicial factor -->
+                                {% elif data['presenterType'] == "judicialFactor" %} 
+
+
+                                <dl class="govuk-summary-list">
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                      Name
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      Jamie Morgan
+                                    </dd>
+                   
+                                  </div>
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                      Date of birth
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      2 September 1990
+                                    </dd>
+                   
+                                  </div>
+                                </dl>
+                
+                    
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                                    <p> I, Jamie Morgan, confirm:</p>
+                                    <ul class="govuk-list govuk-list--bullet">
+                                      <li>I'm a judicial factor appointed on behalf of NR1 TRADINGS LTD</li>
+                                      <li>I am delivering a filing on behalf of NR1 TRADINGS LTD</li>
+                                      <li>my details are correct, and my identity is verified</li>
+                
+                                      </ul>
+                                    </label>
+                                </div>
+
+                      
+
+                <!-- Filing for myself -->
+                {% elif data['presenterType'] == "myself" %} 
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+
+                <!-- Filing for someone else -->
+                {% elif data['presenterType'] == "someoneElse" %} 
+                  <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements">
+                    I'm filing on behalf of someone else
+                  </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="statements-2" name="statements" type="checkbox">
+                  <label class="govuk-label govuk-checkboxes__label" for="statements-2">
+                    I confirm that my identity is verified
+                  </label>
+                </div>
+                {% endif %} 
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-inset-text">
+          <h2 class="govuk-heading-m">What information we'll show on the public register</h2>
+          <p>We'll store your details to record that you submitted this filing.</p>
+          <p>None of this information will be shown on the public register. </p>
+        </div>
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button> 
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

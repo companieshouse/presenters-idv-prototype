@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sign in to Companies House – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/includes/language-toggle.html" %} 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- Check for error -->
+      {% if errorEmail %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errorList
+      }) }}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">
+        Sign in to Companies House
+      </h1>
+
+      <p class="govuk-body">
+        If you have an existing Companies House account, enter your email address.
+      </p>
+
+
+      <form action="{{currentUrl}}" method="post">
+
+        <!-- Check for error -->
+        {% if errorEmail %}
+          <div class="govuk-form-group govuk-form-group--error">
+        {% else %}
+          <div class="govuk-form-group">
+        {% endif %} 
+          <label class="govuk-label govuk-!-font-weight-bold" for="email">
+            Email address
+          </label>
+            <!-- Check for error -->
+          {% if errorEmail %}
+            <p id="email-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Enter your email address
+            </p>
+          {% endif %} 
+            <input class="govuk-input" id="email" name="email" type="text">
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link govuk-link--no-visited-state">Create sign in details</a>
+      </p>
+
+      <h2 class="govuk-heading-m">GOV.UK One Login</h2>
+
+      <p>This is the new way to sign in to some of our services.</p>     
+      <p class="govuk-body">
+        <a href="gov-one-log-in" class="govuk-link govuk-link--no-visited-state">Sign in with GOV.UK One Login</a> if you already have one.
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
